@@ -1,0 +1,120 @@
+{
+	"lokasi_bank_sampah" : 
+	[
+		{
+			"alamat" : "Jl. Merdeka No. 10, Jakarta Selatan",
+			"koordinat" : 
+			{
+				"latitude" : -6.2383199999999999,
+				"longitude" : 106.82143000000001
+			},
+			"nama" : "Bank Sampah Kota Baru"
+		},
+		{
+			"alamat" : "Jl. Cempaka Putih No. 5, Bandung",
+			"koordinat" : 
+			{
+				"latitude" : -6.9213800000000001,
+				"longitude" : 107.61857999999999
+			},
+			"nama" : "Bank Sampah Hijau Mandiri"
+		}
+	],
+	"sampah" : 
+	[
+		{
+			"deskripsi" : "Botol plastik, kemasan plastik, dll.",
+			"kategori" : "Anorganik",
+			"nama" : "Plastik",
+			"poin_per_kg" : 100
+		},
+		{
+			"deskripsi" : "Koran bekas, kardus, kertas printer.",
+			"kategori" : "Anorganik",
+			"nama" : "Kertas",
+			"poin_per_kg" : 50
+		},
+		{
+			"deskripsi" : "Kaleng aluminium, besi bekas.",
+			"kategori" : "Anorganik",
+			"nama" : "Logam",
+			"poin_per_kg" : 200
+		},
+		{
+			"deskripsi" : "Sisa makanan organik seperti nasi, sayur, buah.",
+			"kategori" : "Organik",
+			"nama" : "Sisa Makanan",
+			"poin_per_kg" : 10
+		}
+	],
+	"transactions" : 
+	[
+		{
+			"berat_kg" : 2.5,
+			"id_transaksi" : "TRX001",
+			"jenis_sampah" : "Plastik",
+			"poin_diterima" : 250,
+			"tanggal" : "2025-04-05",
+			"username" : "nasabah1"
+		},
+		{
+			"berat_kg" : 1.8,
+			"id_transaksi" : "TRX002",
+			"jenis_sampah" : "Kertas",
+			"poin_diterima" : 90,
+			"tanggal" : "2025-04-06",
+			"username" : "nasabah1"
+		},
+		{
+			"berat_kg" : 34.0,
+			"id_transaksi" : "TRX3",
+			"jenis_sampah" : "Kertas",
+			"poin_diterima" : 1700,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
+		}
+	],
+	"users" : 
+	[
+		{
+			"password" : "admin123",
+			"role" : "admin",
+			"username" : "admin"
+		},
+		{
+			"password" : "nasabah123",
+			"poin" : 500,
+			"role" : "nasabah",
+			"username" : "nasabah1"
+		},
+		{
+			"password" : "petugas123",
+			"role" : "petugas",
+			"username" : "petugas1"
+		},
+		{
+			"password" : "234",
+			"poin" : 1700,
+			"role" : "nasabah",
+			"username" : "ridwan"
+		},
+		{
+			"password" : "123",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "rudi"
+		},
+		{
+			"password" : "ridwan123",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "ridwan"
+		},
+		{
+			"password" : "ridwan123",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "ridwan"
+		}
+	]
+}
