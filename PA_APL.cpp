@@ -308,7 +308,9 @@ int main() {
 
     cout << "Makan malam dengan ayam itu enak" << endl;
     cout << "Makan malam dengan ikan itu enak" << endl;
+    
     cout << "Makan malam dengan daging itu enak" << endl;
-
+    cout << "Makan malam dengan daging itu enak" << endl;
+    cout << "ah enak" << endl;
     return 0;
 }
