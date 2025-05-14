@@ -115,6 +115,12 @@
 			"poin" : 0,
 			"role" : "nasabah",
 			"username" : "ridwan"
+		},
+		{
+			"password" : "riyadi",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "king"
 		}
 	]
 }
