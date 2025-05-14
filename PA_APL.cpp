@@ -306,5 +306,7 @@ int main() {
 
     cout << "HAlo Ridwan" << endl;
 
+    cout << "Makan malam dengan ayam itu enak" << endl;
+
     return 0;
 }
