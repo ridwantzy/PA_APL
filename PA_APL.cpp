@@ -239,11 +239,11 @@ void petugasMenu() {
                 cout << "Catatan Transaksi:\n";
                 for (const auto& trx : database["transactions"]) {
                     cout << "- ID: " << trx["id_transaksi"].asString()
-                         << ", Jenis: " << trx["jenis_sampah"].asString()
-                         << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
-                         << ", Poin: " << trx["poin_diterima"].asInt()
-                         << ", Tanggal: " << trx["tanggal"].asString()
-                         << ", Username: " << trx["username"].asString() << endl;
+                        << ", Jenis: " << trx["jenis_sampah"].asString()
+                        << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
+                        << ", Poin: " << trx["poin_diterima"].asInt()
+                        << ", Tanggal: " << trx["tanggal"].asString()
+                        << ", Username: " << trx["username"].asString() << endl;
                 }
                 break;
             case 3: cout << "Informasi Jenis Sampah\n"; break;
@@ -302,6 +302,9 @@ int main() {
             default: cout << "Pilihan salah.\n";
         }
     }
+
+
+    cout << "HAlo Ridwan" << endl;
 
     return 0;
 }
