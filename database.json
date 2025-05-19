@@ -1,36 +1,38 @@
 {
-	"barang_tukar" : 
-	[
-		{
-			"harga_poin" : 500,
-			"nama" : "Botol Minum"
-		},
-		{
-			"harga_poin" : 800,
-			"nama" : "Tas Belanja"
-		}
-	],
-	"lokasi_bank_sampah" : 
-	[
-		{
-			"alamat" : "Jl. Merdeka No. 10, Jakarta Selatan",
-			"koordinat" : 
-			{
-				"latitude" : -6.2383199999999999,
-				"longitude" : 106.82143000000001
-			},
-			"nama" : "Bank Sampah Kota Baru"
-		},
-		{
-			"alamat" : "Jl. Cempaka Putih No. 5, Bandung",
-			"koordinat" : 
-			{
-				"latitude" : -6.9213800000000001,
-				"longitude" : 107.61857999999999
-			},
-			"nama" : "Bank Sampah Hijau Mandiri"
-		}
-	],
+	"lokasi_bank_sampah": [
+    {
+        "nama": "Bank Sampah Kota Baru",
+        "alamat": "Jl. Merdeka No. 10, Jakarta Selatan"
+    },
+    {
+        "nama": "Bank Sampah Hijau Mandiri",
+        "alamat": "Jl. Cempaka Putih No. 5, Bandung"
+    },
+    {
+        "nama": "Bank Sampah Sehat Balikpapan",
+        "alamat": "Jl. MT Haryono No. 45, Balikpapan, Kalimantan Timur"
+    },
+    {
+        "nama": "Bank Sampah Bumi Paser",
+        "alamat": "Jl. Pangeran Diponegoro No. 12, Penajam Paser Utara, Kalimantan Timur"
+    },
+    {
+        "nama": "Bank Sampah Banjarmasin Bersih",
+        "alamat": "Jl. Sultan Adam No. 8, Banjarmasin, Kalimantan Selatan"
+    },
+    {
+        "nama": "Bank Sampah Rantau Besi",
+        "alamat": "Jl. A. Yani KM 5, Rantau, Tapin, Kalimantan Selatan"
+    },
+    {
+        "nama": "Bank Sampah Tarakan Lestari",
+        "alamat": "Jl. Jendral Sudirman No. 17, Tarakan, Kalimantan Utara"
+    },
+    {
+        "nama": "Bank Sampah Malinau Center",
+        "alamat": "Jl. Poros Desa Long Nawang, Malinau, Kalimantan Utara"
+    }
+],
 	"sampah" : 
 	[
 		{
@@ -156,6 +158,12 @@
 			"poin" : 5600,
 			"role" : "nasabah",
 			"username" : "king"
+		},
+		{
+			"password" : "123",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "riyadi"
 		}
 	]
 }
