@@ -1,4 +1,15 @@
 {
+	"barang_tukar" : 
+	[
+		{
+			"harga_poin" : 500,
+			"nama" : "Botol Minum"
+		},
+		{
+			"harga_poin" : 800,
+			"nama" : "Tas Belanja"
+		}
+	],
 	"lokasi_bank_sampah" : 
 	[
 		{
@@ -80,6 +91,22 @@
 			"poin_diterima" : 5600,
 			"tanggal" : "2025-05-11",
 			"username" : "king"
+		},
+		{
+			"berat_kg" : 10.0,
+			"id_transaksi" : "TRX5",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : 2000,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 10.0,
+			"id_transaksi" : "TRX6",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : 2000,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
 		}
 	],
 	"users" : 
@@ -102,7 +129,7 @@
 		},
 		{
 			"password" : "234",
-			"poin" : 1700,
+			"poin" : 4000,
 			"role" : "nasabah",
 			"username" : "ridwan"
 		},
