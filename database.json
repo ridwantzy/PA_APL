@@ -72,6 +72,14 @@
 			"poin_diterima" : 1700,
 			"tanggal" : "2025-05-11",
 			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 56.0,
+			"id_transaksi" : "TRX4",
+			"jenis_sampah" : "Plastik",
+			"poin_diterima" : 5600,
+			"tanggal" : "2025-05-11",
+			"username" : "king"
 		}
 	],
 	"users" : 
@@ -118,7 +126,7 @@
 		},
 		{
 			"password" : "riyadi",
-			"poin" : 0,
+			"poin" : 5600,
 			"role" : "nasabah",
 			"username" : "king"
 		}
