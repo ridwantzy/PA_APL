@@ -1,8 +1,12 @@
 #include <iostream>
 #include <string>
-#include "json/json.h"// Header jsoncpp
-#include "src/jsoncpp.cpp"   // Untuk operasi file
+#include "json/json.h"
+#include "src/jsoncpp.cpp"   
 #include <fstream> 
+#include <iomanip>
+#include <vector>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -13,6 +17,7 @@ struct User {
     string role;
     int poin = 0;
 };
+
 User currentUser;
 
 Json::Value database;
@@ -28,6 +33,10 @@ Json::Value readJSON(const string& filename) {
     file >> data;
     file.close();
     return data;
+}
+// Prosedur pesan pilihan tidak tersedia
+void pilihanTidakTersedia(){
+    cout << "\nMenu yang anda pilih tidak tersedia\n";
 }
 
 // Fungsi untuk menulis data ke file JSON
@@ -144,6 +153,7 @@ void logout() {
     cout << "Anda telah logout.\n";
 }
 
+// Fungsi Untuk Menu Admin
 // Menu Admin
 void adminMenu() {
     int choice;
@@ -157,13 +167,164 @@ void adminMenu() {
         cin >> choice;
 
         switch (choice) {
-            case 1: cout << "Manajemen Data Barang\n"; break;
-            case 2: cout << "Manajemen Tukar Uang\n"; break;
-            case 3: cout << "Manajemen Detail Sampah\n"; break;
-            case 4: cout << "Laporan Transaksi\n"; break;
-            case 0: return;
-            default: cout << "Pilihan salah.\n";
+            case 1: cout << "Manajemen Data Barang\n";
+                break;
+            case 2: cout << "Manajemen Tukar Uang\n";
+                break;
+            case 3: cout << "Manajemen Detail Sampah\n";
+                break;
+            case 4: cout << "Laporan Transaksi\n";
+                break;
+            case 0:
+                return;
+            default:
+                pilihanTidakTersedia();
         }
+    }
+}
+
+//Fungsi untuk menu Nasabah
+struct WasteType {
+    string name;
+    string description;
+    int pointsPerKg;
+};
+
+// Fungsi pembungkus kata
+void printWrappedText(const string& text, int startPos, int maxWidth) {
+    string word;
+    int currentWidth = startPos;
+    istringstream words(text);
+    
+    while (words >> word) {
+        if (currentWidth + word.length() > maxWidth) {
+            cout << "\n" << setw(startPos) << "" << word << " ";
+            currentWidth = startPos + word.length() + 1;
+        } else {
+            cout << word << " ";
+            currentWidth += word.length() + 1;
+        }
+    }
+}
+
+void displayWasteTable() {
+    vector<WasteType> wasteTypes = {
+        {"Sampah Plastik", "Berbagai jenis plastik rumah tangga termasuk kantong plastik, pembungkus makanan, dan wadah plastik non-botol yang bersih dan kering", 20},
+        {"Botol Plastik", "Botol plastik bekas minuman, pembersih, atau kemasan lain yang sudah dibersihkan dan dikeringkan. Sebaiknya dalam kondisi utuh dan tidak pecah", 25},
+        {"Kertas/Koran", "Kertas bekas, koran, majalah, buku dalam kondisi bersih dan kering. Tidak menerima kertas yang terkontaminasi minyak atau zat kimia", 15},
+        {"Kardus", "Kardus dan karton bekas dalam kondisi bersih, kering, dan sudah dilipat rapi. Tidak menerima kardus yang basah atau terkontaminasi makanan", 25},
+        {"Kaleng", "Kaleng aluminium bekas minuman dan makanan yang sudah dibersihkan. Pastikan dalam kondisi tidak berkarat dan tidak mengandung sisa makanan", 30},
+        {"Besi", "Berbagai jenis besi bekas seperti besi konstruksi, pagar, atau peralatan rumah tangga berbahan besi yang sudah tidak terpakai", 40},
+        {"Aluminium", "Peralatan rumah tangga berbahan aluminium, frame, atau komponen elektronik berbahan aluminium yang sudah tidak terpakai", 70},
+        {"Tembaga", "Kabel tembaga bekas, komponen elektronik, atau barang berbahan tembaga lainnya dalam kondisi bersih", 350}
+    };
+
+    const int col1Width = 20;
+    const int col2Width = 50;
+    const int col3Width = 10;
+    const int tableWidth = col1Width + col2Width + col3Width + 7; // +7 untuk border dan spacing
+
+    auto printLine = [tableWidth]() {
+        cout << "+" << string(tableWidth-2, '-') << "+\n";
+    };
+
+    cout << "\nDaftar Jenis Sampah yang Diterima:\n";
+    printLine();
+    
+    cout<< "| " << left << setw(col1Width) << "Jenis Sampah" 
+        << "| " << setw(col2Width) << "Deskripsi"
+        << "| " << setw(col3Width) << "Poin/kg       |" << endl;
+    printLine();
+
+    for (const auto& waste : wasteTypes) {
+        cout << "| " << setw(col1Width) << left << waste.name;
+        
+        // Print deskripsi dengan word wrap
+        istringstream desc(waste.description);
+        vector<string> words;
+        string word;
+        string line;
+        bool firstLine = true;
+        
+        while (desc >> word) {
+            if (line.length() + word.length() + 1 <= col2Width - 2) {
+                if (!line.empty()) line += " ";
+                line += word;
+            } else {
+                if (firstLine) {
+                    cout<< "| " << setw(col2Width) << left << line
+                        << "| " << setw(col3Width) << right << waste.pointsPerKg << " |" << endl;
+                    firstLine = false;
+                } else {
+                    cout<< "| " << setw(col1Width) << "" 
+                        << "| " << setw(col2Width) << left << line
+                        << "| " << setw(col3Width) << "" << " |" << endl;
+                }
+                line = word;
+            }
+        }
+
+        if (!line.empty()) {
+            if (firstLine) {
+                cout<< "| " << setw(col2Width) << left << line
+                    << "| " << setw(col3Width) << left << waste.pointsPerKg << " |" << endl;
+            } else {
+                cout << "| " << setw(col1Width) << "" 
+                    << "| " << setw(col2Width) << left << line
+                    << "| " << setw(col3Width) << "" << " |" << endl;
+            }
+
+        }
+        printLine();
+    }
+
+    cout << "\nKeterangan:\n";
+    cout << "- Semua sampah harus dalam kondisi bersih dan kering\n";
+    cout << "- Poin dapat ditukarkan dengan berbagai hadiah menarik\n";
+    cout << "- Sampah dalam kondisi basah atau kotor tidak akan diterima\n";
+}
+
+// Fungsi untuk menghapus spasi input pencarian
+string hapusSpasi(const string& teks){
+    string hasil;
+    for (char huruf : teks){
+        if (huruf != ' '){
+            hasil += tolower(huruf);
+        };
+    }
+    return hasil;
+}
+
+// Fungsi untuk pencarian Bank Sampah
+void CariBankSampah(){
+    string kataKunci;
+    cout << "\nMasukkan kata kunci (nama Bank atau alamat): ";
+    cin.ignore();
+    getline(cin, kataKunci);
+
+    string kataKunciNormal = hapusSpasi(kataKunci);
+    bool ditemukan = false;
+    
+    cout << "\nHasil pencarian untuk '" << kataKunci << "':" << endl;
+    cout << "----------------------------------------" << endl;
+
+    for (const auto& lokasi : database["lokasi_bank_sampah"]){
+        string namaLokasi = lokasi["nama"].asString();
+        string alamatLokasi = lokasi["alamat"].asString();
+        string gabungan = namaLokasi + " " + alamatLokasi;
+        string gabunganNormal = hapusSpasi(gabungan);
+
+        if (gabunganNormal.find(kataKunciNormal) != string::npos){
+            cout << "- Nama     : " << namaLokasi << endl;
+            cout << "  Alamat   : " << alamatLokasi << endl;
+            cout << "----------------------------------------" << endl;
+            ditemukan = true;
+        }
+    }
+
+    if (!ditemukan){
+        cout << "Lokasi dengan kata kunci '" << kataKunci << "' tidak ditemukan.\n";
+        cout << "----------------------------------------" << endl;
     }
 }
 
@@ -182,26 +343,20 @@ void nasabahMenu() {
 
         switch (choice) {
             case 1:
-                cout << "Jenis Sampah:\n";
-                for (const auto& item : database["sampah"]) {
-                    cout << "- " << item["nama"].asString() << " (" << item["kategori"].asString() << ") | Poin/kg: " << item["poin_per_kg"].asInt() << endl;
-                }
+                displayWasteTable();
                 break;
             case 2:
-                cout << "Lokasi Bank Sampah:\n";
-                for (const auto& loc : database["lokasi_bank_sampah"]) {
-                    cout << "- " << loc["nama"].asString() << "\n  Alamat: " << loc["alamat"].asString() << endl;
-                }
+                CariBankSampah();
                 break;
             case 3:
                 cout << "Riwayat Transaksi:\n";
                 for (const auto& trx : database["transactions"]) {
                     if (trx["username"].asString() == currentUser.username) {
-                        cout << "- ID: " << trx["id_transaksi"].asString()
-                             << ", Jenis: " << trx["jenis_sampah"].asString()
-                             << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
-                             << ", Poin: " << trx["poin_diterima"].asInt()
-                             << ", Tanggal: " << trx["tanggal"].asString() << endl;
+                        cout<< "- ID: " << trx["id_transaksi"].asString()
+                            << ", Jenis: " << trx["jenis_sampah"].asString()
+                            << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
+                            << ", Poin: " << trx["poin_diterima"].asInt()
+                            << ", Tanggal: " << trx["tanggal"].asString() << endl;
                     }
                 }
                 break;
@@ -215,27 +370,30 @@ void nasabahMenu() {
             case 0:
                 return;
             default:
-                cout << "Pilihan salah.\n";
+                pilihanTidakTersedia();
         }
     }
 }
 
 // Menu Petugas
+// Fungsi untuk menu Petugas
 void petugasMenu() {
     int choice;
     while (true) {
         cout << "\n=== Menu Petugas ===\n";
-        cout << "1. Input Detail Sampah\n";
-        cout << "2. Lihat Catatan Transaksi\n";
-        cout << "3. Informasi Jenis Sampah\n";
-        cout << "0. Keluar\nPilih: ";
+        cout << "1. Input Detail Sampah" << endl;
+        cout << "2. Lihat Catatan Transaksi" << endl;
+        cout << "3. Informasi Jenis Sampah" << endl;
+        cout << "0. Keluar\n" << endl;
+        cout << "Pilihan: ";
         cin >> choice;
 
         switch (choice) {
             case 1: 
                 inputTransaksiPetugas();
                 break;
-            case 2: cout << "Lihat Catatan Transaksi\n";
+            case 2:
+                cout << "Lihat Catatan Transaksi\n";
                 cout << "Catatan Transaksi:\n";
                 for (const auto& trx : database["transactions"]) {
                     cout << "- ID: " << trx["id_transaksi"].asString()
@@ -246,8 +404,10 @@ void petugasMenu() {
                         << ", Username: " << trx["username"].asString() << endl;
                 }
                 break;
-            case 3: cout << "Informasi Jenis Sampah\n"; break;
-            case 0: return;
+            case 3:
+                cout << "Informasi Jenis Sampah\n"; break;
+            case 0:
+                return;
             default: cout << "Pilihan salah.\n";
         }
     }
@@ -278,7 +438,7 @@ void login() {
             return;
         }
     }
-    cout << "Login gagal. Username atau password salah.\n";
+    cout << "Login gagal!!\nUsername atau password salah.\n";
 }
 
 // Fungsi Main
@@ -291,26 +451,26 @@ int main() {
     while (true) {
         int choice;
         cout << "\n=== Menu Utama ===\n";
-        cout << "1. Login\n2. Register\n3. Logout\n0. Keluar\nPilih: ";
+        cout << "1. Login" << endl;
+        cout << "2. Register" << endl;
+        cout << "0. Logout\n" << endl;
+        cout << "Pilihan : ";
         cin >> choice;
 
         switch (choice) {
-            case 1: login(); break;
-            case 2: registerUser(); break;
-            case 3: logout(); break;
-            case 0: return 0;
-            default: cout << "Pilihan salah.\n";
+            case 1:
+                login();
+                break;
+            case 2:
+                registerUser();
+                break;
+            case 0:
+                logout();
+                return 0;
+            default:
+                pilihanTidakTersedia();
         }
     }
 
-
-    cout << "HAlo Ridwan" << endl;
-
-    cout << "Makan malam dengan ayam itu enak" << endl;
-    cout << "Makan malam dengan ikan itu enak" << endl;
-    
-    cout << "Makan malam dengan daging itu enak" << endl;
-    cout << "Makan malam dengan daging itu enak" << endl;
-    cout << "ah enak" << endl;
     return 0;
 }
