@@ -1,17 +1,4 @@
 {
-	"barang_tukar" : 
-	[
-		{
-			"harga_poin" : 500,
-			"nama" : "Botol Minum",
-			"stok" : 9
-		},
-		{
-			"harga_poin" : 800,
-			"nama" : "Tas Belanja",
-			"stok" : 5
-		}
-	],
 	"lokasi_bank_sampah" : 
 	[
 		{
@@ -209,5 +196,127 @@
 			"role" : "nasabah",
 			"username" : "makan"
 		}
-	]
+	],
+	"barang": [
+        {
+            "id": "BRG001",
+            "nama": "iPhone 13 128GB",
+            "harga_poin": 89990,  // 8.999.000 rupiah
+            "stok": 5
+        },
+        {
+            "id": "BRG002",
+            "nama": "Samsung Galaxy A54",
+            "harga_poin": 59990,  // 5.999.000 rupiah
+            "stok": 8
+        },
+        {
+            "id": "BRG003",
+            "nama": "Miyako Rice Cooker MCM-508",
+            "harga_poin": 2499,   // 249.900 rupiah
+            "stok": 15
+        },
+        {
+            "id": "BRG004",
+            "nama": "Cosmos Stand Fan 16-XDC",
+            "harga_poin": 2990,   // 299.000 rupiah
+            "stok": 20
+        },
+        {
+            "id": "BRG005",
+            "nama": "TWS Realme Buds Air 3",
+            "harga_poin": 5990,   // 599.000 rupiah
+            "stok": 12
+        },
+        {
+            "id": "BRG006",
+            "nama": "GoPro Hero 11",
+            "harga_poin": 69990,  // 6.999.000 rupiah
+            "stok": 3
+        },
+        {
+            "id": "BRG007",
+            "nama": "Set Gelas Kaca 6pcs",
+            "harga_poin": 999,    // 99.900 rupiah
+            "stok": 25
+        },
+        {
+            "id": "BRG008",
+            "nama": "Kaos Polos Premium",
+            "harga_poin": 899,    // 89.900 rupiah
+            "stok": 50
+        },
+        {
+            "id": "BRG009",
+            "nama": "Tempat Sampah 3in1 60L",
+            "harga_poin": 3499,   // 349.900 rupiah
+            "stok": 30
+        },
+        {
+            "id": "BRG010",
+            "nama": "Sapu Lantai + Pengki",
+            "harga_poin": 599,    // 59.900 rupiah
+            "stok": 40
+        },
+        {
+            "id": "BRG011",
+            "nama": "Panci Set Stainless 5pcs",
+            "harga_poin": 4990,   // 499.000 rupiah
+            "stok": 10
+        },
+        {
+            "id": "BRG012",
+            "nama": "Monitor Gaming 24inch",
+            "harga_poin": 24990,  // 2.499.000 rupiah
+            "stok": 7
+        },
+        {
+            "id": "BRG013",
+            "nama": "Keyboard Mechanical RGB",
+            "harga_poin": 7990,   // 799.000 rupiah
+            "stok": 15
+        },
+        {
+            "id": "BRG014",
+            "nama": "Blender Philips HR2157",
+            "harga_poin": 4990,   // 499.000 rupiah
+            "stok": 18
+        },
+        {
+            "id": "BRG015",
+            "nama": "Air Purifier Sharp",
+            "harga_poin": 29990,  // 2.999.000 rupiah
+            "stok": 6
+        },
+        {
+            "id": "BRG016",
+            "nama": "Dispenser Miyako",
+            "harga_poin": 1990,   // 199.000 rupiah
+            "stok": 22
+        },
+        {
+            "id": "BRG017",
+            "nama": "Printer Epson L3210",
+            "harga_poin": 24990,  // 2.499.000 rupiah
+            "stok": 9
+        },
+        {
+            "id": "BRG018",
+            "nama": "Microwave Digital",
+            "harga_poin": 14990,  // 1.499.000 rupiah
+            "stok": 11
+        },
+        {
+            "id": "BRG019",
+            "nama": "Coffee Maker",
+            "harga_poin": 8990,   // 899.000 rupiah
+            "stok": 13
+        },
+        {
+            "id": "BRG020",
+            "nama": "Speaker Bluetooth JBL",
+            "harga_poin": 9990,   // 999.000 rupiah
+            "stok": 16
+        }
+    ]
 }
