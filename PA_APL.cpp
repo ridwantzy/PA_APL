@@ -4,7 +4,6 @@
 #include "src/jsoncpp.cpp"   
 #include <fstream> 
 #include <iomanip>
-#include <vector>
 #include <string>
 #include <algorithm>
 
@@ -63,8 +62,16 @@ void saveDatabase() {
 // Fungsi Register
 void registerUser() {
     string username, password;
-    cout << "Masukkan username baru: "; cin >> username;
-    cout << "Masukkan password baru: "; cin >> password;
+    cout << "\n" << endl;
+    cout << "╔════════════════════════════════════════════╗\n";
+    cout << "║             REGISTRASI AKUN                ║\n";
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "   Username: ";
+    cin >> username;
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "   Password: ";
+    cin >> password;
+    cout << "╠════════════════════════════════════════════╣\n";
 
     Json::Value newUser;
     newUser["username"] = username;
@@ -73,8 +80,11 @@ void registerUser() {
     newUser["poin"] = 0;
 
     database["users"].append(newUser);
-    saveDatabase(); // Simpan perubahan ke file JSON
-    cout << "Registrasi berhasil. Silakan login.\n";
+    saveDatabase();
+    cout << "╔════════════════════════════════════════════╗\n";
+    cout << "║    Registrasi Berhasil, sialhakn Login!    ║\n";
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "\nRegistrasi berhasil. Silakan login.\n";
 }
 
 // Fungsi Logout
@@ -88,13 +98,19 @@ void logout() {
 void adminMenu() {
     int choice;
     while (true) {
-        cout << "\n=== Menu Admin ===\n";
-        cout << "1. Manajemen Data Barang\n";
-        cout << "2. Manajemen Tukar Uang\n";
-        cout << "3. Manajemen Detail Sampah\n";
-        cout << "4. Laporan Transaksi\n";
-        cout << "0. Keluar\nPilih: ";
+        cout << "\n" << endl;
+        cout << "╔════════════════════════════════════════╗\n";
+        cout << "║              MENU ADMIN                ║\n";
+        cout << "╠════════════════════════════════════════╣\n";
+        cout << "║  1. Manajemen Data Barang              ║\n";
+        cout << "║  2. Manajemen Tukar Uang               ║\n";
+        cout << "║  3. Manajemen Detail Sampah            ║\n";
+        cout << "║  4. Laporan Transaksi                  ║\n";
+        cout << "║  0. Keluar                             ║\n";
+        cout << "╠════════════════════════════════════════╣\n";
+        cout << "   Pilih menu: ";
         cin >> choice;
+        cout << "╚════════════════════════════════════════╝\n";
 
         switch (choice) {
             case 1: cout << "Manajemen Data Barang\n";
@@ -137,81 +153,79 @@ void printWrappedText(const string& text, int startPos, int maxWidth) {
     }
 }
 
+// Fungsi untuk menampilkan jenis sampah dengan format tabel dari JSON,
+// Deskripsi akan dipotong jika terlalu panjang (TIDAK ADA WORD WRAP).
 void displayWasteTable() {
-    vector<WasteType> wasteTypes = {
-        {"Sampah Plastik", "Berbagai jenis plastik rumah tangga termasuk kantong plastik, pembungkus makanan, dan wadah plastik non-botol yang bersih dan kering", 20},
-        {"Botol Plastik", "Botol plastik bekas minuman, pembersih, atau kemasan lain yang sudah dibersihkan dan dikeringkan. Sebaiknya dalam kondisi utuh dan tidak pecah", 25},
-        {"Kertas/Koran", "Kertas bekas, koran, majalah, buku dalam kondisi bersih dan kering. Tidak menerima kertas yang terkontaminasi minyak atau zat kimia", 15},
-        {"Kardus", "Kardus dan karton bekas dalam kondisi bersih, kering, dan sudah dilipat rapi. Tidak menerima kardus yang basah atau terkontaminasi makanan", 25},
-        {"Kaleng", "Kaleng aluminium bekas minuman dan makanan yang sudah dibersihkan. Pastikan dalam kondisi tidak berkarat dan tidak mengandung sisa makanan", 30},
-        {"Besi", "Berbagai jenis besi bekas seperti besi konstruksi, pagar, atau peralatan rumah tangga berbahan besi yang sudah tidak terpakai", 40},
-        {"Aluminium", "Peralatan rumah tangga berbahan aluminium, frame, atau komponen elektronik berbahan aluminium yang sudah tidak terpakai", 70},
-        {"Tembaga", "Kabel tembaga bekas, komponen elektronik, atau barang berbahan tembaga lainnya dalam kondisi bersih", 350}
-    };
-
-    const int col1Width = 20;
-    const int col2Width = 50;
-    const int col3Width = 10;
-    const int tableWidth = col1Width + col2Width + col3Width + 7; // +7 untuk border dan spacing
-
-    auto printLine = [tableWidth]() {
-        cout << "+" << string(tableWidth-2, '-') << "+\n";
-    };
-
-    cout << "\nDaftar Jenis Sampah yang Diterima:\n";
-    printLine();
-    
-    cout<< "| " << left << setw(col1Width) << "Jenis Sampah" 
-        << "| " << setw(col2Width) << "Deskripsi"
-        << "| " << setw(col3Width) << "Poin/kg    |" << endl;
-    printLine();
-
-    for (const auto& waste : wasteTypes) {
-        cout << "| " << setw(col1Width) << left << waste.name;
-        
-        // Print deskripsi dengan word wrap
-        istringstream desc(waste.description);
-        vector<string> words;
-        string word;
-        string line;
-        bool firstLine = true;
-        
-        while (desc >> word) {
-            if (line.length() + word.length() + 1 <= col2Width - 2) {
-                if (!line.empty()) line += " ";
-                line += word;
-            } else {
-                if (firstLine) {
-                    cout<< "| " << setw(col2Width) << left << line
-                        << "| " << setw(col3Width) << right << waste.pointsPerKg << " |" << endl;
-                    firstLine = false;
-                } else {
-                    cout<< "| " << setw(col1Width) << "" 
-                        << "| " << setw(col2Width) << left << line
-                        << "| " << setw(col3Width) << "" << " |" << endl;
-                }
-                line = word;
-            }
-        }
-
-        if (!line.empty()) {
-            if (firstLine) {
-                cout<< "| " << setw(col2Width) << left << line
-                    << "| " << setw(col3Width) << left << waste.pointsPerKg << " |" << endl;
-            } else {
-                cout << "| " << setw(col1Width) << "" 
-                    << "| " << setw(col2Width) << left << line
-                    << "| " << setw(col3Width) << "" << " |" << endl;
-            }
-
-        }
-        printLine();
+    if (database.isNull() || !database.isMember("sampah")) {
+        cout << "\n[KESALAHAN] Data sampah tidak tersedia atau database belum dimuat." << endl;
+        cout << "Silakan hubungi Admin untuk pengecekan." << endl;
+        return;
     }
 
-    cout << "\nKeterangan:\n";
-    cout << "- Semua sampah harus dalam kondisi bersih dan kering\n";
-    cout << "- Poin dapat ditukarkan dengan berbagai hadiah menarik\n";
-    cout << "- Sampah dalam kondisi basah atau kotor tidak akan diterima\n";
+    const Json::Value& daftarSampah = database["sampah"];
+
+    if (daftarSampah.empty()) {
+        cout << "\nBelum ada data jenis sampah yang terdaftar dalam sistem." << endl;
+        cout << "Informasi akan segera diperbarui." << endl;
+        return;
+    }
+
+    // Definisi lebar kolom sesuai kebutuhan
+    const int noColWidth = 5;        // Untuk angka "No"
+    const int jenisColWidth = 20;    // Untuk "Jenis Sampah"
+    const int descColWidth = 75;     // Untuk "Deskripsi"
+    const int poinColWidth = 10;     // Untuk "Poin"
+
+    cout << "\nDAFTAR JENIS SAMPAH YANG DITERIMA" << endl;
+
+    // Baris atas tabel
+    cout << "╔══════╦═════════════════════╦════════════════════════════════════════════════════════════════════════════╦════════════╗\n";
+    
+    // Header kolom
+    cout << "║ " << left << setw(noColWidth) << "No"
+         << "║ " << left << setw(jenisColWidth) << "Jenis Sampah"
+         << "║ " << left << setw(descColWidth) << "Deskripsi"
+         << "║ " << right << setw(poinColWidth) << "Poin" << " ║\n";
+
+    // Garis pemisah header
+    cout << "╠══════╬═════════════════════╬════════════════════════════════════════════════════════════════════════════╬════════════╣\n";
+
+    int nomor = 1;
+    for (const auto& itemSampah : daftarSampah) {
+        string nama = itemSampah.get("nama", "N/A").asString();
+        string deskripsi = itemSampah.get("deskripsi", "N/A").asString();
+        int poin = itemSampah.get("poin_per_kg", 0).asInt();
+
+        // Potong dan format nama
+        string namaTampil = nama;
+        if (namaTampil.length() > jenisColWidth) {
+            namaTampil = namaTampil.substr(0, jenisColWidth - 3) + "...";
+        }
+
+        // Potong dan format deskripsi
+        string deskripsiTampil = deskripsi;
+        if (deskripsiTampil.length() > descColWidth) {
+            deskripsiTampil = deskripsiTampil.substr(0, descColWidth - 3) + "...";
+        }
+
+        // Cetak baris data dengan format yang tepat
+        cout << "║ " << right << setw(3) << nomor << "  "  // Format nomor dengan lebar 3 + 2 spasi
+             << "║ " << left << setw(jenisColWidth) << namaTampil 
+             << "║ " << left << setw(descColWidth) << deskripsiTampil
+             << "║ " << right << setw(poinColWidth) << poin << " ║\n";
+
+        nomor++;
+    }
+
+    // Baris bawah tabel
+    cout << "╚══════╩═════════════════════╩════════════════════════════════════════════════════════════════════════════╩════════════╝\n";
+
+    // Keterangan Tambahan
+    cout << "\nKeterangan Penting:\n";
+    cout << "1. Pastikan sampah yang Anda setorkan dalam kondisi BERSIH dan KERING.\n";
+    cout << "2. Pemilahan sampah berdasarkan jenis akan mempercepat proses.\n";
+    cout << "3. Poin yang terkumpul dapat ditukarkan dengan uang atau barang (jika tersedia).\n";
+    cout << "4. Petugas berhak menolak sampah yang tidak memenuhi syarat.\n";
 }
 
 // Fungsi untuk menghapus spasi input pencarian
@@ -262,14 +276,20 @@ void CariBankSampah(){
 void nasabahMenu() {
     int choice;
     while (true) {
-        cout << "\n=== Menu Nasabah ===\n";
-        cout << "1. Melihat Jenis Sampah\n";
-        cout << "2. Mencari Lokasi Bank Sampah\n";
-        cout << "3. Melihat Riwayat Transaksi\n";
-        cout << "4. Menukar Poin\n";
-        cout << "5. Tentang Program\n";
-        cout << "0. Keluar\nPilih: ";
+        cout << "\n" << endl;
+        cout << "╔════════════════════════════════════════╗\n";
+        cout << "║            MENU NASABAH                ║\n";
+        cout << "╠════════════════════════════════════════╣\n";
+        cout << "║  1. Melihat Jenis Sampah               ║\n";
+        cout << "║  2. Mencari Lokasi Bank Sampah         ║\n";
+        cout << "║  3. Melihat Riwayat Transaksi          ║\n";
+        cout << "║  4. Menukar Poin                       ║\n";
+        cout << "║  5. Tentang Program                    ║\n";
+        cout << "║  0. Keluar                             ║\n";
+        cout << "╠════════════════════════════════════════╣\n";
+        cout << "   Pilih menu: ";
         cin >> choice;
+        cout << "╚════════════════════════════════════════╝\n";
 
         switch (choice) {
             case 1:
@@ -471,13 +491,18 @@ void lihatCatatanTransaksi() {
 void petugasMenu() {
     int choice;
     while (true) {
-        cout << "\n=== Menu Petugas ===\n";
-        cout << "1. Input Detail Sampah" << endl;
-        cout << "2. Lihat Catatan Transaksi" << endl;
-        cout << "3. Informasi Jenis Sampah" << endl;
-        cout << "0. Keluar\n" << endl;
-        cout << "Pilihan: ";
+        cout << "\n" << endl;
+        cout << "╔════════════════════════════════════════╗\n";
+        cout << "║             MENU PETUGAS               ║\n";
+        cout << "╠════════════════════════════════════════╣\n";
+        cout << "║  1. Input Detail Sampah                ║\n";
+        cout << "║  2. Lihat Catatan Transaksi            ║\n";
+        cout << "║  3. Informasi Jenis Sampah             ║\n";
+        cout << "║  0. Keluar                             ║\n";
+        cout << "╠════════════════════════════════════════╣\n";
+        cout << "   Pilih menu: ";
         cin >> choice;
+        cout << "╚════════════════════════════════════════╝\n";
 
         switch (choice) {
             case 1: 
@@ -496,12 +521,17 @@ void petugasMenu() {
     }
 }
 
-
 // Fungsi Login
 void login() {
     string username, password;
-    cout << "Username: "; cin >> username;
-    cout << "Password: "; cin >> password;
+    cout << "╔════════════════════════════════════════════╗\n";
+    cout << "║               LOGIN SISTEM                 ║\n";
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "   Username: ";
+    cin >> username;
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "   Password: ";
+    cin >> password;
 
     for (const auto& user : database["users"]) {
         if (user["username"].asString() == username && user["password"].asString() == password) {
@@ -533,12 +563,17 @@ int main() {
 
     while (true) {
         int choice;
-        cout << "\n=== Menu Utama ===\n";
-        cout << "1. Login" << endl;
-        cout << "2. Register" << endl;
-        cout << "0. Logout\n" << endl;
-        cout << "Pilihan : ";
+        cout << "\n" << endl;
+        cout << "╔════════════════════════════════════════╗\n";
+        cout << "║             MENU UTAMA                 ║\n";
+        cout << "╠════════════════════════════════════════╣\n";
+        cout << "║  1. Login                              ║\n";
+        cout << "║  2. Register                           ║\n";
+        cout << "║  0. Logout                             ║\n";
+        cout << "╠════════════════════════════════════════╣\n";
+        cout << "   Pilih menu: ";
         cin >> choice;
+        cout << "╚════════════════════════════════════════╝\n";
 
         switch (choice) {
             case 1:

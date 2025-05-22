@@ -1,38 +1,39 @@
 {
-	"lokasi_bank_sampah": [
-    {
-        "nama": "Bank Sampah Kota Baru",
-        "alamat": "Jl. Merdeka No. 10, Jakarta Selatan"
-    },
-    {
-        "nama": "Bank Sampah Hijau Mandiri",
-        "alamat": "Jl. Cempaka Putih No. 5, Bandung"
-    },
-    {
-        "nama": "Bank Sampah Sehat Balikpapan",
-        "alamat": "Jl. MT Haryono No. 45, Balikpapan, Kalimantan Timur"
-    },
-    {
-        "nama": "Bank Sampah Bumi Paser",
-        "alamat": "Jl. Pangeran Diponegoro No. 12, Penajam Paser Utara, Kalimantan Timur"
-    },
-    {
-        "nama": "Bank Sampah Banjarmasin Bersih",
-        "alamat": "Jl. Sultan Adam No. 8, Banjarmasin, Kalimantan Selatan"
-    },
-    {
-        "nama": "Bank Sampah Rantau Besi",
-        "alamat": "Jl. A. Yani KM 5, Rantau, Tapin, Kalimantan Selatan"
-    },
-    {
-        "nama": "Bank Sampah Tarakan Lestari",
-        "alamat": "Jl. Jendral Sudirman No. 17, Tarakan, Kalimantan Utara"
-    },
-    {
-        "nama": "Bank Sampah Malinau Center",
-        "alamat": "Jl. Poros Desa Long Nawang, Malinau, Kalimantan Utara"
-    }
-],
+	"lokasi_bank_sampah" : 
+	[
+		{
+			"alamat" : "Jl. Merdeka No. 10, Jakarta Selatan",
+			"nama" : "Bank Sampah Kota Baru"
+		},
+		{
+			"alamat" : "Jl. Cempaka Putih No. 5, Bandung",
+			"nama" : "Bank Sampah Hijau Mandiri"
+		},
+		{
+			"alamat" : "Jl. MT Haryono No. 45, Balikpapan, Kalimantan Timur",
+			"nama" : "Bank Sampah Sehat Balikpapan"
+		},
+		{
+			"alamat" : "Jl. Pangeran Diponegoro No. 12, Penajam Paser Utara, Kalimantan Timur",
+			"nama" : "Bank Sampah Bumi Paser"
+		},
+		{
+			"alamat" : "Jl. Sultan Adam No. 8, Banjarmasin, Kalimantan Selatan",
+			"nama" : "Bank Sampah Banjarmasin Bersih"
+		},
+		{
+			"alamat" : "Jl. A. Yani KM 5, Rantau, Tapin, Kalimantan Selatan",
+			"nama" : "Bank Sampah Rantau Besi"
+		},
+		{
+			"alamat" : "Jl. Jendral Sudirman No. 17, Tarakan, Kalimantan Utara",
+			"nama" : "Bank Sampah Tarakan Lestari"
+		},
+		{
+			"alamat" : "Jl. Poros Desa Long Nawang, Malinau, Kalimantan Utara",
+			"nama" : "Bank Sampah Malinau Center"
+		}
+	],
 	"sampah" : 
 	[
 		{
@@ -164,6 +165,18 @@
 			"poin" : 0,
 			"role" : "nasabah",
 			"username" : "riyadi"
+		},
+		{
+			"password" : "makan",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "riyadi"
+		},
+		{
+			"password" : "enak",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "makan"
 		}
 	]
 }
