@@ -59,76 +59,6 @@ void loadDatabase() {
 void saveDatabase() {
     writeJSON("database.json", database);
 }
-// Fungsi untuk input transaksi oleh petugas
-void inputTransaksiPetugas() {
-    string username, jenisSampah;
-    double beratKg;
-
-    cout << "Masukkan username nasabah: ";
-    cin >> username;
-
-    // Periksa apakah username nasabah ada di database
-    bool userDitemukan = false;
-    for (const auto& user : database["users"]) {
-        if (user["username"].asString() == username && user["role"].asString() == "nasabah") {
-            userDitemukan = true;
-            break;
-        }
-    }
-
-    if (!userDitemukan) {
-        cout << "Nasabah dengan username tersebut tidak ditemukan.\n";
-        return;
-    }
-
-    cout << "Masukkan jenis sampah (contoh: Plastik, Kertas, Logam): ";
-    cin.ignore();
-    getline(cin, jenisSampah);
-    cout << "Masukkan berat sampah (kg): ";
-    cin >> beratKg;
-
-    // Cari jenis sampah di database
-    int poinPerKg = 0;
-    bool jenisDitemukan = false;
-    for (const auto& item : database["sampah"]) {
-        if (item["nama"].asString() == jenisSampah) {
-            poinPerKg = item["poin_per_kg"].asInt();
-            jenisDitemukan = true;
-            break;
-        }
-    }
-
-    if (!jenisDitemukan) {
-        cout << "Jenis sampah tidak ditemukan dalam database.\n";
-        return;
-    }
-
-    // Hitung poin yang diterima
-    int poinDiterima = static_cast<int>(beratKg * poinPerKg);
-
-    // Buat transaksi baru
-    Json::Value transaksiBaru;
-    transaksiBaru["id_transaksi"] = "TRX" + to_string(database["transactions"].size() + 1);
-    transaksiBaru["jenis_sampah"] = jenisSampah;
-    transaksiBaru["berat_kg"] = beratKg;
-    transaksiBaru["poin_diterima"] = poinDiterima;
-    transaksiBaru["tanggal"] = "2025-05-11"; // Tanggal bisa diubah sesuai kebutuhan
-    transaksiBaru["username"] = username;
-
-    // Tambahkan transaksi ke database
-    database["transactions"].append(transaksiBaru);
-
-    // Tambahkan poin ke nasabah
-    for (auto& user : database["users"]) {
-        if (user["username"].asString() == username) {
-            user["poin"] = user["poin"].asInt() + poinDiterima;
-            break;
-        }
-    }
-
-    saveDatabase(); // Simpan perubahan ke file JSON
-    cout << "Transaksi berhasil ditambahkan. Nasabah mendapatkan " << poinDiterima << " poin.\n";
-}
 
 // Fungsi Register
 void registerUser() {
@@ -233,7 +163,7 @@ void displayWasteTable() {
     
     cout<< "| " << left << setw(col1Width) << "Jenis Sampah" 
         << "| " << setw(col2Width) << "Deskripsi"
-        << "| " << setw(col3Width) << "Poin/kg       |" << endl;
+        << "| " << setw(col3Width) << "Poin/kg    |" << endl;
     printLine();
 
     for (const auto& waste : wasteTypes) {
@@ -453,6 +383,90 @@ void nasabahMenu() {
 }
 
 // Menu Petugas
+// Fungsi untuk input transaksi oleh petugas
+void inputTransaksiPetugas() {
+    string username, jenisSampah;
+    double beratKg;
+
+    cout << "Masukkan username nasabah: ";
+    cin >> username;
+
+    // Periksa apakah username nasabah ada di database
+    bool userDitemukan = false;
+    for (const auto& user : database["users"]) {
+        if (user["username"].asString() == username && user["role"].asString() == "nasabah") {
+            userDitemukan = true;
+            break;
+        }
+    }
+
+    if (!userDitemukan) {
+        cout << "Nasabah dengan username tersebut tidak ditemukan.\n";
+        return;
+    }
+
+    cout << "Masukkan jenis sampah (contoh: Plastik, Kertas, Logam): ";
+    cin.ignore();
+    getline(cin, jenisSampah);
+    cout << "Masukkan berat sampah (kg): ";
+    cin >> beratKg;
+
+    // Cari jenis sampah di database
+    int poinPerKg = 0;
+    bool jenisDitemukan = false;
+    for (const auto& item : database["sampah"]) {
+        if (item["nama"].asString() == jenisSampah) {
+            poinPerKg = item["poin_per_kg"].asInt();
+            jenisDitemukan = true;
+            break;
+        }
+    }
+
+    if (!jenisDitemukan) {
+        cout << "Jenis sampah tidak ditemukan dalam database.\n";
+        return;
+    }
+
+    // Hitung poin yang diterima
+    int poinDiterima = static_cast<int>(beratKg * poinPerKg);
+
+    // Buat transaksi baru
+    Json::Value transaksiBaru;
+    transaksiBaru["id_transaksi"] = "TRX" + to_string(database["transactions"].size() + 1);
+    transaksiBaru["jenis_sampah"] = jenisSampah;
+    transaksiBaru["berat_kg"] = beratKg;
+    transaksiBaru["poin_diterima"] = poinDiterima;
+    transaksiBaru["tanggal"] = "2025-05-11"; // Tanggal bisa diubah sesuai kebutuhan
+    transaksiBaru["username"] = username;
+
+    // Tambahkan transaksi ke database
+    database["transactions"].append(transaksiBaru);
+
+    // Tambahkan poin ke nasabah
+    for (auto& user : database["users"]) {
+        if (user["username"].asString() == username) {
+            user["poin"] = user["poin"].asInt() + poinDiterima;
+            break;
+        }
+    }
+
+    saveDatabase(); // Simpan perubahan ke file JSON
+    cout << "Transaksi berhasil ditambahkan. Nasabah mendapatkan " << poinDiterima << " poin.\n";
+}
+
+// Fungsi untuk melihat catatan transaksi
+void lihatCatatanTransaksi() {
+    cout << "Lihat Catatan Transaksi\n";
+    cout << "Catatan Transaksi:\n";
+    for (const auto& trx : database["transactions"]) {
+        cout << "- ID: " << trx["id_transaksi"].asString()
+            << ", Username: " << trx["username"].asString()
+            << ", Tanggal: " << trx["tanggal"].asString()
+            << ", Jenis: " << trx["jenis_sampah"].asString()
+            << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
+            << ", Poin: " << trx["poin_diterima"].asInt() << endl;
+    }
+}
 // Fungsi untuk menu Petugas
 void petugasMenu() {
     int choice;
@@ -470,19 +484,11 @@ void petugasMenu() {
                 inputTransaksiPetugas();
                 break;
             case 2:
-                cout << "Lihat Catatan Transaksi\n";
-                cout << "Catatan Transaksi:\n";
-                for (const auto& trx : database["transactions"]) {
-                    cout << "- ID: " << trx["id_transaksi"].asString()
-                        << ", Jenis: " << trx["jenis_sampah"].asString()
-                        << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
-                        << ", Poin: " << trx["poin_diterima"].asInt()
-                        << ", Tanggal: " << trx["tanggal"].asString()
-                        << ", Username: " << trx["username"].asString() << endl;
-                }
+                lihatCatatanTransaksi();
                 break;
             case 3:
-                cout << "Informasi Jenis Sampah\n"; break;
+                displayWasteTable(); 
+                break;
             case 0:
                 return;
             default: cout << "Pilihan salah.\n";
