@@ -314,6 +314,33 @@ void CariBankSampah() {
     }
 }
 
+
+void tentangProgram() {
+    cout << "\n╔═════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║                     TENTANG GREENCYCLE PROGRAM                      ║\n";
+    cout << "╠═════════════════════════════════════════════════════════════════════╣\n";
+    cout << "║  Versi     : 1.0.0                                                  ║\n";
+    cout << "║  Rilis     : Mei 2024                                               ║\n";
+    cout << "╠═════════════════════════════════════════════════════════════════════╣\n";
+    cout << "║                           DESKRIPSI                                 ║\n";
+    cout << "║  Greencycle Program adalah sistem manajemen bank sampah digital     ║\n";
+    cout << "║  yang dirancang untuk memudahkan pengelolaan sampah dan             ║\n";
+    cout << "║  mendorong partisipasi masyarakat dalam program daur ulang.         ║\n";
+    cout << "║  Program ini memungkinkan pengguna untuk menukar sampah dengan      ║\n";
+    cout << "║  poin yang dapat dikonversikan menjadi uang atau barang.            ║\n";
+    cout << "╠═════════════════════════════════════════════════════════════════════╣\n";
+    cout << "║                        DIKEMBANGKAN OLEH                            ║\n";
+    cout << "║                           KELOMPOK 6                                ║\n";
+    cout << "║                                                                     ║\n";
+    cout << "║  • Rahmat Riyadi            (2409106074)                            ║\n";
+    cout << "║  • Muhammad Ridwanansyah R  (2409106073)                            ║\n";
+    cout << "║  • Razib Ramadhan           (2409106076)                            ║\n";
+    cout << "╠═════════════════════════════════════════════════════════════════════╣\n";
+    cout << "║            Praktikum Algoritma dan Pemrograman Lanjut               ║\n";
+    cout << "║              Informatika, Universitas Mulawarman                    ║\n";
+    cout << "╚═════════════════════════════════════════════════════════════════════╝\n";
+}
+
 // Menu Nasabah
 void nasabahMenu() {
     int choice;
@@ -434,7 +461,7 @@ void nasabahMenu() {
                 break;
             }
             case 5:
-                cout << "Program Greencycle adalah platform digital untuk mengelola bank sampah secara efektif dan ramah lingkungan.\n";
+                tentangProgram();
                 break;
             case 0:
                 return;
