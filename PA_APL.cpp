@@ -94,6 +94,18 @@ void logout() {
 }
 
 // Fungsi Untuk Menu Admin
+void lihatBarangId(){
+    cout << "\n╔═════════╦═══════════════════════════════════════════════╗\n";
+    cout << "║    ID   ║                 Nama Barang                   ║\n";
+    cout << "╠═════════╬═══════════════════════════════════════════════╣\n";
+    
+    for (const auto& barang : database["barang"]) {
+        cout << "║ " << left << setw(7) << barang["id"].asString() 
+             << " ║ " << left << setw(43) << barang["nama"].asString() << " ║\n";
+    }
+    cout << "╚═════════╩═══════════════════════════════════════════════╝\n\n";
+}
+
 void lihatDaftarBarang() {
     if (!database.isMember("barang") || database["barang"].empty()) {
         cout << "\n╔════════════════════════════════════════════╗\n";
@@ -156,6 +168,8 @@ void tambahBarang() {
 }
 
 void ubahBarang() {
+    lihatBarangId();
+
     string id;
     cout << "\nMasukkan ID barang yang akan diubah: ";
     cin >> id;
@@ -171,12 +185,12 @@ void ubahBarang() {
             getline(cin, nama);
             if (!nama.empty()) barang["nama"] = nama;
             cout << "╠════════════════════════════════════════════╣\n";
-            cout << "║  Harga Poin Baru (sebelumnya: " << barang["harga_poin"].asInt() << "): ";
+            cout << "   Harga Poin Baru (sebelumnya: " << barang["harga_poin"].asInt() << "): ";
             int harga;
             cin >> harga;
             if (harga > 0) barang["harga_poin"] = harga;
             cout << "╠════════════════════════════════════════════╣\n";
-            cout << "║  Stok Baru (sebelumnya: " << barang["stok"].asInt() << "): ";
+            cout << "   Stok Baru (sebelumnya: " << barang["stok"].asInt() << "): ";
             int stok;
             cin >> stok;
             if (stok >= 0) barang["stok"] = stok;
@@ -191,6 +205,8 @@ void ubahBarang() {
 }
 
 void hapusBarang() {
+    lihatBarangId();
+
     string id;
     cout << "\nMasukkan ID barang yang akan dihapus: ";
     cin >> id;
@@ -222,13 +238,13 @@ void manajemenBarang() {
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║         MANAJEMEN DATA BARANG              ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
-        cout << "║  1. Lihat Daftar Barang                   ║\n";
-        cout << "║  2. Tambah Barang Baru                    ║\n";
-        cout << "║  3. Ubah Data Barang                      ║\n";
-        cout << "║  4. Hapus Barang                          ║\n";
-        cout << "║  0. Kembali                               ║\n";
+        cout << "║  1. Lihat Daftar Barang                    ║\n";
+        cout << "║  2. Tambah Barang Baru                     ║\n";
+        cout << "║  3. Ubah Data Barang                       ║\n";
+        cout << "║  4. Hapus Barang                           ║\n";
+        cout << "║  0. Kembali                                ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
-        cout << "║  Pilih menu: ";
+        cout << "   Pilih menu: ";
         cin >> pilihan;
         cout << "╚════════════════════════════════════════════╝\n";
 
