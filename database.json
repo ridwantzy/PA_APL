@@ -150,7 +150,7 @@
 		},
 		{
 			"password" : "234",
-			"poin" : 4000,
+			"poin" : 1000,
 			"role" : "nasabah",
 			"username" : "ridwan"
 		},
@@ -174,7 +174,7 @@
 		},
 		{
 			"password" : "riyadi",
-			"poin" : 5590,
+			"poin" : 5600,
 			"role" : "nasabah",
 			"username" : "king"
 		},

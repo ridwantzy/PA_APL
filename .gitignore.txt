@@ -1,0 +1,7 @@
+# Ignore executable files
+*.exe
+PA_APL.exe
+
+# Ignore build folders
+/.vscode/
+/.qodo/
