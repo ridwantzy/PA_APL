@@ -1,196 +1,200 @@
 {
-	"lokasi_bank_sampah": [
+	"lokasi_bank_sampah" : 
+	[
 		{
-			"alamat": "Jl. Merdeka No. 10, Jakarta Selatan",
-			"Provinsi": "DI Jakarta",
-			"nama": "Bank Sampah Kota Baru"
+			"Provinsi" : "DI Jakarta",
+			"alamat" : "Jl. Merdeka No. 10, Jakarta Selatan",
+			"nama" : "Bank Sampah Kota Baru"
 		},
 		{
-			"alamat": "Jl. Cempaka Putih No. 5, Bandung",
-			"Provinsi": "Jawa Barat",
-			"nama": "Bank Sampah Hijau Mandiri"
+			"Provinsi" : "Jawa Barat",
+			"alamat" : "Jl. Cempaka Putih No. 5, Bandung",
+			"nama" : "Bank Sampah Hijau Mandiri"
 		},
 		{
-			"alamat": "Jl. MT Haryono No. 45, Balikpapan",
-			"Provinsi": "Kalimantan Timur",
-			"nama": "Bank Sampah Sehat Balikpapan"
+			"Provinsi" : "Kalimantan Timur",
+			"alamat" : "Jl. MT Haryono No. 45, Balikpapan",
+			"nama" : "Bank Sampah Sehat Balikpapan"
 		},
 		{
-			"alamat": "Jl. Pangeran Diponegoro No. 12, Penajam Paser Utara",
-			"Provinsi": "Kalimantan Timur",
-			"nama": "Bank Sampah Bumi Paser"
+			"Provinsi" : "Kalimantan Timur",
+			"alamat" : "Jl. Pangeran Diponegoro No. 12, Penajam Paser Utara",
+			"nama" : "Bank Sampah Bumi Paser"
 		},
 		{
-			"alamat": "Jl. Sultan Adam No. 8, Banjarmasin",
-			"Provinsi": "Kalimantan Selatan",
-			"nama": "Bank Sampah Banjarmasin Bersih"
+			"Provinsi" : "Kalimantan Selatan",
+			"alamat" : "Jl. Sultan Adam No. 8, Banjarmasin",
+			"nama" : "Bank Sampah Banjarmasin Bersih"
 		},
 		{
-			"alamat": "Jl. A. Yani KM 5, Rantau, Tapin",
-			"Provinsi": "Kalimantan Selatan",
-			"nama": "Bank Sampah Rantau Besi"
+			"Provinsi" : "Kalimantan Selatan",
+			"alamat" : "Jl. A. Yani KM 5, Rantau, Tapin",
+			"nama" : "Bank Sampah Rantau Besi"
 		},
 		{
-			"alamat": "Jl. Jendral Sudirman No. 17, Tarakan",
-			"Provinsi": "Kalimantan Utara",
-			"nama": "Bank Sampah Tarakan Lestari"
+			"Provinsi" : "Kalimantan Utara",
+			"alamat" : "Jl. Jendral Sudirman No. 17, Tarakan",
+			"nama" : "Bank Sampah Tarakan Lestari"
 		},
 		{
-			"alamat": "Jl. Poros Desa Long Nawang, Malinau",
-			"Provinsi": "Kalimantan Utara",
-			"nama": "Bank Sampah Malinau Center"
+			"Provinsi" : "Kalimantan Utara",
+			"alamat" : "Jl. Poros Desa Long Nawang, Malinau",
+			"nama" : "Bank Sampah Malinau Center"
 		},
 		{
-			"alamat": "Jl. Ahmad Dahlan No. 23, Jakarta Timur",
-			"Provinsi": "DI Jakarta",
-			"nama": "Bank Sampah Jakarta Timur"
+			"Provinsi" : "DI Jakarta",
+			"alamat" : "Jl. Ahmad Dahlan No. 23, Jakarta Timur",
+			"nama" : "Bank Sampah Jakarta Timur"
 		},
 		{
-			"alamat": "Jl. Sukajadi No. 88, Bekasi",
-			"Provinsi": "Jawa Barat",
-			"nama": "Bank Sampah Bekasi Asri"
+			"Provinsi" : "Jawa Barat",
+			"alamat" : "Jl. Sukajadi No. 88, Bekasi",
+			"nama" : "Bank Sampah Bekasi Asri"
 		}
 	],
-	"sampah": [
+	"sampah" : 
+	[
 		{
-			"deskripsi": "Botol plastik, kemasan plastik, dll.",
-			"kategori": "Anorganik",
-			"nama": "Plastik",
-			"poin_per_kg": 100
+			"deskripsi" : "Botol plastik, kemasan plastik, dll.",
+			"kategori" : "Anorganik",
+			"nama" : "Plastik",
+			"poin_per_kg" : 100
 		},
 		{
-			"deskripsi": "Koran bekas, kardus, kertas printer.",
-			"kategori": "Anorganik",
-			"nama": "Kertas",
-			"poin_per_kg": 50
+			"deskripsi" : "Koran bekas, kardus, kertas printer.",
+			"kategori" : "Anorganik",
+			"nama" : "Kertas",
+			"poin_per_kg" : 50
 		},
 		{
-			"deskripsi": "Kaleng aluminium, besi bekas.",
-			"kategori": "Anorganik",
-			"nama": "Logam",
-			"poin_per_kg": 200
+			"deskripsi" : "Kaleng aluminium, besi bekas.",
+			"kategori" : "Anorganik",
+			"nama" : "Logam",
+			"poin_per_kg" : 200
 		},
 		{
-			"deskripsi": "Sisa makanan organik seperti nasi, sayur, buah.",
-			"kategori": "Organik",
-			"nama": "Sisa Makanan",
-			"poin_per_kg": 10
+			"deskripsi" : "Sisa makanan organik seperti nasi, sayur, buah.",
+			"kategori" : "Organik",
+			"nama" : "Sisa Makanan",
+			"poin_per_kg" : 10
 		}
 	],
-	"transactions": [
+	"transactions" : 
+	[
 		{
-			"berat_kg": 2.5,
-			"id_transaksi": "TRX001",
-			"jenis_sampah": "Plastik",
-			"poin_diterima": 250,
-			"tanggal": "2025-04-05",
-			"username": "nasabah1"
+			"berat_kg" : 2.5,
+			"id_transaksi" : "TRX001",
+			"jenis_sampah" : "Plastik",
+			"poin_diterima" : 250,
+			"tanggal" : "2025-04-05",
+			"username" : "nasabah1"
 		},
 		{
-			"berat_kg": 1.8,
-			"id_transaksi": "TRX002",
-			"jenis_sampah": "Kertas",
-			"poin_diterima": 90,
-			"tanggal": "2025-04-06",
-			"username": "nasabah1"
+			"berat_kg" : 1.8,
+			"id_transaksi" : "TRX002",
+			"jenis_sampah" : "Kertas",
+			"poin_diterima" : 90,
+			"tanggal" : "2025-04-06",
+			"username" : "nasabah1"
 		},
 		{
-			"berat_kg": 34.0,
-			"id_transaksi": "TRX3",
-			"jenis_sampah": "Kertas",
-			"poin_diterima": 1700,
-			"tanggal": "2025-05-11",
-			"username": "ridwan"
+			"berat_kg" : 34.0,
+			"id_transaksi" : "TRX3",
+			"jenis_sampah" : "Kertas",
+			"poin_diterima" : 1700,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
 		},
 		{
-			"berat_kg": 56.0,
-			"id_transaksi": "TRX4",
-			"jenis_sampah": "Plastik",
-			"poin_diterima": 5600,
-			"tanggal": "2025-05-11",
-			"username": "king"
+			"berat_kg" : 56.0,
+			"id_transaksi" : "TRX4",
+			"jenis_sampah" : "Plastik",
+			"poin_diterima" : 5600,
+			"tanggal" : "2025-05-11",
+			"username" : "king"
 		},
 		{
-			"berat_kg": 10.0,
-			"id_transaksi": "TRX5",
-			"jenis_sampah": "Logam",
-			"poin_diterima": 2000,
-			"tanggal": "2025-05-11",
-			"username": "ridwan"
+			"berat_kg" : 10.0,
+			"id_transaksi" : "TRX5",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : 2000,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
 		},
 		{
-			"berat_kg": 10.0,
-			"id_transaksi": "TRX6",
-			"jenis_sampah": "Logam",
-			"poin_diterima": 2000,
-			"tanggal": "2025-05-11",
-			"username": "ridwan"
+			"berat_kg" : 10.0,
+			"id_transaksi" : "TRX6",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : 2000,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
 		}
 	],
-	"users": [
+	"users" : 
+	[
 		{
-			"password": "admin123",
-			"role": "admin",
-			"username": "admin"
+			"password" : "admin123",
+			"role" : "admin",
+			"username" : "admin"
 		},
 		{
-			"password": "nasabah123",
-			"poin": 500,
-			"role": "nasabah",
-			"username": "nasabah1"
+			"password" : "nasabah123",
+			"poin" : 500,
+			"role" : "nasabah",
+			"username" : "nasabah1"
 		},
 		{
-			"password": "petugas123",
-			"role": "petugas",
-			"username": "petugas1"
+			"password" : "petugas123",
+			"role" : "petugas",
+			"username" : "petugas1"
 		},
 		{
-			"password": "234",
-			"poin": 4000,
-			"role": "nasabah",
-			"username": "ridwan"
+			"password" : "234",
+			"poin" : 4000,
+			"role" : "nasabah",
+			"username" : "ridwan"
 		},
 		{
-			"password": "123",
-			"poin": 0,
-			"role": "nasabah",
-			"username": "rudi"
+			"password" : "123",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "rudi"
 		},
 		{
-			"password": "ridwan123",
-			"poin": 0,
-			"role": "nasabah",
-			"username": "ridwan"
+			"password" : "ridwan123",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "ridwan"
 		},
 		{
-			"password": "ridwan123",
-			"poin": 0,
-			"role": "nasabah",
-			"username": "ridwan"
+			"password" : "ridwan123",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "ridwan"
 		},
 		{
-			"password": "riyadi",
-			"poin": 5600,
-			"role": "nasabah",
-			"username": "king"
+			"password" : "riyadi",
+			"poin" : 5590,
+			"role" : "nasabah",
+			"username" : "king"
 		},
 		{
-			"password": "123",
-			"poin": 0,
-			"role": "nasabah",
-			"username": "riyadi"
+			"password" : "123",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "riyadi"
 		},
 		{
-			"password": "makan",
-			"poin": 0,
-			"role": "nasabah",
-			"username": "riyadi"
+			"password" : "makan",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "riyadi"
 		},
 		{
-			"password": "enak",
-			"poin": 0,
-			"role": "nasabah",
-			"username": "makan"
+			"password" : "enak",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "makan"
 		}
 	]
 }
