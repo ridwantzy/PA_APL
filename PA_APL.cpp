@@ -153,8 +153,6 @@ void printWrappedText(const string& text, int startPos, int maxWidth) {
     }
 }
 
-// Fungsi untuk menampilkan jenis sampah dengan format tabel dari JSON,
-// Deskripsi akan dipotong jika terlalu panjang (TIDAK ADA WORD WRAP).
 void displayWasteTable() {
     if (database.isNull() || !database.isMember("sampah")) {
         cout << "\n[KESALAHAN] Data sampah tidak tersedia atau database belum dimuat." << endl;
@@ -170,11 +168,11 @@ void displayWasteTable() {
         return;
     }
 
-    // Definisi lebar kolom sesuai kebutuhan
-    const int noColWidth = 5;        // Untuk angka "No"
-    const int jenisColWidth = 20;    // Untuk "Jenis Sampah"
-    const int descColWidth = 75;     // Untuk "Deskripsi"
-    const int poinColWidth = 10;     // Untuk "Poin"
+
+    const int noColWidth = 5;        
+    const int jenisColWidth = 20;   
+    const int descColWidth = 75;     
+    const int poinColWidth = 10;     
 
     cout << "\nDAFTAR JENIS SAMPAH YANG DITERIMA" << endl;
 
@@ -240,35 +238,79 @@ string hapusSpasi(const string& teks){
 }
 
 // Fungsi untuk pencarian Bank Sampah
-void CariBankSampah(){
+void CariBankSampah() {
+    if (database.isNull() || !database.isMember("lokasi_bank_sampah")) {
+        cout << "\n[KESALAHAN] Data lokasi bank sampah tidak tersedia.\n";
+        return;
+    }
+
+    // Kumpulkan daftar provinsi unik dari database
+    set<string> daftarProvinsi;
+    for (const auto& lokasi : database["lokasi_bank_sampah"]) {
+        string provinsi = lokasi.get("Provinsi", "").asString();
+        if (!provinsi.empty()) {
+            daftarProvinsi.insert(provinsi);
+        }
+    }
+
+    // Tampilkan daftar provinsi yang tersedia
+    cout << "\n╔═══════════════════════════════════════════════════════════╗\n";
+    cout << "║                DAFTAR PROVINSI YANG TERSEDIA              ║\n";
+    cout << "╠═══════════════════════════════════════════════════════════╣\n";
+    
+    int nomor = 1;
+    for (const auto& provinsi : daftarProvinsi) {
+        cout << "║  " << nomor << ". " << left << setw(54) << provinsi << "║\n";
+        nomor++;
+    }
+    
+    cout << "╚═══════════════════════════════════════════════════════════╝\n";
+
+    // ...rest of the existing search code...
     string kataKunci;
-    cout << "\nMasukkan kata kunci (nama Bank atau alamat): ";
+    cout << "\n╔═══════════════════════════════════════════════════════════╗\n";
+    cout << "║                     PENCARIAN LOKASI                      ║\n";
+    cout << "╠═══════════════════════════════════════════════════════════╣\n";
+    cout << "║  Masukkan kata kunci (nama/alamat/provinsi):              ║\n";
+    cout << "╚═══════════════════════════════════════════════════════════╝\n";
+    cout << "→ ";
     cin.ignore();
     getline(cin, kataKunci);
 
     string kataKunciNormal = hapusSpasi(kataKunci);
     bool ditemukan = false;
     
-    cout << "\nHasil pencarian untuk '" << kataKunci << "':" << endl;
-    cout << "----------------------------------------" << endl;
+    cout << "\n╔═══════════════════════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║HASIL PENCARIAN: " << left << setw(70) << kataKunci << "║\n";
+    cout << "╠═══════════════════════════════════════════════════════════════════════════════════════╣\n";
 
-    for (const auto& lokasi : database["lokasi_bank_sampah"]){
+    for (const auto& lokasi : database["lokasi_bank_sampah"]) {
         string namaLokasi = lokasi["nama"].asString();
         string alamatLokasi = lokasi["alamat"].asString();
-        string gabungan = namaLokasi + " " + alamatLokasi;
+        string provinsiLokasi = lokasi.get("Provinsi", "").asString();
+        if (provinsiLokasi.empty()) {
+            provinsiLokasi = lokasi.get("Privinsi", "").asString(); // Handle typo in JSON
+        }
+        
+        string gabungan = namaLokasi + " " + alamatLokasi + " " + provinsiLokasi;
         string gabunganNormal = hapusSpasi(gabungan);
 
-        if (gabunganNormal.find(kataKunciNormal) != string::npos){
-            cout << "- Nama     : " << namaLokasi << endl;
-            cout << "  Alamat   : " << alamatLokasi << endl;
-            cout << "----------------------------------------" << endl;
+        if (gabunganNormal.find(kataKunciNormal) != string::npos) {
+            cout << "║  Nama     : " << left << setw(74) << namaLokasi << "║\n";
+            cout << "║  Alamat   : " << left << setw(74) << alamatLokasi << "║\n";
+            if (!provinsiLokasi.empty()) {
+                cout << "║  Provinsi : " << left << setw(74) << provinsiLokasi << "║\n";
+            }
+            cout << "╠═══════════════════════════════════════════════════════════════════════════════════════╣\n";
             ditemukan = true;
         }
     }
 
-    if (!ditemukan){
-        cout << "Lokasi dengan kata kunci '" << kataKunci << "' tidak ditemukan.\n";
-        cout << "----------------------------------------" << endl;
+    if (!ditemukan) {
+        cout << "║  Lokasi tidak ditemukan                                                               ║\n";
+        cout << "╚═══════════════════════════════════════════════════════════════════════════════════════╝\n";
+    } else {
+        cout << "╚═══════════════════════════════════════════════════════════════════════════════════════╝\n";
     }
 }
 
