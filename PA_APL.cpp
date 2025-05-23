@@ -134,17 +134,17 @@ void tambahBarang() {
     cout << "\n╔════════════════════════════════════════════╗\n";
     cout << "║           TAMBAH BARANG BARU               ║\n";
     cout << "╠════════════════════════════════════════════╣\n";
-    cout << "║  ID Barang   : ";
+    cout << "   ID Barang   : ";
     cin >> id;
     cout << "╠════════════════════════════════════════════╣\n";
     cin.ignore();
-    cout << "║  Nama Barang : ";
+    cout << "   Nama Barang : ";
     getline(cin, nama);
     cout << "╠════════════════════════════════════════════╣\n";
-    cout << "║  Harga Poin  : ";
+    cout << "   Harga Poin  : ";
     cin >> harga_poin;
     cout << "╠════════════════════════════════════════════╣\n";
-    cout << "║  Stok        : ";
+    cout << "   Stok        : ";
     cin >> stok;
     cout << "╚════════════════════════════════════════════╝\n";
 
