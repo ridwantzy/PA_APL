@@ -114,17 +114,16 @@ void lihatDaftarBarang() {
         return;
     }
 
-    cout << "\n╔═════╦══════════════════════════╦═══════════╦═════════╗\n";
-    cout << "║ ID  ║ Nama Barang              ║    Poin   ║  Stok   ║\n";
-    cout << "╠═════╬══════════════════════════╬═══════════╬═════════╣\n";
+    cout << "\n╔═══════════════════════════════════════════════════╦═══════════╦═════════╗\n";
+    cout << "║ Nama Barang                                       ║    Poin   ║  Stok   ║\n";
+    cout << "╠═══════════════════════════════════════════════════╬═══════════╬═════════╣\n";
 
     for (const auto& barang : database["barang"]) {
-        cout << "║ " << left << setw(3) << barang["id"].asString() << " ║ "
-             << left << setw(22) << barang["nama"].asString() << " ║ "
+        cout << "║ " << left << setw(45) << barang["nama"].asString() << " ║ "
              << right << setw(9) << barang["harga_poin"].asString() << " ║ "
              << right << setw(7) << barang["stok"].asString() << " ║\n";
     }
-    cout << "╚═════╩══════════════════════════╩═══════════╩═════════╝\n";
+    cout << "╚═══════════════════════════════════════════════════╩═══════════╩═════════╝\n";
 }
 
 void tambahBarang() {
