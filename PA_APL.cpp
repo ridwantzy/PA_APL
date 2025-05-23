@@ -94,6 +94,165 @@ void logout() {
 }
 
 // Fungsi Untuk Menu Admin
+void lihatDaftarBarang() {
+    if (!database.isMember("barang") || database["barang"].empty()) {
+        cout << "\n╔════════════════════════════════════════════╗\n";
+        cout << "║      Belum ada data barang tersedia       ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
+
+    cout << "\n╔═════╦══════════════════════════╦═══════════╦═════════╗\n";
+    cout << "║ ID  ║ Nama Barang              ║    Poin   ║  Stok   ║\n";
+    cout << "╠═════╬══════════════════════════╬═══════════╬═════════╣\n";
+
+    for (const auto& barang : database["barang"]) {
+        cout << "║ " << left << setw(3) << barang["id"].asString() << " ║ "
+             << left << setw(22) << barang["nama"].asString() << " ║ "
+             << right << setw(9) << barang["harga_poin"].asString() << " ║ "
+             << right << setw(7) << barang["stok"].asString() << " ║\n";
+    }
+    cout << "╚═════╩══════════════════════════╩═══════════╩═════════╝\n";
+}
+
+void tambahBarang() {
+    string id, nama;
+    int harga_poin, stok;
+
+    cout << "\n╔════════════════════════════════════════════╗\n";
+    cout << "║           TAMBAH BARANG BARU               ║\n";
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "║  ID Barang   : ";
+    cin >> id;
+    cout << "╠════════════════════════════════════════════╣\n";
+    cin.ignore();
+    cout << "║  Nama Barang : ";
+    getline(cin, nama);
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "║  Harga Poin  : ";
+    cin >> harga_poin;
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "║  Stok        : ";
+    cin >> stok;
+    cout << "╚════════════════════════════════════════════╝\n";
+
+    // Cek apakah ID sudah ada
+    for (const auto& barang : database["barang"]) {
+        if (barang["id"].asString() == id) {
+            cout << "ID barang sudah digunakan!\n";
+            return;
+        }
+    }
+
+    Json::Value barangBaru;
+    barangBaru["id"] = id;
+    barangBaru["nama"] = nama;
+    barangBaru["harga_poin"] = harga_poin;
+    barangBaru["stok"] = stok;
+
+    database["barang"].append(barangBaru);
+    saveDatabase();
+    cout << "Barang berhasil ditambahkan!\n";
+}
+
+void ubahBarang() {
+    string id;
+    cout << "\nMasukkan ID barang yang akan diubah: ";
+    cin >> id;
+
+    for (auto& barang : database["barang"]) {
+        if (barang["id"].asString() == id) {
+            cout << "\n╔════════════════════════════════════════════╗\n";
+            cout << "║           UBAH DATA BARANG                 ║\n";
+            cout << "╠════════════════════════════════════════════╣\n";
+            cout << "║  Nama Baru (sebelumnya: " << barang["nama"].asString() << "): ";
+            cin.ignore();
+            string nama;
+            getline(cin, nama);
+            if (!nama.empty()) barang["nama"] = nama;
+            cout << "╠════════════════════════════════════════════╣\n";
+            cout << "║  Harga Poin Baru (sebelumnya: " << barang["harga_poin"].asInt() << "): ";
+            int harga;
+            cin >> harga;
+            if (harga > 0) barang["harga_poin"] = harga;
+            cout << "╠════════════════════════════════════════════╣\n";
+            cout << "║  Stok Baru (sebelumnya: " << barang["stok"].asInt() << "): ";
+            int stok;
+            cin >> stok;
+            if (stok >= 0) barang["stok"] = stok;
+            cout << "╚════════════════════════════════════════════╝\n";
+
+            saveDatabase();
+            cout << "Data barang berhasil diubah!\n";
+            return;
+        }
+    }
+    cout << "Barang dengan ID tersebut tidak ditemukan!\n";
+}
+
+void hapusBarang() {
+    string id;
+    cout << "\nMasukkan ID barang yang akan dihapus: ";
+    cin >> id;
+
+    Json::Value& barangArray = database["barang"];
+    for (Json::ArrayIndex i = 0; i < barangArray.size(); i++) {
+        if (barangArray[i]["id"].asString() == id) {
+            cout << "Apakah anda yakin ingin menghapus barang '" 
+                 << barangArray[i]["nama"].asString() << "'? (y/n): ";
+            char konfirmasi;
+            cin >> konfirmasi;
+            
+            if (konfirmasi == 'y' || konfirmasi == 'Y') {
+                barangArray.removeIndex(i, &barangArray[barangArray.size() - 1]);
+                saveDatabase();
+                cout << "Barang berhasil dihapus!\n";
+            } else {
+                cout << "Penghapusan dibatalkan.\n";
+            }
+            return;
+        }
+    }
+    cout << "Barang dengan ID tersebut tidak ditemukan!\n";
+}
+
+void manajemenBarang() {
+    int pilihan;
+    while (true) {
+        cout << "\n╔════════════════════════════════════════════╗\n";
+        cout << "║         MANAJEMEN DATA BARANG              ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "║  1. Lihat Daftar Barang                   ║\n";
+        cout << "║  2. Tambah Barang Baru                    ║\n";
+        cout << "║  3. Ubah Data Barang                      ║\n";
+        cout << "║  4. Hapus Barang                          ║\n";
+        cout << "║  0. Kembali                               ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "║  Pilih menu: ";
+        cin >> pilihan;
+        cout << "╚════════════════════════════════════════════╝\n";
+
+        switch (pilihan) {
+            case 1:
+                lihatDaftarBarang();
+                break;
+            case 2:
+                tambahBarang();
+                break;
+            case 3:
+                ubahBarang();
+                break;
+            case 4:
+                hapusBarang();
+                break;
+            case 0:
+                return;
+            default:
+                pilihanTidakTersedia();
+        }
+    }
+}
+
 // Menu Admin
 void adminMenu() {
     int choice;
@@ -113,7 +272,8 @@ void adminMenu() {
         cout << "╚════════════════════════════════════════╝\n";
 
         switch (choice) {
-            case 1: cout << "Manajemen Data Barang\n";
+            case 1: 
+                manajemenBarang();
                 break;
             case 2: cout << "Manajemen Tukar Uang\n";
                 break;
@@ -667,3 +827,4 @@ int main() {
 
     return 0;
 }
+
