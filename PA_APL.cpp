@@ -853,6 +853,7 @@ void login() {
 
 // Fungsi Main
 int main() {
+    system("chcp 65001 >nul");
     cout << "Bak Sampah Digital 'Greencycle Program'" << endl;
 
     // Muat database dari file JSON
