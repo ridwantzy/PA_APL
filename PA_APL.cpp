@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include "json/json.h"
-#include "src/jsoncpp.cpp"   
+#include "src/jsoncpp.cpp"
+#include <windows.h>   
 #include <fstream> 
 #include <iomanip>
 #include <string>
@@ -854,7 +855,8 @@ void login() {
 
 // Fungsi Main
 int main() {
-    system("chcp 65001 >nul");
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     cout << "Bak Sampah Digital 'Greencycle Program'" << endl;
 
     // Muat database dari file JSON
