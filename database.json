@@ -1,4 +1,127 @@
 {
+	"barang" : 
+	[
+		{
+			"harga_poin" : 89990,
+			"id" : "BRG001",
+			"nama" : "iPhone 13 128GB",
+			"stok" : 5
+		},
+		{
+			"harga_poin" : 59990,
+			"id" : "BRG002",
+			"nama" : "Samsung Galaxy A54",
+			"stok" : 8
+		},
+		{
+			"harga_poin" : 2499,
+			"id" : "BRG003",
+			"nama" : "Miyako Rice Cooker MCM-508",
+			"stok" : 15
+		},
+		{
+			"harga_poin" : 2990,
+			"id" : "BRG004",
+			"nama" : "Cosmos Stand Fan 16-XDC",
+			"stok" : 20
+		},
+		{
+			"harga_poin" : 5990,
+			"id" : "BRG005",
+			"nama" : "TWS Realme Buds Air 3",
+			"stok" : 12
+		},
+		{
+			"harga_poin" : 69990,
+			"id" : "BRG006",
+			"nama" : "GoPro Hero 11",
+			"stok" : 3
+		},
+		{
+			"harga_poin" : 999,
+			"id" : "BRG007",
+			"nama" : "Set Gelas Kaca 6pcs",
+			"stok" : 25
+		},
+		{
+			"harga_poin" : 899,
+			"id" : "BRG008",
+			"nama" : "Kaos Polos Premium",
+			"stok" : 50
+		},
+		{
+			"harga_poin" : 3499,
+			"id" : "BRG009",
+			"nama" : "Tempat Sampah 3in1 60L",
+			"stok" : 30
+		},
+		{
+			"harga_poin" : 599,
+			"id" : "BRG010",
+			"nama" : "Sapu Lantai + Pengki",
+			"stok" : 39
+		},
+		{
+			"harga_poin" : 4990,
+			"id" : "BRG011",
+			"nama" : "Panci Set Stainless 5pcs",
+			"stok" : 10
+		},
+		{
+			"harga_poin" : 24990,
+			"id" : "BRG012",
+			"nama" : "Monitor Gaming 24inch",
+			"stok" : 7
+		},
+		{
+			"harga_poin" : 7990,
+			"id" : "BRG013",
+			"nama" : "Keyboard Mechanical RGB",
+			"stok" : 15
+		},
+		{
+			"harga_poin" : 4990,
+			"id" : "BRG014",
+			"nama" : "Blender Philips HR2157",
+			"stok" : 18
+		},
+		{
+			"harga_poin" : 29990,
+			"id" : "BRG015",
+			"nama" : "Air Purifier Sharp",
+			"stok" : 6
+		},
+		{
+			"harga_poin" : 1990,
+			"id" : "BRG016",
+			"nama" : "Dispenser Miyako",
+			"stok" : 22
+		},
+		{
+			"harga_poin" : 24990,
+			"id" : "BRG017",
+			"nama" : "Printer Epson L3210",
+			"stok" : 9
+		},
+		{
+			"harga_poin" : 14990,
+			"id" : "BRG018",
+			"nama" : "Microwave Digital",
+			"stok" : 11
+		},
+		{
+			"harga_poin" : 8990,
+			"id" : "BRG019",
+			"nama" : "Coffee Maker",
+			"stok" : 13
+		},
+		{
+			"harga_poin" : 9990,
+			"id" : "BRG020",
+			"nama" : "Speaker Bluetooth JBL",
+			"stok" : 16
+		}
+	],
 	"lokasi_bank_sampah" : 
 	[
 		{
@@ -150,7 +273,7 @@
 		},
 		{
 			"password" : "234",
-			"poin" : 1000,
+			"poin" : 400,
 			"role" : "nasabah",
 			"username" : "ridwan"
 		},
@@ -196,127 +319,5 @@
 			"role" : "nasabah",
 			"username" : "makan"
 		}
-	],
-	"barang": [
-        {
-            "id": "BRG001",
-            "nama": "iPhone 13 128GB",
-            "harga_poin": 89990,  
-            "stok": 5
-        },
-        {
-            "id": "BRG002",
-            "nama": "Samsung Galaxy A54",
-            "harga_poin": 59990,  
-            "stok": 8
-        },
-        {
-            "id": "BRG003",
-            "nama": "Miyako Rice Cooker MCM-508",
-            "harga_poin": 2499, 
-            "stok": 15
-        },
-        {
-            "id": "BRG004",
-            "nama": "Cosmos Stand Fan 16-XDC",
-            "harga_poin": 2990,  
-            "stok": 20
-        },
-        {
-            "id": "BRG005",
-            "nama": "TWS Realme Buds Air 3",
-            "harga_poin": 5990,  
-            "stok": 12
-        },
-		{
-            "id": "BRG006",
-            "nama": "GoPro Hero 11",
-            "harga_poin": 69990, 
-            "stok": 3
-        },
-        {
-            "id": "BRG007",
-            "nama": "Set Gelas Kaca 6pcs",
-            "harga_poin": 999, 
-            "stok": 25
-        },
-        {
-            "id": "BRG008",
-            "nama": "Kaos Polos Premium",
-            "harga_poin": 899, 
-            "stok": 50
-        },
-        {
-            "id": "BRG009",
-            "nama": "Tempat Sampah 3in1 60L",
-            "harga_poin": 3499,
-            "stok": 30
-        },
-        {
-            "id": "BRG010",
-            "nama": "Sapu Lantai + Pengki",
-            "harga_poin": 599, 
-            "stok": 40
-        },
-        {
-            "id": "BRG011",
-            "nama": "Panci Set Stainless 5pcs",
-            "harga_poin": 4990,
-            "stok": 10
-        },
-        {
-            "id": "BRG012",
-            "nama": "Monitor Gaming 24inch",
-            "harga_poin": 24990,
-            "stok": 7
-        },
-        {
-            "id": "BRG013",
-            "nama": "Keyboard Mechanical RGB",
-            "harga_poin": 7990,  
-            "stok": 15
-        },
-        {
-            "id": "BRG014",
-            "nama": "Blender Philips HR2157",
-            "harga_poin": 4990,  
-            "stok": 18
-        },
-        {
-            "id": "BRG015",
-            "nama": "Air Purifier Sharp",
-            "harga_poin": 29990, 
-            "stok": 6
-        },
-        {
-            "id": "BRG016",
-            "nama": "Dispenser Miyako",
-            "harga_poin": 1990,   
-            "stok": 22
-        },
-        {
-            "id": "BRG017",
-            "nama": "Printer Epson L3210",
-            "harga_poin": 24990,
-            "stok": 9
-        },
-        {
-            "id": "BRG018",
-            "nama": "Microwave Digital",
-            "harga_poin": 14990, 
-            "stok": 11
-        },
-		{
-            "id": "BRG019",
-            "nama": "Coffee Maker",
-            "harga_poin": 8990,
-            "stok": 13
-        },
-        {
-            "id": "BRG020",
-            "nama": "Speaker Bluetooth JBL",
-            "harga_poin": 9990,
-            "stok": 16
-        }
-    ]
+	]
 }

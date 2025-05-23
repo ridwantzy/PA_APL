@@ -553,24 +553,70 @@ void menukarPoin(){
             cout << "Jumlah poin tidak valid.\n";
         }
     } else if (pilihTukar == 2) {
-        cout << "\nDaftar Barang yang Bisa Ditukar:\n";
-        cout << left << setw(5) << "No" << setw(20) << "Nama Barang" << setw(10) << "Harga(Poin)" << endl;
-        cout << std::string(35, '-') << endl;
-        int idx = 1;
-        vector<pair<string, int>> daftarBarang;
-        for (const auto& barang : database["barang_tukar"]) {
-            cout << setw(5) << idx << setw(20) << barang["nama"].asString() << setw(10) << barang["harga_poin"].asInt() << endl;
-            daftarBarang.push_back({barang["nama"].asString(), barang["harga_poin"].asInt()});
-            idx++;
+        // Pilihan urut
+        cout << "\nPoin Anda saat ini: " << currentUser.poin << endl;
+        cout << "Urutkan daftar barang berdasarkan:\n";
+        cout << "1. Nama (A-Z)\n";
+        cout << "2. Harga (Termurah)\n";
+        cout << "3. Stok (Terbanyak)\n";
+        cout << "Pilih: ";
+        int urut;
+        cin >> urut;
+
+        // Buat array index urutannyaS
+        int n = database["barang"].size();
+        int urutan[n];
+        for (int i = 0; i < n; ++i) urutan[i] = i;
+
+        // Bubble Sort untuk urutan barang
+        for (int i = 0; i < n-1; ++i) {
+            for (int j = 0; j < n-i-1; ++j) {
+                bool tukar = false;
+                if (urut == 1) { // Nama (A-Z)
+                    if (database["barang"][urutan[j]]["nama"].asString() > database["barang"][urutan[j+1]]["nama"].asString())
+                        tukar = true;
+                } else if (urut == 2) { // Harga (Termurah)
+                    if (database["barang"][urutan[j]]["harga_poin"].asInt() > database["barang"][urutan[j+1]]["harga_poin"].asInt())
+                        tukar = true;
+                } else if (urut == 3) { // Stok (Terbanyak)
+                    if (database["barang"][urutan[j]]["stok"].asInt() < database["barang"][urutan[j+1]]["stok"].asInt())
+                        tukar = true;
+                }
+                if (tukar) {
+                    int temp = urutan[j];
+                    urutan[j] = urutan[j+1];
+                    urutan[j+1] = temp;
+                }
+            }
         }
+
+        // Tampilkan tabel barang
+        cout << "\n╔════╦════════════════════════════════╦════════════╦═══════╗\n";
+        cout << "║ No ║ Nama Barang                    ║ HargaPoin  ║ Stok  ║\n";
+        cout << "╠════╬════════════════════════════════╬════════════╬═══════╣\n";
+        for (int i = 0; i < n; ++i) {
+            int idx = urutan[i];
+            cout << "║ " << setw(2) << right << (i+1) << " "
+                 << "║ " << setw(30) << left << database["barang"][idx]["nama"].asString()
+                 << "║ " << setw(10) << right << database["barang"][idx]["harga_poin"].asInt()
+                 << " ║ " << setw(5) << right << database["barang"][idx]["stok"].asInt() << " ║\n";
+        }
+        cout << "╚════╩════════════════════════════════╩════════════╩═══════╝\n";
+
+        cout << "Poin Anda saat ini: " << currentUser.poin << endl;
         cout << "Pilih nomor barang yang ingin ditukar (0 untuk batal): ";
         int pilihBarang;
         cin >> pilihBarang;
-        if (pilihBarang > 0 && pilihBarang <= daftarBarang.size()) {
-            int harga = daftarBarang[pilihBarang-1].second;
-            if (currentUser.poin >= harga) {
+        if (pilihBarang > 0 && pilihBarang <= n) {
+            int idx = urutan[pilihBarang-1];
+            int harga = database["barang"][idx]["harga_poin"].asInt();
+            int stok = database["barang"][idx]["stok"].asInt();
+            if (stok <= 0) {
+                cout << "Stok barang habis. Silakan pilih barang lain.\n";
+            } else if (currentUser.poin >= harga) {
                 currentUser.poin -= harga;
-                // Update database
+                database["barang"][idx]["stok"] = stok - 1;
+                // Update database user
                 for (auto& user : database["users"]) {
                     if (user["username"].asString() == currentUser.username) {
                         user["poin"] = currentUser.poin;
@@ -578,7 +624,8 @@ void menukarPoin(){
                     }
                 }
                 saveDatabase();
-                cout << "Pertukaran berhasil! Anda mendapatkan barang: " << daftarBarang[pilihBarang-1].first << endl;
+                cout << "Pertukaran berhasil! Anda mendapatkan barang: " << database["barang"][idx]["nama"].asString() << endl;
+                cout << "Sisa poin Anda: " << currentUser.poin << endl;
             } else {
                 cout << "Poin Anda tidak cukup untuk menukar barang ini.\n";
             }
