@@ -59,7 +59,7 @@
 			"harga_poin" : 599,
 			"id" : "BRG010",
 			"nama" : "Sapu Lantai + Pengki",
-			"stok" : 39
+			"stok" : 40
 		},
 		{
 			"harga_poin" : 4990,
@@ -120,6 +120,12 @@
 			"id" : "BRG020",
 			"nama" : "Speaker Bluetooth JBL",
 			"stok" : 16
+		},
+		{
+			"harga_poin" : 12,
+			"id" : "Kulkas",
+			"nama" : "Makan",
+			"stok" : 2
 		}
 	],
 	"lokasi_bank_sampah" : 
