@@ -125,7 +125,7 @@
 			"harga_poin" : 12,
 			"id" : "Kulkas",
 			"nama" : "Makan",
-			"stok" : 2
+			"stok" : 1
 		}
 	],
 	"lokasi_bank_sampah" : 
@@ -303,7 +303,7 @@
 		},
 		{
 			"password" : "riyadi",
-			"poin" : 5600,
+			"poin" : 5578,
 			"role" : "nasabah",
 			"username" : "king"
 		},

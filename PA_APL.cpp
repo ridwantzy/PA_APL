@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include "json/json.h"
-#include "src/jsoncpp.cpp"   
+#include "src/jsoncpp.cpp"
+#include <windows.h>   
 #include <fstream> 
 #include <iomanip>
 #include <string>
@@ -114,17 +115,16 @@ void lihatDaftarBarang() {
         return;
     }
 
-    cout << "\n╔═════╦══════════════════════════╦═══════════╦═════════╗\n";
-    cout << "║ ID  ║ Nama Barang              ║    Poin   ║  Stok   ║\n";
-    cout << "╠═════╬══════════════════════════╬═══════════╬═════════╣\n";
+    cout << "\n╔═══════════════════════════════════════════════════╦═══════════╦═════════╗\n";
+    cout << "║ Nama Barang                                       ║    Poin   ║  Stok   ║\n";
+    cout << "╠═══════════════════════════════════════════════════╬═══════════╬═════════╣\n";
 
     for (const auto& barang : database["barang"]) {
-        cout << "║ " << left << setw(3) << barang["id"].asString() << " ║ "
-             << left << setw(22) << barang["nama"].asString() << " ║ "
+        cout << "║ " << left << setw(45) << barang["nama"].asString() << " ║ "
              << right << setw(9) << barang["harga_poin"].asString() << " ║ "
              << right << setw(7) << barang["stok"].asString() << " ║\n";
     }
-    cout << "╚═════╩══════════════════════════╩═══════════╩═════════╝\n";
+    cout << "╚═══════════════════════════════════════════════════╩═══════════╩═════════╝\n";
 }
 
 void tambahBarang() {
@@ -854,7 +854,8 @@ void login() {
 
 // Fungsi Main
 int main() {
-    system("chcp 65001 >nul");
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
     cout << "Bak Sampah Digital 'Greencycle Program'" << endl;
 
     // Muat database dari file JSON
