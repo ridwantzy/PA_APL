@@ -67,10 +67,10 @@ void registerUser() {
     cout << "║             REGISTRASI AKUN                ║\n";
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "   Username: ";
-    cin >> username;
+    getline(cin, username);
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "   Password: ";
-    cin >> password;
+    cin >> password; //getline pakai sini
     cout << "╠════════════════════════════════════════════╣\n";
 
     Json::Value newUser;
@@ -127,6 +127,7 @@ void lihatDaftarBarang() {
 }
 
 void tambahBarang() {
+    lihatBarangId();
     string id, nama;
     int harga_poin, stok;
 
@@ -853,7 +854,7 @@ void login() {
 
 // Fungsi Main
 int main() {
-    // system("chcp 65001 >nul");
+    system("chcp 65001 >nul");
     cout << "Bak Sampah Digital 'Greencycle Program'" << endl;
 
     // Muat database dari file JSON

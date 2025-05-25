@@ -47,7 +47,7 @@
 			"harga_poin" : 899,
 			"id" : "BRG008",
 			"nama" : "Kaos Polos Premium",
-			"stok" : 50
+			"stok" : 49
 		},
 		{
 			"harga_poin" : 3499,
@@ -120,12 +120,6 @@
 			"id" : "BRG020",
 			"nama" : "Speaker Bluetooth JBL",
 			"stok" : 16
-		},
-		{
-			"harga_poin" : 12,
-			"id" : "Kulkas",
-			"nama" : "Makan",
-			"stok" : 1
 		}
 	],
 	"lokasi_bank_sampah" : 
@@ -257,6 +251,22 @@
 			"poin_diterima" : 2000,
 			"tanggal" : "2025-05-11",
 			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 20.0,
+			"id_transaksi" : "TRX7",
+			"jenis_sampah" : "Plastik",
+			"poin_diterima" : 2000,
+			"tanggal" : "2025-05-11",
+			"username" : "king"
+		},
+		{
+			"berat_kg" : 3.3199999999999998,
+			"id_transaksi" : "TRX8",
+			"jenis_sampah" : "Kertas",
+			"poin_diterima" : 166,
+			"tanggal" : "2025-05-11",
+			"username" : "king"
 		}
 	],
 	"users" : 
@@ -303,7 +313,7 @@
 		},
 		{
 			"password" : "riyadi",
-			"poin" : 5578,
+			"poin" : 6733,
 			"role" : "nasabah",
 			"username" : "king"
 		},
@@ -324,6 +334,18 @@
 			"poin" : 0,
 			"role" : "nasabah",
 			"username" : "makan"
+		},
+		{
+			"password" : "456",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "rdw"
+		},
+		{
+			"password" : "ere",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "ere"
 		}
 	]
 }
