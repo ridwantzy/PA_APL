@@ -41,7 +41,7 @@
 			"harga_poin" : 999,
 			"id" : "BRG007",
 			"nama" : "Set Gelas Kaca 6pcs",
-			"stok" : 25
+			"stok" : 24
 		},
 		{
 			"harga_poin" : 899,
@@ -59,7 +59,7 @@
 			"harga_poin" : 599,
 			"id" : "BRG010",
 			"nama" : "Sapu Lantai + Pengki",
-			"stok" : 40
+			"stok" : 20
 		},
 		{
 			"harga_poin" : 4990,
@@ -125,7 +125,7 @@
 			"harga_poin" : 12,
 			"id" : "Kulkas",
 			"nama" : "Makan",
-			"stok" : 1
+			"stok" : 0
 		}
 	],
 	"lokasi_bank_sampah" : 
@@ -181,6 +181,7 @@
 			"nama" : "Bank Sampah Bekasi Asri"
 		}
 	],
+	"saldo_bank_sampah" : 10000002,
 	"sampah" : 
 	[
 		{
@@ -206,6 +207,16 @@
 			"kategori" : "Organik",
 			"nama" : "Sisa Makanan",
 			"poin_per_kg" : 10
+		},
+		{
+			"deskripsi" : "Kardus Mie dan lainlain",
+			"nama" : "Kardus",
+			"poin_per_kg" : 100
+		},
+		{
+			"deskripsi" : "kain, sempak bekas, intinya kain kain bekas",
+			"nama" : "Tekstil",
+			"poin_per_kg" : 200
 		}
 	],
 	"transactions" : 
@@ -257,6 +268,66 @@
 			"poin_diterima" : 2000,
 			"tanggal" : "2025-05-11",
 			"username" : "ridwan"
+		},
+		{
+			"bank" : "NBI",
+			"id_transaksi" : "TRXU7",
+			"no_rekening" : "12345678910",
+			"nominal" : 880,
+			"poin_ditukar" : 88,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 10000000.0,
+			"id_transaksi" : "TRX8",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : 2000000000,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 999,
+			"id_transaksi" : "TRXB9",
+			"jumlah" : 1,
+			"nama_barang" : "Set Gelas Kaca 6pcs",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 599,
+			"id_transaksi" : "TRXB10",
+			"jumlah" : 20,
+			"nama_barang" : "Sapu Lantai + Pengki",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BMW",
+			"id_transaksi" : "TRXU11",
+			"no_rekening" : "78901121",
+			"nominal" : 900000,
+			"poin_ditukar" : 90000,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BTN",
+			"id_transaksi" : "TRXU12",
+			"no_rekening" : "1234567",
+			"nominal" : 10000,
+			"poin_ditukar" : 1000,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BTN",
+			"id_transaksi" : "TRXU13",
+			"no_rekening" : "2714745734",
+			"nominal" : 100000,
+			"poin_ditukar" : 10000,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
 		}
 	],
 	"users" : 
@@ -279,7 +350,7 @@
 		},
 		{
 			"password" : "234",
-			"poin" : 400,
+			"poin" : 1999886121,
 			"role" : "nasabah",
 			"username" : "ridwan"
 		},

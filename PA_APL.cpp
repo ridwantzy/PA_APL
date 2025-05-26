@@ -269,6 +269,191 @@ void manajemenBarang() {
     }
 }
 
+void manajemenTukarUang() {
+    while (true) {
+        cout << "\n╔════════════════════════════════════════════╗\n";
+        cout << "║          MANAJEMEN TUKAR UANG             ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "║  1. Lihat Daftar Penukaran Uang           ║\n";
+        cout << "║  2. Tambah Saldo Uang Bank Sampah         ║\n";
+        cout << "║  0. Kembali                               ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "   Pilih menu: ";
+        int pilih;
+        cin >> pilih;
+        cout << "╚════════════════════════════════════════════╝\n";
+
+        if (pilih == 1) {
+            cout << "\nDaftar Penukaran Uang:\n";
+            cout << "╔════╦═══════════════╦════════════╦════════════╦══════════════════════╦════════════╗\n";
+            cout << "║ No ║ Username      ║ Poin       ║ Nominal    ║ No Rekening         ║ Bank       ║\n";
+            cout << "╠════╬═══════════════╬════════════╬════════════╬══════════════════════╬════════════╣\n";
+            int no = 1;
+            bool ada = false;
+            for (const auto& trx : database["transactions"]) {
+                if (trx.isMember("tipe") && trx["tipe"].asString() == "tukar_uang") {
+                    cout << "║ " << setw(2) << right << no++ << " "
+                         << "║ " << setw(13) << left << trx["username"].asString()
+                         << "║ " << setw(10) << right << trx["poin_ditukar"].asInt()
+                         << " ║ " << setw(10) << right << trx["nominal"].asInt()
+                         << " ║ " << setw(20) << left << trx["no_rekening"].asString()
+                         << "║ " << setw(10) << left << trx["bank"].asString() << "║\n";
+                    ada = true;
+                }
+            }
+            if (!ada) {
+                cout << "║       Tidak ada data penukaran uang.                                      ║\n";
+            }
+            cout << "╚════╩═══════════════╩════════════╩════════════╩══════════════════════╩════════════╝\n";
+        } else if (pilih == 2) {
+            int tambah;
+            cout << "Masukkan jumlah saldo uang yang ingin ditambahkan ke bank sampah: ";
+            cin >> tambah;
+            if (tambah > 0) {
+                database["saldo_bank_sampah"] = database.get("saldo_bank_sampah", 0).asInt() + tambah;
+                saveDatabase();
+                cout << "Saldo berhasil ditambahkan.\n";
+                cout << "Saldo bank sampah saat ini: Rp" << database["saldo_bank_sampah"].asInt() << endl;
+            } else {
+                cout << "Jumlah tidak valid.\n";
+            }
+        } else if (pilih == 0) {
+            return;
+        } else {
+            cout << "Pilihan tidak tersedia!\n";
+        }
+    }
+}
+
+
+// ==== Fitur Manajemen Sampah ====
+
+// Lihat daftar sampah
+void lihatDaftarSampah() {
+    if (!database.isMember("sampah") || database["sampah"].empty()) {
+        cout << "\nBelum ada data sampah.\n";
+        return;
+    }
+    cout << "\n╔════╦════════════════════════════╦══════════════════════════════════════════╦═══════╗\n";
+    cout << "║ No ║ Nama Sampah                ║ Deskripsi                               ║ Poin  ║\n";
+    cout << "╠════╬════════════════════════════╬══════════════════════════════════════════╬═══════╣\n";
+    int no = 1;
+    for (const auto& s : database["sampah"]) {
+        cout << "║ " << setw(2) << right << no++ << " "
+             << "║ " << setw(26) << left << s["nama"].asString()
+             << "║ " << setw(40) << left << s["deskripsi"].asString()
+             << "║ " << setw(5) << right << s["poin_per_kg"].asInt() << " ║\n";
+    }
+    cout << "╚════╩════════════════════════════╩══════════════════════════════════════════╩═══════╝\n";
+}
+
+// Tambah data sampah
+void tambahSampah() {
+    string nama, deskripsi;
+    int poin;
+    cin.ignore();
+    cout << "\nNama Sampah      : "; getline(cin, nama);
+    cout << "Deskripsi        : "; getline(cin, deskripsi);
+    cout << "Poin per Kg      : "; cin >> poin;
+
+    // Cek duplikat nama
+    for (const auto& s : database["sampah"]) {
+        if (s["nama"].asString() == nama) {
+            cout << "Nama sampah sudah ada!\n";
+            return;
+        }
+    }
+    Json::Value baru;
+    baru["nama"] = nama;
+    baru["deskripsi"] = deskripsi;
+    baru["poin_per_kg"] = poin;
+    database["sampah"].append(baru);
+    saveDatabase();
+    cout << "Data sampah berhasil ditambahkan!\n";
+}
+
+// Ubah data sampah
+void ubahSampah() {
+    lihatDaftarSampah();
+    string namaCari;
+    cout << "\nMasukkan nama sampah yang ingin diubah: ";
+    cin.ignore();
+    getline(cin, namaCari);
+    for (auto& s : database["sampah"]) {
+        if (s["nama"].asString() == namaCari) {
+            cout << "Nama baru (kosongkan jika tidak diubah): ";
+            string namaBaru;
+            getline(cin, namaBaru);
+            if (!namaBaru.empty()) s["nama"] = namaBaru;
+            cout << "Deskripsi baru (kosongkan jika tidak diubah): ";
+            string deskBaru;
+            getline(cin, deskBaru);
+            if (!deskBaru.empty()) s["deskripsi"] = deskBaru;
+            cout << "Poin per Kg baru (0 jika tidak diubah): ";
+            int poinBaru;
+            cin >> poinBaru;
+            if (poinBaru > 0) s["poin_per_kg"] = poinBaru;
+            saveDatabase();
+            cout << "Data sampah berhasil diubah!\n";
+            return;
+        }
+    }
+    cout << "Data sampah tidak ditemukan!\n";
+}
+
+// Hapus data sampah
+void hapusSampah() {
+    lihatDaftarSampah();
+    string namaCari;
+    cout << "\nMasukkan nama sampah yang ingin dihapus: ";
+    cin.ignore();
+    getline(cin, namaCari);
+    Json::Value& arr = database["sampah"];
+    for (Json::ArrayIndex i = 0; i < arr.size(); ++i) {
+        if (arr[i]["nama"].asString() == namaCari) {
+            cout << "Yakin hapus data ini? (y/n): ";
+            char konfirmasi;
+            cin >> konfirmasi;
+            if (konfirmasi == 'y' || konfirmasi == 'Y') {
+                arr.removeIndex(i, &arr[arr.size()-1]);
+                saveDatabase();
+                cout << "Data sampah berhasil dihapus!\n";
+            } else {
+                cout << "Penghapusan dibatalkan.\n";
+            }
+            return;
+        }
+    }
+    cout << "Data sampah tidak ditemukan!\n";
+}
+
+// Menu manajemen sampah untuk petugas
+void manajemenSampah() {
+    int pilih;
+    while (true) {
+        cout << "\n╔════════════════════════════════════════════╗\n";
+        cout << "║           MANAJEMEN DATA SAMPAH           ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "║  1. Lihat Daftar Sampah                   ║\n";
+        cout << "║  2. Tambah Data Sampah                    ║\n";
+        cout << "║  3. Ubah Data Sampah                      ║\n";
+        cout << "║  4. Hapus Data Sampah                     ║\n";
+        cout << "║  0. Kembali                               ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "   Pilih menu: ";
+        cin >> pilih;
+        cout << "╚════════════════════════════════════════════╝\n";
+        switch (pilih) {
+            case 1: lihatDaftarSampah(); break;
+            case 2: tambahSampah(); break;
+            case 3: ubahSampah(); break;
+            case 4: hapusSampah(); break;
+            case 0: return;
+            default: cout << "Pilihan tidak tersedia!\n";
+        }
+    }
+}
+
 // Menu Admin
 void adminMenu() {
     int choice;
@@ -291,9 +476,9 @@ void adminMenu() {
             case 1: 
                 manajemenBarang();
                 break;
-            case 2: cout << "Manajemen Tukar Uang\n";
-                break;
-            case 3: cout << "Manajemen Detail Sampah\n";
+            case 2: manajemenTukarUang(); break;
+            case 3:
+                manajemenSampah();
                 break;
             case 4: cout << "Laporan Transaksi\n";
                 break;
@@ -490,16 +675,44 @@ void CariBankSampah() {
     }
 }
 
-void riwayatTransaksi(){
+void riwayatTransaksi() {
     cout << "Riwayat Transaksi:\n";
+    bool ada = false;
     for (const auto& trx : database["transactions"]) {
         if (trx["username"].asString() == currentUser.username) {
-            cout<< "- ID: " << trx["id_transaksi"].asString()
-                << ", Jenis: " << trx["jenis_sampah"].asString()
-                << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
-                << ", Poin: " << trx["poin_diterima"].asInt()
-                << ", Tanggal: " << trx["tanggal"].asString() << endl;
+            cout << "- ID: " << trx["id_transaksi"].asString();
+            if (trx.isMember("tipe")) {
+                if (trx["tipe"].asString() == "tukar_uang") {
+                    cout << ", Tipe: Tukar Uang"
+                         << ", Poin Ditukar: " << trx["poin_ditukar"].asInt()
+                         << ", Nominal: Rp" << trx["nominal"].asInt()
+                         << ", No Rekening: " << trx["no_rekening"].asString()
+                         << ", Bank: " << trx["bank"].asString();
+                } else if (trx["tipe"].asString() == "tukar_barang") {
+                    cout << ", Tipe: Tukar Barang"
+                         << ", Nama Barang: " << trx["nama_barang"].asString()
+                         << ", Harga Poin: " << trx["harga_poin"].asInt();
+                    if (trx.isMember("jumlah")) {
+                        cout << ", Jumlah: " << trx["jumlah"].asInt();
+                    }
+                } else {
+                    cout << ", Tipe: " << trx["tipe"].asString();
+                }
+            } else {
+                // Asumsi transaksi setor sampah
+                cout << ", Jenis Sampah: " << trx["jenis_sampah"].asString()
+                     << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
+                     << ", Poin: " << trx["poin_diterima"].asInt();
+            }
+            if (trx.isMember("tanggal")) {
+                cout << ", Tanggal: " << trx["tanggal"].asString();
+            }
+            cout << endl;
+            ada = true;
         }
+    }
+    if (!ada) {
+        cout << "Belum ada transaksi.\n";
     }
     cout << std::string(75, '=') << endl;
 }
@@ -547,20 +760,61 @@ void menukarPoin(){
         if (jumlahTukar > 0 && jumlahTukar <= currentUser.poin) {
             string norek, bank;
             cout << "Masukkan nomor rekening tujuan: ";
-            cin.ignore(); // flush newline
+            cin.ignore();
             getline(cin, norek);
-            cout << "Masukkan nama bank: ";
-            getline(cin, bank);
+            
+            // Tampilkan pilihan bank
+            cout << "\n╔════════════════════════════════════════════╗\n";
+            cout << "║             PILIHAN BANK                   ║\n";
+            cout << "╠════════════════════════════════════════════╣\n";
+            cout << "║  1. BRI                                    ║\n";
+            cout << "║  2. BNI                                    ║\n";
+            cout << "║  3. Mandiri                                ║\n";
+            cout << "║  4. BCA                                    ║\n";
+            cout << "║  5. Bank Kaltimtara                        ║\n";
+            cout << "║  6. Bank lainnya                           ║\n";
+            cout << "╚════════════════════════════════════════════╝\n";
+            cout << "Pilih bank (1-6): ";
+            int pilihBank;
+            cin >> pilihBank;
+            
+            // Tentukan nama bank berdasarkan pilihan
+            switch(pilihBank) {
+                case 1: bank = "BRI"; break;
+                case 2: bank = "BNI"; break;
+                case 3: bank = "Mandiri"; break;
+                case 4: bank = "BCA"; break;
+                case 5: bank = "Bank Kaltimtara"; break;
+                case 6: 
+                    cout << "Masukkan nama bank: ";
+                    cin.ignore();
+                    getline(cin, bank);
+                    break;
+                default:
+                    cout << "Pilihan bank tidak valid.\n";
+                    return;
+            }
 
             int uang = jumlahTukar * 10;
             currentUser.poin -= jumlahTukar;
-            // Update database
+            // Update database user
             for (auto& user : database["users"]) {
                 if (user["username"].asString() == currentUser.username) {
                     user["poin"] = currentUser.poin;
                     break;
                 }
             }
+            // Tambahkan transaksi penukaran uang ke database
+            Json::Value transaksiBaru;
+            transaksiBaru["id_transaksi"] = "TRXU" + to_string(database["transactions"].size() + 1);
+            transaksiBaru["username"] = currentUser.username;
+            transaksiBaru["tipe"] = "tukar_uang";
+            transaksiBaru["poin_ditukar"] = jumlahTukar;
+            transaksiBaru["nominal"] = uang;
+            transaksiBaru["no_rekening"] = norek;
+            transaksiBaru["bank"] = bank;
+            database["transactions"].append(transaksiBaru);
+
             saveDatabase();
             cout << "\nPertukaran berhasil!\n";
             cout << "Anda mendapatkan uang sebesar Rp" << uang << ".\n";
@@ -629,21 +883,41 @@ void menukarPoin(){
             int stok = database["barang"][idx]["stok"].asInt();
             if (stok <= 0) {
                 cout << "Stok barang habis. Silakan pilih barang lain.\n";
-            } else if (currentUser.poin >= harga) {
-                currentUser.poin -= harga;
-                database["barang"][idx]["stok"] = stok - 1;
-                // Update database user
-                for (auto& user : database["users"]) {
-                    if (user["username"].asString() == currentUser.username) {
-                        user["poin"] = currentUser.poin;
-                        break;
-                    }
-                }
-                saveDatabase();
-                cout << "Pertukaran berhasil! Anda mendapatkan barang: " << database["barang"][idx]["nama"].asString() << endl;
-                cout << "Sisa poin Anda: " << currentUser.poin << endl;
             } else {
-                cout << "Poin Anda tidak cukup untuk menukar barang ini.\n";
+                int jumlahTukar;
+                cout << "Masukkan jumlah barang yang ingin ditukar: ";
+                cin >> jumlahTukar;
+                if (jumlahTukar <= 0) {
+                    cout << "Jumlah tidak valid.\n";
+                } else if (jumlahTukar > stok) {
+                    cout << "Stok tidak mencukupi. Stok tersedia: " << stok << endl;
+                } else if (currentUser.poin < harga * jumlahTukar) {
+                    cout << "Poin Anda tidak cukup untuk menukar " << jumlahTukar << " barang ini.\n";
+                } else {
+                    currentUser.poin -= harga * jumlahTukar;
+                    database["barang"][idx]["stok"] = stok - jumlahTukar;
+                    // Update database user
+                    for (auto& user : database["users"]) {
+                        if (user["username"].asString() == currentUser.username) {
+                            user["poin"] = currentUser.poin;
+                            break;
+                        }
+                    }
+                    // Tambahkan transaksi penukaran barang ke database
+                    Json::Value transaksiBaru;
+                    transaksiBaru["id_transaksi"] = "TRXB" + to_string(database["transactions"].size() + 1);
+                    transaksiBaru["username"] = currentUser.username;
+                    transaksiBaru["tipe"] = "tukar_barang";
+                    transaksiBaru["nama_barang"] = database["barang"][idx]["nama"].asString();
+                    transaksiBaru["harga_poin"] = harga;
+                    transaksiBaru["jumlah"] = jumlahTukar;
+                    // transaksiBaru["tanggal"] = "2025-05-11"; // opsional
+                    database["transactions"].append(transaksiBaru);
+
+                    saveDatabase();
+                    cout << "Pertukaran berhasil! Anda mendapatkan " << jumlahTukar << " barang: " << database["barang"][idx]["nama"].asString() << endl;
+                    cout << "Sisa poin Anda: " << currentUser.poin << endl;
+                }
             }
         } else if (pilihBarang == 0) {
             cout << "Batal menukar barang.\n";
@@ -864,6 +1138,7 @@ int main() {
     while (true) {
         int choice;
         cout << "\n" << endl;
+        system("cls");
         cout << "╔════════════════════════════════════════╗\n";
         cout << "║             MENU UTAMA                 ║\n";
         cout << "╠════════════════════════════════════════╣\n";
