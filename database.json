@@ -122,6 +122,7 @@
 			"stok" : 16
 		}
 	],
+	"konversi_poin" : [],
 	"lokasi_bank_sampah" : 
 	[
 		{
@@ -175,6 +176,7 @@
 			"nama" : "Bank Sampah Bekasi Asri"
 		}
 	],
+	"saldo_penukaran" : 10000000,
 	"sampah" : 
 	[
 		{
@@ -267,6 +269,14 @@
 			"poin_diterima" : 166,
 			"tanggal" : "2025-05-11",
 			"username" : "king"
+		},
+		{
+			"berat_kg" : 120.0,
+			"id_transaksi" : "TRX9",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : 24000,
+			"tanggal" : "2025-05-11",
+			"username" : "riyadi"
 		}
 	],
 	"users" : 
@@ -319,7 +329,7 @@
 		},
 		{
 			"password" : "123",
-			"poin" : 0,
+			"poin" : 22800,
 			"role" : "nasabah",
 			"username" : "riyadi"
 		},
