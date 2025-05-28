@@ -349,6 +349,16 @@
 			"username" : "petugas1"
 		},
 		{
+			"password" : "petugas123",
+			"role" : "petugas",
+			"username" : "petugas12"
+		},
+		{
+			"password" : "petugas123",
+			"role" : "petugas",
+			"username" : "petugas13"
+		},
+		{
 			"password" : "234",
 			"poin" : 1999886121,
 			"role" : "nasabah",
