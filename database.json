@@ -3,135 +3,123 @@
 	[
 		{
 			"harga_poin" : 89990,
-			"id" : "BRG001",
+			"id" : "BRG01",
 			"nama" : "iPhone 13 128GB",
 			"stok" : 2
 		},
 		{
 			"harga_poin" : 59990,
-			"id" : "BRG002",
+			"id" : "BRG02",
 			"nama" : "Samsung Galaxy A54",
 			"stok" : 8
 		},
 		{
 			"harga_poin" : 2499,
-			"id" : "BRG003",
+			"id" : "BRG03",
 			"nama" : "Miyako Rice Cooker MCM-508",
 			"stok" : 13
 		},
 		{
 			"harga_poin" : 2990,
-			"id" : "BRG004",
+			"id" : "BRG04",
 			"nama" : "Cosmos Stand Fan 16-XDC",
 			"stok" : 20
 		},
 		{
 			"harga_poin" : 5990,
-			"id" : "BRG005",
+			"id" : "BRG05",
 			"nama" : "TWS Realme Buds Air 3",
 			"stok" : 12
 		},
 		{
 			"harga_poin" : 69990,
-			"id" : "BRG006",
+			"id" : "BRG06",
 			"nama" : "GoPro Hero 11",
 			"stok" : 3
 		},
 		{
 			"harga_poin" : 999,
-			"id" : "BRG007",
+			"id" : "BRG07",
 			"nama" : "Set Gelas Kaca 6pcs",
 			"stok" : 24
 		},
 		{
 			"harga_poin" : 899,
-			"id" : "BRG008",
+			"id" : "BRG08",
 			"nama" : "Kaos Polos Premium",
 			"stok" : 49
 		},
 		{
 			"harga_poin" : 3499,
-			"id" : "BRG009",
+			"id" : "BRG09",
 			"nama" : "Tempat Sampah 3in1 60L",
 			"stok" : 27
 		},
 		{
 			"harga_poin" : 599,
-			"id" : "BRG010",
+			"id" : "BRG10",
 			"nama" : "Sapu Lantai + Pengki",
 			"stok" : 18
 		},
 		{
 			"harga_poin" : 4990,
-			"id" : "BRG011",
+			"id" : "BRG11",
 			"nama" : "Panci Set Stainless 5pcs",
 			"stok" : 10
 		},
 		{
 			"harga_poin" : 24990,
-			"id" : "BRG012",
+			"id" : "BRG12",
 			"nama" : "Monitor Gaming 24inch",
 			"stok" : 7
 		},
 		{
 			"harga_poin" : 7990,
-			"id" : "BRG013",
+			"id" : "BRG13",
 			"nama" : "Keyboard Mechanical RGB",
 			"stok" : 15
 		},
 		{
 			"harga_poin" : 4990,
-			"id" : "BRG014",
+			"id" : "BRG14",
 			"nama" : "Blender Philips HR2157",
 			"stok" : 17
 		},
 		{
 			"harga_poin" : 29990,
-			"id" : "BRG015",
+			"id" : "BRG15",
 			"nama" : "Air Purifier Sharp",
 			"stok" : 5
 		},
 		{
 			"harga_poin" : 1990,
-			"id" : "BRG016",
+			"id" : "BRG16",
 			"nama" : "Dispenser Miyako",
 			"stok" : 21
 		},
 		{
 			"harga_poin" : 24990,
-			"id" : "BRG017",
+			"id" : "BRG17",
 			"nama" : "Printer Epson L3210",
 			"stok" : 9
 		},
 		{
 			"harga_poin" : 14990,
-			"id" : "BRG018",
+			"id" : "BRG18",
 			"nama" : "Microwave Digital",
 			"stok" : 11
 		},
 		{
 			"harga_poin" : 8990,
-			"id" : "BRG019",
+			"id" : "BRG19",
 			"nama" : "Coffee Maker",
 			"stok" : 13
 		},
 		{
-			"harga_poin" : 9990,
-			"id" : "BRG020",
-			"nama" : "Speaker Bluetooth JBL",
-			"stok" : 16
-		},
-		{
-			"harga_poin" : 12,
-			"id" : "Kulkas",
-			"nama" : "Makan",
-			"stok" : 0
-		},
-		{
-			"harga_poin" : 12,
-			"id" : "fasd",
-			"nama" : "Minum",
-			"stok" : 2
+			"harga_poin" : 999,
+			"id" : "BRG20",
+			"nama" : "Speaker SOny X elite",
+			"stok" : 18
 		}
 	],
 	"lokasi_bank_sampah" : 
@@ -153,7 +141,7 @@
 		},
 		{
 			"Provinsi" : "Kalimantan Timur",
-			"alamat" : "Jl. Pangeran Diponegoro No. 12, Penajam Paser Utara",
+			"alamat" : "Jl. P. Diponegoro No. 12, Penajam Paser Utara",
 			"nama" : "Bank Sampah Bumi Paser"
 		},
 		{
@@ -185,44 +173,225 @@
 			"Provinsi" : "Jawa Barat",
 			"alamat" : "Jl. Sukajadi No. 88, Bekasi",
 			"nama" : "Bank Sampah Bekasi Asri"
+		},
+		{
+			"Provinsi": "Jawa Timur",
+			"alamat": "Jl. Pahlawan No. 45, Surabaya",
+			"nama": "Bank Sampah Surabaya Bersih"
+		},
+		{
+			"Provinsi": "Jawa Timur",
+			"alamat": "Jl. KH Wachid Hasyim No. 15, Malang",
+			"nama": "Bank Sampah Malang Asri"
+		},
+		{
+			"Provinsi": "Jawa Tengah",
+			"alamat": "Jl. Pemuda No. 88, Semarang",
+			"nama": "Bank Sampah Semarang Hijau"
+		},
+		{
+			"Provinsi": "Jawa Tengah",
+			"alamat": "Jl. Gatot Subroto No. 123, Solo",
+			"nama": "Bank Sampah Solo Sejahtera"
+		},
+		{
+			"Provinsi": "DIY Yogyakarta",
+			"alamat": "Jl. Malioboro No. 55, Yogyakarta",
+			"nama": "Bank Sampah Jogja Bersih"
+		},
+		{
+			"Provinsi": "Kalimantan Barat",
+			"alamat": "Jl. Tanjungpura No. 77, Pontianak",
+			"nama": "Bank Sampah Pontianak Mandiri"
+		},
+		{
+			"Provinsi": "Kalimantan Barat",
+			"alamat": "Jl. Rahadi Usman No. 30, Ketapang",
+			"nama" : "Bank Sampah Ketapang Asri"
+		},
+		{
+			"Provinsi": "Kalimantan Tengah",
+			"alamat": "Jl. RTA Milono No. 21, Palangkaraya",
+			"nama": "Bank Sampah Palangkaraya Hijau"
+		},
+		{
+			"Provinsi": "Kalimantan Tengah",
+			"alamat": "Jl. Ahmad Yani No. 56, Sampit",
+			"nama": "Bank Sampah Sampit Lestari"
+		},
+		{
+			"Provinsi": "Sulawesi Selatan",
+			"alamat": "Jl. Pengayoman No. 12, Makassar",
+			"nama": "Bank Sampah Makassar Bersih"
+		},
+		{
+			"Provinsi": "Sulawesi Selatan",
+			"alamat": "Jl. Jendral Sudirman No. 45, Palopo",
+			"nama": "Bank Sampah Palopo Sejahtera"
+		},
+		{
+			"Provinsi": "Sulawesi Utara",
+			"alamat": "Jl. Sam Ratulangi No. 88, Manado",
+			"nama": "Bank Sampah Manado Hijau"
+		},
+		{
+			"Provinsi": "Sulawesi Tengah",
+			"alamat": "Jl. Diponegoro No. 33, Palu",
+			"nama": "Bank Sampah Palu Mandiri"
+		},
+		{
+			"Provinsi": "Sulawesi Tenggara",
+			"alamat": "Jl. MT Haryono No. 66, Kendari",
+			"nama": "Bank Sampah Kendari Asri"
+		},
+		{
+			"Provinsi": "Sulawesi Barat",
+			"alamat": "Jl. Poros Mamuju No. 23, Mamuju",
+			"nama": "Bank Sampah Mamuju Lestari"
+		},
+		{
+			"Provinsi": "Kalimantan Timur",
+			"alamat" : "Jl. Lambung Mangkurat No. 28, Samarinda",
+			"nama" : "Bank Sampah Samarinda Bersih"
+		},
+		{
+			"Provinsi": "Kalimantan Timur",
+			"alamat" : "Jl. Juanda No. 15, Samarinda Utara",
+			"nama" : "Bank Sampah Mahakam Sejahtera"
+		},
+		{
+			"Provinsi": "Kalimantan Timur",
+			"alamat" : "Jl. Slamet Riyadi No. 45, Bontang",
+			"nama" : "Bank Sampah Bontang Asri"
+		},
+		{
+			"Provinsi": "Jawa Barat",
+			"alamat" : "Jl. Asia Afrika No. 77, Bogor",
+			"nama" : "Bank Sampah Bogor Hijau"
+		},
+		{
+			"Provinsi": "Jawa Barat",
+			"alamat" : "Jl. Otista No. 56, Depok",
+			"nama" : "Bank Sampah Depok Mandiri"
+		},
+		{
+			"Provinsi": "Jawa Barat",
+			"alamat" : "Jl. Veteran No. 33, Cirebon",
+			"nama" : "Bank Sampah Cirebon Bersih"
+		},
+		{
+			"Provinsi": "Jawa Timur",
+			"alamat" : "Jl. Gajah Mada No. 90, Kediri",
+			"nama" : "Bank Sampah Kediri Asri"
+		},
+		{
+			"Provinsi": "Jawa Timur",
+			"alamat" : "Jl. Diponegoro No. 125, Madiun",
+			"nama" : "Bank Sampah Madiun Lestari"
+		},
+		{
+			"Provinsi": "Jawa Tengah",
+			"alamat" : "Jl. Ahmad Yani No. 44, Pekalongan",
+			"nama" : "Bank Sampah Pekalongan Bersih"
+		},
+		{
+			"Provinsi": "Jawa Tengah",
+			"alamat" : "Jl. Sudirman No. 78, Tegal",
+			"nama" : "Bank Sampah Tegal Mandiri"
+		},
+		{
+			"Provinsi": "Kalimantan Selatan",
+			"alamat" : "Jl. Pramuka No. 55, Banjarbaru",
+			"nama" : "Bank Sampah Banjarbaru Hijau"
+		},
+		{
+			"Provinsi": "Kalimantan Selatan",
+			"alamat" : "Jl. Pahlawan No. 23, Martapura",
+			"nama" : "Bank Sampah Martapura Asri"
+		},
+		{
+			"Provinsi": "Sulawesi Utara",
+			"alamat" : "Jl. Wolter Monginsidi No. 45, Bitung",
+			"nama" : "Bank Sampah Bitung Bersih"
+		},
+		{
+			"Provinsi": "Sulawesi Utara",
+			"alamat" : "Jl. Pierre Tendean No. 67, Tomohon",
+			"nama" : "Bank Sampah Tomohon Sejahtera"
+		},
+		{
+			"Provinsi": "Sulawesi Tengah",
+			"alamat" : "Jl. Moh. Hatta No. 89, Parigi",
+			"nama" : "Bank Sampah Parigi Moutong"
+		},
+		{
+			"Provinsi": "Sulawesi Tengah",
+			"alamat" : "Jl. Trans Sulawesi No. 34, Toli-Toli",
+			"nama" : "Bank Sampah Toli-Toli Mandiri"
+		},
+		{
+			"Provinsi": "Sulawesi Selatan",
+			"alamat" : "Jl. Veteran Selatan No. 88, Pare-Pare",
+			"nama" : "Bank Sampah Pare-Pare Asri"
+		},
+		{
+			"Provinsi": "Sulawesi Selatan",
+			"alamat" : "Jl. Pettarani No. 56, Bone",
+			"nama" : "Bank Sampah Bone Sejahtera"
+		},
+		{
+			"Provinsi": "Kalimantan Barat",
+			"alamat" : "Jl. Veteran No. 45, Singkawang",
+			"nama" : "Bank Sampah Singkawang Bersih"
+		},
+		{
+			"Provinsi": "Kalimantan Barat",
+			"alamat" : "Jl. Gajah Mada No. 67, Sintang",
+			"nama" : "Bank Sampah Sintang Lestari"
 		}
 	],
-	"saldo_bank_sampah" : 99880380,
+	"saldo_bank_sampah" : 100000,
 	"sampah" : 
 	[
 		{
-			"deskripsi" : "Botol plastik, kemasan plastik, dll.",
-			"kategori" : "Anorganik",
-			"nama" : "Plastik",
-			"poin_per_kg" : 100
+			"deskripsi": "Sampah plastik umum seperti kantong plastik, kemasan makanan, dll.",
+			"nama": "Sampah Plastik",
+			"poin_per_kg": 20
 		},
 		{
-			"deskripsi" : "Koran bekas, kardus, kertas printer.",
-			"kategori" : "Anorganik",
-			"nama" : "Kertas",
-			"poin_per_kg" : 50
+			"deskripsi": "Botol plastik bekas minuman, botol sampo, botol pembersih, dll.",
+			"nama": "Botol Plastik",
+			"poin_per_kg": 25
 		},
 		{
-			"deskripsi" : "Kaleng aluminium, besi bekas.",
-			"kategori" : "Anorganik",
-			"nama" : "Logam",
-			"poin_per_kg" : 200
+			"deskripsi": "Koran bekas, majalah lama, kertas HVS, buku bekas.",
+			"nama": "Sampah Kertas",
+			"poin_per_kg": 15
 		},
 		{
-			"deskripsi" : "Sisa makanan organik seperti nasi, sayur, buah.",
-			"kategori" : "Organik",
-			"nama" : "Sisa Makanan",
-			"poin_per_kg" : 10
+			"deskripsi": "Kardus bekas packaging, kardus mie, kardus susu, dll.",
+			"nama": "Kardus Bekas",
+			"poin_per_kg": 25
 		},
 		{
-			"deskripsi" : "Kardus Mie dan lainlain",
-			"nama" : "Kardus",
-			"poin_per_kg" : 100
+			"deskripsi": "Kaleng minuman, kaleng makanan, kaleng cat kecil.",
+			"nama": "Kaleng Bekas",
+			"poin_per_kg": 30
 		},
 		{
-			"deskripsi" : "kain, sempak bekas, intinya kain kain bekas",
-			"nama" : "Tekstil",
-			"poin_per_kg" : 200
+			"deskripsi": "Besi tua, pagar besi, komponen mesin bekas.",
+			"nama": "Besi",
+			"poin_per_kg": 40
+		},
+		{
+			"deskripsi": "Komponen aluminium, peralatan dapur aluminium bekas.",
+			"nama": "Aluminium",
+			"poin_per_kg": 70
+		},
+		{
+			"deskripsi": "Kabel tembaga, pipa tembaga, komponen elektronik bekas.",
+			"nama": "Tembaga",
+			"poin_per_kg": 350
 		}
 	],
 	"transactions" : 
@@ -266,348 +435,6 @@
 			"poin_diterima" : 2000,
 			"tanggal" : "2025-05-11",
 			"username" : "ridwan"
-		},
-		{
-			"berat_kg" : 10.0,
-			"id_transaksi" : "TRX6",
-			"jenis_sampah" : "Logam",
-			"poin_diterima" : 2000,
-			"tanggal" : "2025-05-11",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "NBI",
-			"id_transaksi" : "TRXU7",
-			"no_rekening" : "12345678910",
-			"nominal" : 880,
-			"poin_ditukar" : 88,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"berat_kg" : 10000000.0,
-			"id_transaksi" : "TRX8",
-			"jenis_sampah" : "Logam",
-			"poin_diterima" : 2000000000,
-			"tanggal" : "2025-05-11",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 999,
-			"id_transaksi" : "TRXB9",
-			"jumlah" : 1,
-			"nama_barang" : "Set Gelas Kaca 6pcs",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 599,
-			"id_transaksi" : "TRXB10",
-			"jumlah" : 20,
-			"nama_barang" : "Sapu Lantai + Pengki",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BMW",
-			"id_transaksi" : "TRXU11",
-			"no_rekening" : "78901121",
-			"nominal" : 900000,
-			"poin_ditukar" : 90000,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BTN",
-			"id_transaksi" : "TRXU12",
-			"no_rekening" : "1234567",
-			"nominal" : 10000,
-			"poin_ditukar" : 1000,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BTN",
-			"id_transaksi" : "TRXU13",
-			"no_rekening" : "2714745734",
-			"nominal" : 100000,
-			"poin_ditukar" : 10000,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Bank Kaltimtara",
-			"id_transaksi" : "TRXU14",
-			"no_rekening" : "12345678910",
-			"nominal" : 10000,
-			"poin_ditukar" : 1000,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Mandiri",
-			"id_transaksi" : "TRXU15",
-			"no_rekening" : "12345678910",
-			"nominal" : 10000,
-			"poin_ditukar" : 1000,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BRI",
-			"id_transaksi" : "TRXU16",
-			"no_rekening" : "12345678910",
-			"nominal" : 2999900,
-			"poin_ditukar" : 299990,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"berat_kg" : 1900.0,
-			"id_transaksi" : "TRX18",
-			"jenis_sampah" : "Logam",
-			"poin_diterima" : 380000,
-			"tanggal" : "2025-05-11",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BRI",
-			"id_transaksi" : "TRXU19",
-			"no_rekening" : "2345678109",
-			"nominal" : 2300,
-			"poin_ditukar" : 230,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Mandiri",
-			"id_transaksi" : "TRXU21",
-			"no_rekening" : "234352246768",
-			"nominal" : 1000,
-			"poin_ditukar" : 100,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Mandiri",
-			"id_transaksi" : "TRXU22",
-			"no_rekening" : "123456789010",
-			"nominal" : 1380,
-			"poin_ditukar" : 138,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Bank Kaltimtara",
-			"id_transaksi" : "TRXU23",
-			"no_rekening" : "123456781919",
-			"nominal" : 97380,
-			"poin_ditukar" : 9738,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Mandiri",
-			"id_transaksi" : "TRXU24",
-			"no_rekening" : "12345678910",
-			"nominal" : 10,
-			"poin_ditukar" : 1,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BRI",
-			"id_transaksi" : "TRXU25",
-			"no_rekening" : "12345678910",
-			"nominal" : 120,
-			"poin_ditukar" : 12,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Mandiri",
-			"id_transaksi" : "TRXU26",
-			"no_rekening" : "1092033977357",
-			"nominal" : 120,
-			"poin_ditukar" : 12,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BRI",
-			"id_transaksi" : "TRXU27",
-			"no_rekening" : "1212121212121",
-			"nominal" : 230,
-			"poin_ditukar" : 23,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "73f73",
-			"id_transaksi" : "TRXU28",
-			"no_rekening" : "12345678910",
-			"nominal" : 120,
-			"poin_ditukar" : 12,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Bank Kaltimtara",
-			"id_transaksi" : "TRXU29",
-			"no_rekening" : "12342322323232",
-			"nominal" : 120,
-			"poin_ditukar" : 12,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Bank Kaltimtara",
-			"id_transaksi" : "TRXU30",
-			"no_rekening" : "234567898989",
-			"nominal" : 1240,
-			"poin_ditukar" : 124,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Mandiri",
-			"id_transaksi" : "TRXU31",
-			"no_rekening" : "2313121221",
-			"nominal" : 13210,
-			"poin_ditukar" : 1321,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BNI",
-			"id_transaksi" : "TRXU32",
-			"no_rekening" : "32232323232",
-			"nominal" : 2330,
-			"poin_ditukar" : 233,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "Bank Kaltimtara",
-			"id_transaksi" : "TRXU33",
-			"no_rekening" : "323232323232",
-			"nominal" : 230,
-			"poin_ditukar" : 23,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"bank" : "BCA",
-			"id_transaksi" : "TRXU34",
-			"no_rekening" : "121332342313",
-			"nominal" : 2230,
-			"poin_ditukar" : 223,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 1990,
-			"id_transaksi" : "TRXB35",
-			"jumlah" : 1,
-			"nama_barang" : "Dispenser Miyako",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 89990,
-			"id_transaksi" : "TRXB36",
-			"jumlah" : 1,
-			"nama_barang" : "iPhone 13 128GB",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 89990,
-			"id_transaksi" : "TRXB37",
-			"jumlah" : 1,
-			"nama_barang" : "iPhone 13 128GB",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 3499,
-			"id_transaksi" : "TRXB38",
-			"jumlah" : 3,
-			"nama_barang" : "Tempat Sampah 3in1 60L",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 2499,
-			"id_transaksi" : "TRXB39",
-			"jumlah" : 2,
-			"nama_barang" : "Miyako Rice Cooker MCM-508",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 899,
-			"id_transaksi" : "TRXB40",
-			"jumlah" : 5,
-			"nama_barang" : "Kaos Polos Premium",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 899,
-			"id_transaksi" : "TRXB41",
-			"jumlah" : 25,
-			"nama_barang" : "Kaos Polos Premium",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 599,
-			"id_transaksi" : "TRXB42",
-			"jumlah" : 2,
-			"nama_barang" : "Sapu Lantai + Pengki",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 899,
-			"id_transaksi" : "TRXB43",
-			"jumlah" : 2,
-			"nama_barang" : "Kaos Polos Premium",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 89990,
-			"id_transaksi" : "TRXB44",
-			"jumlah" : 1,
-			"nama_barang" : "iPhone 13 128GB",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 29990,
-			"id_transaksi" : "TRXB45",
-			"jumlah" : 1,
-			"nama_barang" : "Air Purifier Sharp",
-			"tipe" : "tukar_barang",
-			"username" : "ridwan"
-		},
-		{
-			"harga_poin" : 4990,
-			"id_transaksi" : "TRXB46",
-			"jumlah" : 1,
-			"nama_barang" : "Blender Philips HR2157",
-			"tipe" : "tukar_barang",
-			"username" : "riyadi"
-		},
-		{
-			"berat_kg" : 2.0,
-			"id_transaksi" : "TRX47",
-			"jenis_sampah" : "Logam",
-			"poin_diterima" : 400,
-			"tanggal" : "2025-05-11",
-			"username" : "riyadi"
 		}
 	],
 	"users" : 
@@ -673,48 +500,6 @@
 			"poin" : 18110,
 			"role" : "nasabah",
 			"username" : "riyadi"
-		},
-		{
-			"password" : "makan",
-			"poin" : 0,
-			"role" : "nasabah",
-			"username" : "riyadi"
-		},
-		{
-			"password" : "enak",
-			"poin" : 0,
-			"role" : "nasabah",
-			"username" : "makan"
-		},
-		{
-			"password" : "234",
-			"poin" : 0,
-			"role" : "nasabah",
-			"username" : "ridwan"
-		},
-		{
-			"password" : "23",
-			"poin" : 0,
-			"role" : "nasabah",
-			"username" : "23"
-		},
-		{
-			"password" : "456",
-			"poin" : 0,
-			"role" : "nasabah",
-			"username" : "rdw"
-		},
-		{
-			"password" : "ere",
-			"poin" : 0,
-			"role" : "nasabah",
-			"username" : "ere"
-		},
-		{
-			"password" : "enak",
-			"poin" : 0,
-			"role" : "nasabah",
-			"username" : "makan"
 		}
 	]
 }
