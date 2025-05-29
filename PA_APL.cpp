@@ -536,17 +536,112 @@ void lihatDaftarPetugas() {
 
 // Tambah Data Petugas
 void tambahPetugas() {
-    return;
+    string username, password, role;
+
+    cout << "\n╔════════════════════════════════════════════╗\n";
+    cout << "║           TAMBAH PETUGAS BARU              ║\n";
+    cout << "╠════════════════════════════════════════════╣\n";
+    
+    
+    cin.ignore();
+    cout << "   Nama Barang : ";
+    getline(cin, username);
+    
+    for (const auto& users : database["users"]) {
+        string existingName = users["username"].asString();
+        
+        if (existingName == username) {
+            cout << "\n╔════════════════════════════════════════════╗\n";
+            cout << "║          USERNAME SUDAH ADA!               ║\n";
+            cout << "║    Silakan gunakan username lain.          ║\n";
+            cout << "╚════════════════════════════════════════════╝\n";
+            cout << "\nTekan Enter untuk kembali...";
+            cin.get();
+            return;
+        }
+    }
+
+    cout << "╠════════════════════════════════════════════╣\n";
+    cout << "   Password  : ";
+    cin >> password;
+    cout << "╚════════════════════════════════════════════╝\n";
+
+    Json::Value usersBaru;
+    usersBaru["username"] = username;
+    usersBaru["password"] = password;
+    usersBaru["role"] = "petugas";
+
+    database["users"].append(usersBaru);
+    saveDatabase();
+    
+    cout << "\n╔════════════════════════════════════════════╗\n";
+    cout << "║         PETUGAS BERHASIL DITAMBAHKAN!      ║\n";
+    cout << "╚════════════════════════════════════════════╝\n";
+    cout << "\nTekan Enter untuk kembali...";
+    cin.ignore();
+    cin.get();
 }
 
 // Ubah Data Petugas
 void ubahPetugas() {
-    return;
+    lihatDaftarPetugas();
+
+    string username;
+    cout << "\nMasukkan username petugas yang ingin diubah: ";
+    cin >> username;
+
+    for (auto& users : database["users"]) {
+        if (users["username"].asString() == username && users["role"].asString() == "petugas") {
+            cout << "\n╔════════════════════════════════════════════╗\n";
+            cout << "║              UBAH DATA PETUGAS             ║\n";
+            cout << "╠════════════════════════════════════════════╣\n";
+            cout << "   Username Baru (sebelumnya: " << users["username"].asString() << "): ";
+            cin.ignore();
+            string nama;
+            getline(cin, nama);
+            if (!nama.empty()) users["username"] = nama;
+            cout << "╠════════════════════════════════════════════╣\n";
+            cout << "   Password Baru (sebelumnya: " << users["password"].asString() << "): ";
+            string password;
+            getline(cin, password);
+            if (!password.empty()) users["password"] = password;
+            cout << "╚════════════════════════════════════════════╝\n";
+
+            saveDatabase();
+            cout << "Data petugas berhasil diubah!\n";
+            return;
+        }
+    }
+    cout << "Petugas tidak ditemukan!\n";
 }
 
 // Hapus Data Petugas
 void hapusPetugas() {
-    return;
+    lihatDaftarPetugas();
+
+    string username;
+    cout << "\nMasukkan username petugas yang ingin dihapus: ";
+    cin >> username;
+
+    Json::Value& petugasArray = database["users"];
+    for (Json::ArrayIndex i = 0; i < petugasArray.size(); i++) {
+        if (petugasArray[i]["username"].asString() == username && petugasArray[i]["role"].asString() == "petugas") {
+            cout << "Apakah anda yakin ingin menghapus petugas '" 
+                 << petugasArray[i]["username"].asString() << "'? (y/n): ";
+            char konfirmasi;
+            cin >> konfirmasi;
+            
+            if (konfirmasi == 'y' || konfirmasi == 'Y') {
+                petugasArray.removeIndex(i, &petugasArray[petugasArray.size() - 1]);
+                saveDatabase();
+                cout << "Petugas berhasil dihapus!\n";
+            } else {
+                cout << "Penghapusan dibatalkan.\n";
+            }
+            return;
+        }
+    }
+    cout << "Username tidak ditemukan!\n";
 }
 
 // Menu Manajemen Petugas
