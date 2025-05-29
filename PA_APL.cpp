@@ -299,11 +299,11 @@ void manajemenBarang() {
 void manajemenTukarUang() {
     while (true) {
         cout << "\n╔════════════════════════════════════════════╗\n";
-        cout << "║          MANAJEMEN TUKAR UANG             ║\n";
+        cout << "║          MANAJEMEN TUKAR UANG              ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
-        cout << "║  1. Lihat Daftar Penukaran Uang           ║\n";
-        cout << "║  2. Tambah Saldo Uang Bank Sampah         ║\n";
-        cout << "║  0. Kembali                               ║\n";
+        cout << "║  1. Lihat Daftar Penukaran Uang            ║\n";
+        cout << "║  2. Tambah Saldo Uang Bank Sampah          ║\n";
+        cout << "║  0. Kembali                                ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
         cout << "   Pilih menu: ";
         int pilih;
@@ -313,7 +313,7 @@ void manajemenTukarUang() {
         if (pilih == 1) {
             cout << "\nDaftar Penukaran Uang:\n";
             cout << "╔════╦═══════════════╦════════════╦════════════╦══════════════════════╦════════════╗\n";
-            cout << "║ No ║ Username      ║ Poin       ║ Nominal    ║ No Rekening         ║ Bank       ║\n";
+            cout << "║ No ║ Username      ║ Poin       ║ Nominal    ║ No Rekening          ║ Bank       ║\n";
             cout << "╠════╬═══════════════╬════════════╬════════════╬══════════════════════╬════════════╣\n";
             int no = 1;
             bool ada = false;
@@ -481,6 +481,65 @@ void manajemenSampah() {
     }
 }
 
+// === Fitur Manajemen Petugas ===
+
+// Lihat Daftar Petugas
+void lihatDaftarPetugas() {
+    cout << "\n╔════╦═══════════════════════════════════════╗\n";
+    cout << "║ No ║            DAFTAR PETUGAS             ║\n";
+    cout << "╠════╬═══════════════════════════════════════╣\n";
+    int no = 1;
+    for (auto& p : database["users"]) {
+        if (p["role"].asString() == "petugas") {
+            cout << "║ " << setw(2) << right << no++ << " " 
+                 << "║  " << setw(35) << left << p["username"].asString() << "  ║\n";
+        }
+    }
+    cout << "╚════╩═══════════════════════════════════════╝\n";
+}
+
+// Tambah Data Petugas
+void tambahPetugas() {
+    return;
+}
+
+// Ubah Data Petugas
+void ubahPetugas() {
+    return;
+}
+
+// Hapus Data Petugas
+void hapusPetugas() {
+    return;
+}
+
+// Menu Manajemen Petugas
+void manajemenPetugas() {
+    int pilih;
+    while (true) {
+        cout << "\n╔════════════════════════════════════════════╗\n";
+        cout << "║           MANAJEMEN DATA PETUGAS          ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "║  1. Lihat Daftar Petugas                  ║\n";
+        cout << "║  2. Tambah Data Petugas                   ║\n";
+        cout << "║  3. Ubah Data Petugas                     ║\n";
+        cout << "║  4. Hapus Data Petugas                    ║\n";
+        cout << "║  0. Kembali                               ║\n";
+        cout << "╠════════════════════════════════════════════╣\n";
+        cout << "   Pilih menu: ";
+        cin >> pilih;
+        cout << "╚════════════════════════════════════════════╝\n";
+        switch (pilih) {
+            case 1: lihatDaftarPetugas(); break;
+            case 2: tambahPetugas(); break;
+            case 3: ubahPetugas(); break;
+            case 4: hapusPetugas(); break;
+            case 0: return;
+            default: cout << "Pilihan tidak tersedia!\n";
+        }
+    }
+}
+
 // Menu Admin
 void adminMenu() {
     int choice;
@@ -492,7 +551,8 @@ void adminMenu() {
         cout << "║  1. Manajemen Data Barang              ║\n";
         cout << "║  2. Manajemen Tukar Uang               ║\n";
         cout << "║  3. Manajemen Detail Sampah            ║\n";
-        cout << "║  4. Laporan Transaksi                  ║\n";
+        cout << "║  4. Manajemen Petugas                  ║\n";
+        cout << "║  5. Laporan Transaksi                  ║\n";
         cout << "║  0. Keluar                             ║\n";
         cout << "╠════════════════════════════════════════╣\n";
         cout << "   Pilih menu: ";
@@ -507,7 +567,10 @@ void adminMenu() {
             case 3:
                 manajemenSampah();
                 break;
-            case 4: cout << "Laporan Transaksi\n";
+            case 4:
+                manajemenPetugas();
+                break;
+            case 5: cout << "Laporan Transaksi\n";
                 break;
             case 0:
                 return;
