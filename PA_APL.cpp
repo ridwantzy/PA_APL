@@ -1646,6 +1646,7 @@ void inputTransaksiPetugas() {
     transaksiBaru["poin_diterima"] = poinDiterima;
     transaksiBaru["tanggal"] = "2025-05-11"; // Tanggal bisa diubah sesuai kebutuhan
     transaksiBaru["username"] = username;
+    transaksiBaru["petugas"] = currentUser.username;
 
     // Tambahkan transaksi ke database
     database["transactions"].append(transaksiBaru);
@@ -1664,16 +1665,29 @@ void inputTransaksiPetugas() {
 
 // Fungsi untuk melihat catatan transaksi
 void lihatCatatanTransaksi() {
+    bool adaCatatanTransaksi = false;
     cout << "Lihat Catatan Transaksi\n";
     cout << "Catatan Transaksi:\n";
+    cout << "╔═════════╦═════════════════════╦═══════════════╦═══════════════╦═══════════════╦════════════════╗\n";
+    cout << "║ ID      ║ Username            ║ Tanggal       ║ Jenis Sampah  ║ Berat Sampah  ║ Poin Diterima  ║\n";
+    cout << "╠═════════╬═════════════════════╬═══════════════╬═══════════════╬═══════════════╬════════════════╣\n";
     for (const auto& trx : database["transactions"]) {
-        cout << "- ID: " << trx["id_transaksi"].asString()
-            << ", Username: " << trx["username"].asString()
-            << ", Tanggal: " << trx["tanggal"].asString()
-            << ", Jenis: " << trx["jenis_sampah"].asString()
-            << ", Berat: " << trx["berat_kg"].asDouble() << "kg"
-            << ", Poin: " << trx["poin_diterima"].asInt() << endl;
+        if (trx["petugas"].asString() != currentUser.username) {
+            continue;
+        }
+        cout << "║ " << setw(8) << left << trx["id_transaksi"].asString()
+             << "║ " << setw(20) << left << trx["username"].asString()
+             << "║ " << setw(13) << left << trx["tanggal"].asString()
+             << " ║ " << setw(13) << left << trx["jenis_sampah"].asString()
+             << " ║ " << setw(12) << left << trx["berat_kg"].asDouble() << "kg"
+             << "║ " << setw(15) << left << trx["poin_diterima"].asInt() << "║\n";
+        adaCatatanTransaksi = true;
     }
+    
+    if (!adaCatatanTransaksi) {
+        cout << "║                            Tidak ada catatan transaksi.                                        ║\n";
+    }
+    cout << "╚═════════╩═════════════════════╩═══════════════╩═══════════════╩═══════════════╩════════════════╝\n";
 }
 // Fungsi untuk menu Petugas
 void petugasMenu() {

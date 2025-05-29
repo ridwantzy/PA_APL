@@ -402,7 +402,8 @@
 			"jenis_sampah" : "Plastik",
 			"poin_diterima" : 250,
 			"tanggal" : "2025-04-05",
-			"username" : "nasabah1"
+			"username" : "nasabah1",
+			"petugas" : "petugas1"
 		},
 		{
 			"berat_kg" : 1.8,
@@ -410,7 +411,8 @@
 			"jenis_sampah" : "Kertas",
 			"poin_diterima" : 90,
 			"tanggal" : "2025-04-06",
-			"username" : "nasabah1"
+			"username" : "nasabah1",
+			"petugas" : "petugas1"
 		},
 		{
 			"berat_kg" : 34.0,
@@ -418,7 +420,8 @@
 			"jenis_sampah" : "Kertas",
 			"poin_diterima" : 1700,
 			"tanggal" : "2025-05-11",
-			"username" : "ridwan"
+			"username" : "ridwan",
+			"petugas" : "petugas1"
 		},
 		{
 			"berat_kg" : 56.0,
@@ -426,7 +429,8 @@
 			"jenis_sampah" : "Plastik",
 			"poin_diterima" : 5600,
 			"tanggal" : "2025-05-11",
-			"username" : "king"
+			"username" : "king",
+			"petugas" : "petugas1"
 		},
 		{
 			"berat_kg" : 10.0,
@@ -434,7 +438,8 @@
 			"jenis_sampah" : "Logam",
 			"poin_diterima" : 2000,
 			"tanggal" : "2025-05-11",
-			"username" : "ridwan"
+			"username" : "ridwan",
+			"petugas" : "petugas1"
 		}
 	],
 	"users" : 
