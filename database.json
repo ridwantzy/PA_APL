@@ -5,7 +5,7 @@
 			"harga_poin" : 89990,
 			"id" : "BRG001",
 			"nama" : "iPhone 13 128GB",
-			"stok" : 5
+			"stok" : 2
 		},
 		{
 			"harga_poin" : 59990,
@@ -17,7 +17,7 @@
 			"harga_poin" : 2499,
 			"id" : "BRG003",
 			"nama" : "Miyako Rice Cooker MCM-508",
-			"stok" : 15
+			"stok" : 13
 		},
 		{
 			"harga_poin" : 2990,
@@ -47,19 +47,19 @@
 			"harga_poin" : 899,
 			"id" : "BRG008",
 			"nama" : "Kaos Polos Premium",
-			"stok" : 50
+			"stok" : 18
 		},
 		{
 			"harga_poin" : 3499,
 			"id" : "BRG009",
 			"nama" : "Tempat Sampah 3in1 60L",
-			"stok" : 30
+			"stok" : 27
 		},
 		{
 			"harga_poin" : 599,
 			"id" : "BRG010",
 			"nama" : "Sapu Lantai + Pengki",
-			"stok" : 20
+			"stok" : 18
 		},
 		{
 			"harga_poin" : 4990,
@@ -89,13 +89,13 @@
 			"harga_poin" : 29990,
 			"id" : "BRG015",
 			"nama" : "Air Purifier Sharp",
-			"stok" : 6
+			"stok" : 5
 		},
 		{
 			"harga_poin" : 1990,
 			"id" : "BRG016",
 			"nama" : "Dispenser Miyako",
-			"stok" : 22
+			"stok" : 21
 		},
 		{
 			"harga_poin" : 24990,
@@ -181,7 +181,7 @@
 			"nama" : "Bank Sampah Bekasi Asri"
 		}
 	],
-	"saldo_bank_sampah" : 10000002,
+	"saldo_bank_sampah" : 99880280,
 	"sampah" : 
 	[
 		{
@@ -328,6 +328,281 @@
 			"poin_ditukar" : 10000,
 			"tipe" : "tukar_uang",
 			"username" : "ridwan"
+		},
+		{
+			"bank" : "Bank Kaltimtara",
+			"id_transaksi" : "TRXU14",
+			"no_rekening" : "12345678910",
+			"nominal" : 10000,
+			"poin_ditukar" : 1000,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Mandiri",
+			"id_transaksi" : "TRXU15",
+			"no_rekening" : "12345678910",
+			"nominal" : 10000,
+			"poin_ditukar" : 1000,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BRI",
+			"id_transaksi" : "TRXU16",
+			"no_rekening" : "12345678910",
+			"nominal" : 2999900,
+			"poin_ditukar" : 299990,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BRI",
+			"id_transaksi" : "TRXU17",
+			"no_rekening" : "2345678910",
+			"nominal" : -1478995170,
+			"poin_ditukar" : 1999584131,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 1900.0,
+			"id_transaksi" : "TRX18",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : 380000,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BRI",
+			"id_transaksi" : "TRXU19",
+			"no_rekening" : "2345678109",
+			"nominal" : 2300,
+			"poin_ditukar" : 230,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 1000000000.0,
+			"id_transaksi" : "TRX20",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : -2147483648,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Mandiri",
+			"id_transaksi" : "TRXU21",
+			"no_rekening" : "234352246768",
+			"nominal" : 1000,
+			"poin_ditukar" : 100,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Mandiri",
+			"id_transaksi" : "TRXU22",
+			"no_rekening" : "123456789010",
+			"nominal" : 1380,
+			"poin_ditukar" : 138,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Bank Kaltimtara",
+			"id_transaksi" : "TRXU23",
+			"no_rekening" : "123456781919",
+			"nominal" : 97380,
+			"poin_ditukar" : 9738,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Mandiri",
+			"id_transaksi" : "TRXU24",
+			"no_rekening" : "12345678910",
+			"nominal" : 10,
+			"poin_ditukar" : 1,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BRI",
+			"id_transaksi" : "TRXU25",
+			"no_rekening" : "12345678910",
+			"nominal" : 120,
+			"poin_ditukar" : 12,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Mandiri",
+			"id_transaksi" : "TRXU26",
+			"no_rekening" : "1092033977357",
+			"nominal" : 120,
+			"poin_ditukar" : 12,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BRI",
+			"id_transaksi" : "TRXU27",
+			"no_rekening" : "1212121212121",
+			"nominal" : 230,
+			"poin_ditukar" : 23,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "73f73",
+			"id_transaksi" : "TRXU28",
+			"no_rekening" : "12345678910",
+			"nominal" : 120,
+			"poin_ditukar" : 12,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Bank Kaltimtara",
+			"id_transaksi" : "TRXU29",
+			"no_rekening" : "12342322323232",
+			"nominal" : 120,
+			"poin_ditukar" : 12,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Bank Kaltimtara",
+			"id_transaksi" : "TRXU30",
+			"no_rekening" : "234567898989",
+			"nominal" : 1240,
+			"poin_ditukar" : 124,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Mandiri",
+			"id_transaksi" : "TRXU31",
+			"no_rekening" : "2313121221",
+			"nominal" : 13210,
+			"poin_ditukar" : 1321,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BNI",
+			"id_transaksi" : "TRXU32",
+			"no_rekening" : "32232323232",
+			"nominal" : 2330,
+			"poin_ditukar" : 233,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "Bank Kaltimtara",
+			"id_transaksi" : "TRXU33",
+			"no_rekening" : "323232323232",
+			"nominal" : 230,
+			"poin_ditukar" : 23,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BCA",
+			"id_transaksi" : "TRXU34",
+			"no_rekening" : "121332342313",
+			"nominal" : 2230,
+			"poin_ditukar" : 223,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 1990,
+			"id_transaksi" : "TRXB35",
+			"jumlah" : 1,
+			"nama_barang" : "Dispenser Miyako",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 89990,
+			"id_transaksi" : "TRXB36",
+			"jumlah" : 1,
+			"nama_barang" : "iPhone 13 128GB",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 89990,
+			"id_transaksi" : "TRXB37",
+			"jumlah" : 1,
+			"nama_barang" : "iPhone 13 128GB",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 3499,
+			"id_transaksi" : "TRXB38",
+			"jumlah" : 3,
+			"nama_barang" : "Tempat Sampah 3in1 60L",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 2499,
+			"id_transaksi" : "TRXB39",
+			"jumlah" : 2,
+			"nama_barang" : "Miyako Rice Cooker MCM-508",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 899,
+			"id_transaksi" : "TRXB40",
+			"jumlah" : 5,
+			"nama_barang" : "Kaos Polos Premium",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 899,
+			"id_transaksi" : "TRXB41",
+			"jumlah" : 25,
+			"nama_barang" : "Kaos Polos Premium",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 599,
+			"id_transaksi" : "TRXB42",
+			"jumlah" : 2,
+			"nama_barang" : "Sapu Lantai + Pengki",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 899,
+			"id_transaksi" : "TRXB43",
+			"jumlah" : 2,
+			"nama_barang" : "Kaos Polos Premium",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 89990,
+			"id_transaksi" : "TRXB44",
+			"jumlah" : 1,
+			"nama_barang" : "iPhone 13 128GB",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 29990,
+			"id_transaksi" : "TRXB45",
+			"jumlah" : 1,
+			"nama_barang" : "Air Purifier Sharp",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
 		}
 	],
 	"users" : 
@@ -350,7 +625,7 @@
 		},
 		{
 			"password" : "234",
-			"poin" : 1999886121,
+			"poin" : 9640618,
 			"role" : "nasabah",
 			"username" : "ridwan"
 		},
@@ -395,6 +670,18 @@
 			"poin" : 0,
 			"role" : "nasabah",
 			"username" : "makan"
+		},
+		{
+			"password" : "234",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "ridwan"
+		},
+		{
+			"password" : "23",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "23"
 		}
 	]
 }
