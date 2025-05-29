@@ -147,7 +147,7 @@ void lihatDaftarBarang() {
     cout << "╠═══════════════════════════════════════════════════╬═══════════╬═════════╣\n";
 
     for (const auto& barang : database["barang"]) {
-        cout << "║ " << left << setw(48) << barang["nama"].asString() << " ║ "
+        cout << "║ " << left << setw(49) << barang["nama"].asString() << " ║ "
              << right << setw(9) << barang["harga_poin"].asString() << " ║ "
              << right << setw(7) << barang["stok"].asString() << " ║\n";
     }
@@ -563,11 +563,11 @@ void manajemenPetugas() {
 void laporanPenerimaanSampah() {
     map<string, pair<double, int>> totalSampah; // jenis_sampah -> {total_kg, total_poin}
     
-    cout << "\n╔═══════════════════════════════════════════════════════════════╗\n";
-    cout << "║                   LAPORAN PENERIMAAN SAMPAH                    ║\n";
-    cout << "╠═══════════════╦═══════════════╦════════════════╦══════════════╣\n";
-    cout << "║ Jenis Sampah  ║ Total (KG)    ║ Total Poin     ║ Nilai (Rp)   ║\n";
-    cout << "╠═══════════════╬═══════════════╬════════════════╬══════════════╣\n";
+    cout << "\n╔══════════════════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║                              LAPORAN PENERIMAAN SAMPAH                           ║\n";
+    cout << "╠═══════════════════════╦══════════════════╦═══════════════════╦═══════════════════╣\n";
+    cout << "║     Jenis Sampah      ║    Total (KG)    ║    Total Poin     ║     Nilai (Rp)    ║\n";
+    cout << "╠═══════════════════════╬══════════════════╬═══════════════════╬═══════════════════╣\n";
 
     // Hitung total per jenis sampah
     for (const auto& trx : database["transactions"]) {
@@ -584,29 +584,29 @@ void laporanPenerimaanSampah() {
     double totalBeratAll = 0;
     int totalPoinAll = 0;
     for (const auto& item : totalSampah) {
-        cout << "║ " << left << setw(13) << item.first 
-             << "║ " << right << setw(13) << fixed << setprecision(2) << item.second.first 
-             << "║ " << right << setw(14) << item.second.second 
-             << "║ " << right << setw(12) << item.second.second * 100 << "║\n";
+        cout << "║ " << left << setw(22) << item.first 
+             << "║ " << right << setw(17) << fixed << setprecision(2) << item.second.first 
+             << "║ " << right << setw(18) << item.second.second 
+             << "║ " << right << setw(18) << item.second.second * 100 << "║\n";
         totalBeratAll += item.second.first;
         totalPoinAll += item.second.second;
     }
 
-    cout << "╠═══════════════╬═══════════════╬════════════════╬══════════════╣\n";
-    cout << "║ TOTAL        ║ " << right << setw(13) << totalBeratAll 
-         << "║ " << right << setw(14) << totalPoinAll 
-         << "║ " << right << setw(12) << totalPoinAll * 100 << "║\n";
-    cout << "╚═══════════════╩═══════════════╩════════════════╩══════════════╝\n";
+    cout << "╠═══════════════════════╬══════════════════╬═══════════════════╬═══════════════════╣\n";
+    cout << "║ TOTAL                 ║ " << right << setw(17) << totalBeratAll 
+         << "║ " << right << setw(18) << totalPoinAll 
+         << "║ " << right << setw(18) << totalPoinAll * 100 << "║\n";
+    cout << "╚═══════════════════════╩══════════════════╩═══════════════════╩═══════════════════╝\n";
 }
 
 void laporanPenukaranUang() {
     map<string, pair<int, int>> totalTukarUang; // bank -> {total_poin, total_nominal}
     
-    cout << "\n╔═══════════════════════════════════════════════════════════════╗\n";
-    cout << "║                LAPORAN PENUKARAN POIN KE UANG                  ║\n";
-    cout << "╠═══════════════╦═══════════════╦════════════════╦══════════════╣\n";
-    cout << "║ Bank Tujuan   ║ Jumlah        ║ Total Poin     ║ Total (Rp)   ║\n";
-    cout << "╠═══════════════╬═══════════════╬════════════════╬══════════════╣\n";
+    cout << "\n╔═════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║                   LAPORAN PENUKARAN POIN KE UANG                    ║\n";
+    cout << "╠═══════════════════════════════╦══════════════════╦══════════════════╣\n";
+    cout << "║ Bank Tujuan                   ║    Total Poin    ║    Total (Rp)    ║\n";
+    cout << "╠═══════════════════════════════╬══════════════════╬══════════════════╣\n";
 
     for (const auto& trx : database["transactions"]) {
         if (trx.isMember("tipe") && trx["tipe"].asString() == "tukar_uang") {
@@ -620,29 +620,30 @@ void laporanPenukaranUang() {
 
     int totalPoinTukar = 0, totalNominal = 0;
     for (const auto& item : totalTukarUang) {
-        cout << "║ " << left << setw(13) << item.first 
-             << "║ " << right << setw(13) << 1
-             << "║ " << right << setw(14) << item.second.first 
-             << "║ " << right << setw(12) << item.second.second << "║\n";
+        cout << "║ " << left << setw(29) << item.first 
+             << " ║ " << right << setw(16) << item.second.first 
+             << " ║ " << right << setw(16) << item.second.second << " ║\n";
         totalPoinTukar += item.second.first;
         totalNominal += item.second.second;
     }
     
-    cout << "╠═══════════════╬═══════════════╬════════════════╬══════════════╣\n";
-    cout << "║ TOTAL        ║ " << right << setw(13) << totalTukarUang.size()
-         << "║ " << right << setw(14) << totalPoinTukar 
-         << "║ " << right << setw(12) << totalNominal << "║\n";
-    cout << "╚═══════════════╩═══════════════╩════════════════╩══════════════╝\n";
+    cout << "╠═══════════════════════════════╬══════════════════╬══════════════════╣\n";
+    cout << "║ TOTAL                         ║ " << right << setw(16) << totalPoinTukar 
+         << " ║ " << right << setw(16) << totalNominal << " ║\n";
+    cout << "╚═══════════════════════════════╩══════════════════╩══════════════════╝\n";
+    cout << "\n╔═══════════════════════════════════════════════════════╗\n";
+    cout << "║  Total Transaksi Penukaran Uang: " << left << setw(21) << totalTukarUang.size() << "║\n";
+    cout << "╚═══════════════════════════════════════════════════════╝\n";
 }
 
 void laporanPenukaranBarang() {
     map<string, pair<int, int>> totalTukarBarang; // nama_barang -> {jumlah, total_poin}
     
-    cout << "\n╔═══════════════════════════════════════════════════════════════╗\n";
-    cout << "║                  LAPORAN PENUKARAN BARANG                      ║\n";
-    cout << "╠═══════════════╦═══════════════╦════════════════╦══════════════╣\n";
-    cout << "║ Nama Barang   ║ Jumlah        ║ Harga Poin     ║ Total Poin   ║\n";
-    cout << "╠═══════════════╬═══════════════╬════════════════╬══════════════╣\n";
+    cout << "\n╔═════════════════════════════════════════════════════════════════════╗\n";
+    cout << "║                      LAPORAN PENUKARAN BARANG                        ║\n";
+    cout << "╠════════════════════════════════════╦════════════╦════════════════════╣\n";
+    cout << "║ Nama Barang                        ║   Jumlah   ║    Total Poin      ║\n";
+    cout << "╠════════════════════════════════════╬════════════╬════════════════════╣\n";
 
     for (const auto& trx : database["transactions"]) {
         if (trx.isMember("tipe") && trx["tipe"].asString() == "tukar_barang") {
@@ -656,21 +657,26 @@ void laporanPenukaranBarang() {
 
     int totalJumlahBarang = 0, totalPoinBarang = 0;
     for (const auto& item : totalTukarBarang) {
-        cout << "║ " << left << setw(13) << item.first 
-             << "║ " << right << setw(13) << item.second.first
-             << "║ " << right << setw(14) << (item.second.second / item.second.first)
-             << "║ " << right << setw(12) << item.second.second << "║\n";
+        cout << "║ " << left << setw(34) << item.first 
+             << " ║ " << right << setw(10) << item.second.first
+             << " ║ " << right << setw(18) << item.second.second << " ║\n";
         totalJumlahBarang += item.second.first;
         totalPoinBarang += item.second.second;
     }
     
-    cout << "╠═══════════════╬═══════════════╬════════════════╬══════════════╣\n";
-    cout << "║ TOTAL        ║ " << right << setw(13) << totalJumlahBarang
-         << "║ " << right << setw(14) << "-"
-         << "║ " << right << setw(12) << totalPoinBarang << "║\n";
-    cout << "╚═══════════════╩═══════════════╩════════════════╩══════════════╝\n";
-}
+    cout << "╠════════════════════════════════════╬════════════╬════════════════════╣\n";
+    cout << "║ TOTAL                              ║ " 
+         << right << setw(10) << totalJumlahBarang
+         << " ║ " << right << setw(18) << totalPoinBarang << " ║\n";
+    cout << "╚════════════════════════════════════╩════════════╩════════════════════╝\n";
 
+    cout << "\n╔════════════════════════════════════════════════════════╗\n";
+    cout << "║               TOTAL NILAI PENUKARAN                    ║\n";
+    cout << "╠════════════════════════════════╦═══════════════════════╣\n";
+    cout << "║ Total Poin                     ║ " << right << setw(21) << totalPoinBarang << " ║\n";
+    cout << "║ Total Nilai (Rp)               ║ " << right << setw(21) << totalPoinBarang * 100 << " ║\n";
+    cout << "╚════════════════════════════════╩═══════════════════════╝\n";
+}
 
 // Laporan Transaksi
 void laporanTransaksi(){
@@ -679,10 +685,10 @@ void laporanTransaksi(){
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║            LAPORAN TRANSAKSI               ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
-        cout << "║  1. Laporan Penerimaan Sampah             ║\n";
-        cout << "║  2. Laporan Penukaran Poin ke Uang        ║\n";
-        cout << "║  3. Laporan Penukaran Barang              ║\n";
-        cout << "║  0. Kembali                               ║\n";
+        cout << "║  1. Laporan Penerimaan Sampah              ║\n";
+        cout << "║  2. Laporan Penukaran Poin ke Uang         ║\n";
+        cout << "║  3. Laporan Penukaran Barang               ║\n";
+        cout << "║  0. Kembali                                ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
         cout << "   Pilih menu: ";
         cin >> pilihan;

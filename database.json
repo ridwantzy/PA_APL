@@ -47,7 +47,6 @@
 			"harga_poin" : 899,
 			"id" : "BRG008",
 			"nama" : "Kaos Polos Premium",
-			"stok" : 18
 			"stok" : 49
 		},
 		{
@@ -84,7 +83,7 @@
 			"harga_poin" : 4990,
 			"id" : "BRG014",
 			"nama" : "Blender Philips HR2157",
-			"stok" : 18
+			"stok" : 17
 		},
 		{
 			"harga_poin" : 29990,
@@ -127,6 +126,12 @@
 			"id" : "Kulkas",
 			"nama" : "Makan",
 			"stok" : 0
+		},
+		{
+			"harga_poin" : 12,
+			"id" : "fasd",
+			"nama" : "Minum",
+			"stok" : 2
 		}
 	],
 	"lokasi_bank_sampah" : 
@@ -182,7 +187,7 @@
 			"nama" : "Bank Sampah Bekasi Asri"
 		}
 	],
-	"saldo_bank_sampah" : 99880280,
+	"saldo_bank_sampah" : 99880380,
 	"sampah" : 
 	[
 		{
@@ -358,15 +363,6 @@
 			"username" : "ridwan"
 		},
 		{
-			"bank" : "BRI",
-			"id_transaksi" : "TRXU17",
-			"no_rekening" : "2345678910",
-			"nominal" : -1478995170,
-			"poin_ditukar" : 1999584131,
-			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
 			"berat_kg" : 1900.0,
 			"id_transaksi" : "TRX18",
 			"jenis_sampah" : "Logam",
@@ -381,14 +377,6 @@
 			"nominal" : 2300,
 			"poin_ditukar" : 230,
 			"tipe" : "tukar_uang",
-			"username" : "ridwan"
-		},
-		{
-			"berat_kg" : 1000000000.0,
-			"id_transaksi" : "TRX20",
-			"jenis_sampah" : "Logam",
-			"poin_diterima" : -2147483648,
-			"tanggal" : "2025-05-11",
 			"username" : "ridwan"
 		},
 		{
@@ -604,6 +592,22 @@
 			"nama_barang" : "Air Purifier Sharp",
 			"tipe" : "tukar_barang",
 			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 4990,
+			"id_transaksi" : "TRXB46",
+			"jumlah" : 1,
+			"nama_barang" : "Blender Philips HR2157",
+			"tipe" : "tukar_barang",
+			"username" : "riyadi"
+		},
+		{
+			"berat_kg" : 2.0,
+			"id_transaksi" : "TRX47",
+			"jenis_sampah" : "Logam",
+			"poin_diterima" : 400,
+			"tanggal" : "2025-05-11",
+			"username" : "riyadi"
 		}
 	],
 	"users" : 
@@ -666,7 +670,7 @@
 		},
 		{
 			"password" : "123",
-			"poin" : 22700,
+			"poin" : 18110,
 			"role" : "nasabah",
 			"username" : "riyadi"
 		},
@@ -705,6 +709,12 @@
 			"poin" : 0,
 			"role" : "nasabah",
 			"username" : "ere"
+		},
+		{
+			"password" : "enak",
+			"poin" : 0,
+			"role" : "nasabah",
+			"username" : "makan"
 		}
 	]
 }
