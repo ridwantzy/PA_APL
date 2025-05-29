@@ -122,10 +122,10 @@
 			"stok" : 16
 		},
 		{
-			"harga_poin" : 12,
-			"id" : "Kulkas",
-			"nama" : "Makan",
-			"stok" : 0
+			"harga_poin" : 100,
+			"id" : "BRG21",
+			"nama" : "fortuner",
+			"stok" : 23
 		}
 	],
 	"lokasi_bank_sampah" : 
@@ -188,25 +188,25 @@
 			"deskripsi" : "Botol plastik, kemasan plastik, dll.",
 			"kategori" : "Anorganik",
 			"nama" : "Plastik",
-			"poin_per_kg" : 100
+			"poin_per_kg" : 50
 		},
 		{
 			"deskripsi" : "Koran bekas, kardus, kertas printer.",
 			"kategori" : "Anorganik",
 			"nama" : "Kertas",
-			"poin_per_kg" : 50
+			"poin_per_kg" : 100
 		},
 		{
 			"deskripsi" : "Kaleng aluminium, besi bekas.",
 			"kategori" : "Anorganik",
 			"nama" : "Logam",
-			"poin_per_kg" : 200
+			"poin_per_kg" : 300
 		},
 		{
 			"deskripsi" : "Sisa makanan organik seperti nasi, sayur, buah.",
 			"kategori" : "Organik",
 			"nama" : "Sisa Makanan",
-			"poin_per_kg" : 10
+			"poin_per_kg" : 50
 		},
 		{
 			"deskripsi" : "Kardus Mie dan lainlain",
@@ -216,7 +216,7 @@
 		{
 			"deskripsi" : "kain, sempak bekas, intinya kain kain bekas",
 			"nama" : "Tekstil",
-			"poin_per_kg" : 200
+			"poin_per_kg" : 100
 		}
 	],
 	"transactions" : 
