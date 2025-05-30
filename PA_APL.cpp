@@ -36,7 +36,13 @@ Json::Value readJSON(const string& filename) {
 }
 // Prosedur pesan pilihan tidak tersedia
 void pilihanTidakTersedia(){
-    cout << "\nMenu yang anda pilih tidak tersedia\n";
+    cout << "\n╔════════════════════════════════════════════╗\n";
+    cout << "║         PILIHAN TIDAK TERSEDIA!            ║\n";
+    cout << "║   Silakan pilih menu yang tersedia.        ║\n";
+    cout << "╚════════════════════════════════════════════╝\n";
+    cout << "Tekan Enter untuk melanjutkan...";
+    cin.ignore();
+    cin.get();
 }
 
 bool isValidRekening(const string& norek) {
@@ -107,6 +113,8 @@ void registerUser() {
             cout << "╔════════════════════════════════════════════╗\n";
             cout << "║          Username Sudah Terdaftar!         ║\n";
             cout << "╚════════════════════════════════════════════╝\n";
+            cout << "klik enter...";
+            cin.get();
             return;
         }
     }
@@ -122,7 +130,8 @@ void registerUser() {
     cout << "╔════════════════════════════════════════════╗\n";
     cout << "║    Registrasi Berhasil, silahkan Login!    ║\n";
     cout << "╠════════════════════════════════════════════╣\n";
-    cout << "\nRegistrasi berhasil. Silakan login.\n";
+    cout << "Tekan Enter...";
+    cin.get();
 }
 
 // Fungsi Logout
@@ -1485,8 +1494,8 @@ while (true) {
             cout << "╠════════════════════════════════════════════╣\n";
             cout << "║  Sisa Poin Anda   : " << setw(20) << left << currentUser.poin << "   ║\n";
             cout << "╚════════════════════════════════════════════╝\n";
-            cin.ignore();
             cout << "\nTekan Enter untuk kembali ke menu...";
+            cin.ignore();
             cin.get();
             
         } else if(jumlahTukar == 0) {
@@ -2006,7 +2015,13 @@ void login() {
             currentUser.password = user["password"].asString();
             currentUser.role = user["role"].asString();
             currentUser.poin = user.get("poin", 0).asInt(); // Gunakan default poin = 0 jika tidak ada
-            cout << "Login berhasil sebagai " << currentUser.role << ".\n";
+            cout << "\n╔════════════════════════════════════════╗\n";
+            cout << "║              LOGIN BERHASIL!           ║\n";
+            cout << "╠════════════════════════════════════════╣\n";
+            cout << "║  Selamat datang, " << setw(22) << left << currentUser.username << "║\n";
+            cout << "╠════════════════════════════════════════╣\n";
+            cout << "klik enter untuk melanjutkan...";
+            cin.get();
 
             if (currentUser.role == "admin") {
                 adminMenu();
@@ -2018,7 +2033,11 @@ void login() {
             return;
         }
     }
-    cout << "Login gagal!!\nUsername atau password salah.\n";
+    cout << "\n╔════════════════════════════════════════╗\n";
+    cout << "║    LOGIN GAGAL! USER TIDAK DITEMUKAN   ║\n";
+    cout << "╚════════════════════════════════════════╝\n";
+    cout << "Tekan Enter...";
+    cin.get();
 }
 
 // Fungsi Main
@@ -2044,6 +2063,10 @@ int main() {
         cout << "   Pilih menu: ";
         cin >> choice;
         cout << "╚════════════════════════════════════════╝\n";
+        if (cin.fail()) {
+            inputTidakValid();
+            continue;
+            }
 
         switch (choice) {
             case 1:

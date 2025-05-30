@@ -47,7 +47,7 @@
 			"harga_poin" : 899,
 			"id" : "BRG08",
 			"nama" : "Kaos Polos Premium",
-			"stok" : 49
+			"stok" : 45
 		},
 		{
 			"harga_poin" : 3499,
@@ -89,7 +89,7 @@
 			"harga_poin" : 29990,
 			"id" : "BRG15",
 			"nama" : "Air Purifier Sharp",
-			"stok" : 5
+			"stok" : 4
 		},
 		{
 			"harga_poin" : 1990,
@@ -350,7 +350,7 @@
 			"nama" : "Bank Sampah Sintang Lestari"
 		}
 	],
-	"saldo_bank_sampah" : 100000,
+	"saldo_bank_sampah" : 98530,
 	"sampah" : 
 	[
 		{
@@ -440,6 +440,65 @@
 			"poin_diterima" : 2000,
 			"tanggal" : "2025-05-11",
 			"username" : "ridwan"
+		},
+		{
+			"bank" : "dys",
+			"id_transaksi" : "TRXU6",
+			"no_rekening" : "2311221133",
+			"nominal" : 120,
+			"poin_ditukar" : 12,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BRI",
+			"id_transaksi" : "TRXU7",
+			"no_rekening" : "123456891011",
+			"nominal" : 1230,
+			"poin_ditukar" : 123,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"bank" : "BRI",
+			"id_transaksi" : "TRXU8",
+			"no_rekening" : "123456789100",
+			"nominal" : 120,
+			"poin_ditukar" : 12,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 29990,
+			"id_transaksi" : "TRXB9",
+			"jumlah" : 1,
+			"nama_barang" : "Air Purifier Sharp",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 899,
+			"id_transaksi" : "TRXB10",
+			"jumlah" : 1,
+			"nama_barang" : "Kaos Polos Premium",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 899,
+			"id_transaksi" : "TRXB11",
+			"jumlah" : 2,
+			"nama_barang" : "Kaos Polos Premium",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
+		},
+		{
+			"harga_poin" : 899,
+			"id_transaksi" : "TRXB12",
+			"jumlah" : 1,
+			"nama_barang" : "Kaos Polos Premium",
+			"tipe" : "tukar_barang",
+			"username" : "ridwan"
 		}
 	],
 	"users" : 
@@ -472,7 +531,7 @@
 		},
 		{
 			"password" : "234",
-			"poin" : 9640618,
+			"poin" : 9606885,
 			"role" : "nasabah",
 			"username" : "ridwan"
 		},
