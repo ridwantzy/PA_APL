@@ -95,6 +95,7 @@ void saveDatabase() {
 
 // Fungsi Register
 void registerUser() {
+    system("cls");
     string username, password;
     cout << "\n" << endl;
     cout << "╔════════════════════════════════════════════╗\n";
@@ -169,6 +170,7 @@ void logout() {
 // ======Fungsi Untuk Manajemen Barang=======
 
 void lihatBarangId(){
+    system("cls");
     cout << "\n╔═════════╦═══════════════════════════════════════════════╗\n";
     cout << "║    ID   ║                 Nama Barang                   ║\n";
     cout << "╠═════════╬═══════════════════════════════════════════════╣\n";
@@ -181,6 +183,7 @@ void lihatBarangId(){
 }
 
 void lihatDaftarBarang() {
+    system("cls");
     if (!database.isMember("barang") || database["barang"].empty()) {
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║      Belum ada data barang tersedia        ║\n";
@@ -204,6 +207,7 @@ void lihatDaftarBarang() {
 }
 
 void tambahBarang() {
+    system("cls");
     string nama;
     int harga_poin, stok;
 
@@ -422,6 +426,7 @@ void hapusBarang() {
 void manajemenBarang() {
     int pilihan;
     while (true) {
+        system("cls");
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║         MANAJEMEN DATA BARANG              ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
@@ -466,6 +471,7 @@ void manajemenBarang() {
 
 void manajemenTukarUang() {
     while (true) {
+        system("cls");
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║          MANAJEMEN TUKAR UANG              ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
@@ -483,6 +489,7 @@ void manajemenTukarUang() {
         }
 
         if (pilih == 1) {
+            system("cls");
             cout << "\nDaftar Penukaran Uang:\n";
             cout << "╔════╦═════════════════════╦════════════╦════════════╦═══════════════════════╦═════════════════════╗\n";
             cout << "║ No ║ Username            ║ Poin       ║ Nominal    ║ No Rekening           ║ Bank                 ║\n";
@@ -508,6 +515,7 @@ void manajemenTukarUang() {
             cin.ignore();
             cin.get();
         } else if (pilih == 2) {
+            system("cls");
             int tambah;
             cout << "Masukkan jumlah saldo uang yang ingin ditambahkan ke bank sampah: ";
             cin >> tambah;
@@ -536,6 +544,7 @@ void manajemenTukarUang() {
 // ======= Fungsi untuk Manajemen Sampah ========
 
 void lihatDaftarSampah() {
+    system("cls");
     if (!database.isMember("sampah") || database["sampah"].empty()) {
         cout << "\nBelum ada data sampah.\n";
         return;
@@ -672,6 +681,7 @@ void manajemenDataSampah() {
 // ======== Fungsi untuk Manajemen Lokasi ========
 
 void lihatDaftarLokasi() {
+    system("cls");
     if (!database.isMember("lokasi_bank_sampah") || database["lokasi_bank_sampah"].empty()) {
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║    Belum ada data lokasi bank sampah       ║\n";
@@ -694,6 +704,7 @@ void lihatDaftarLokasi() {
 }
 
 void tambahLokasi() {
+    system("cls");
     string nama, alamat, provinsi;
     cout << "\n╔════════════════════════════════════════════╗\n";
     cout << "║         TAMBAH LOKASI BANK SAMPAH          ║\n";
