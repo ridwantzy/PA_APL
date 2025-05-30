@@ -741,6 +741,7 @@ void hapusLokasi() {
 void manajemenLokasi() {
     int pilihan;
     while (true) {
+        system("cls");
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║         MANAJEMEN DATA LOKASI              ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
@@ -787,6 +788,7 @@ void manajemenLokasi() {
 // ======= Fungsi untuk Manajemen Petugas =======
 
 void lihatDaftarPetugas() {
+    system("cls");
     cout << "\n╔════╦═══════════════════════════════════════╗\n";
     cout << "║ No ║            DAFTAR PETUGAS             ║\n";
     cout << "╠════╬═══════════════════════════════════════╣\n";
@@ -801,6 +803,7 @@ void lihatDaftarPetugas() {
 }
 
 void tambahPetugas() {
+    system("cls");
     string username, password, role;
 
     cout << "\n╔════════════════════════════════════════════╗\n";
@@ -866,6 +869,7 @@ void tambahPetugas() {
 }
 
 void ubahPetugas() {
+    system("cls");
     lihatDaftarPetugas();
 
     string username;
@@ -879,7 +883,6 @@ void ubahPetugas() {
             cout << "║              UBAH DATA PETUGAS             ║\n";
             cout << "╠════════════════════════════════════════════╣\n";
             cout << "   Username Baru (sebelumnya: " << users["username"].asString() << "): ";
-            cin.ignore();
             string nama;
             getline(cin, nama);
             if (!nama.empty()) users["username"] = nama;
@@ -899,6 +902,7 @@ void ubahPetugas() {
 }
 
 void hapusPetugas() {
+    system("cls");
     lihatDaftarPetugas();
 
     string username;
@@ -977,6 +981,7 @@ void manajemenPetugas() {
 // ======= Fungsi Untuk Laporan Trnasaksi ========
 
 void laporanPenerimaanSampah() {
+    system("cls");
     map<string, pair<double, int>> totalSampah; 
     
     cout << "\n╔══════════════════════════════════════════════════════════════════════════════════╗\n";
@@ -1014,6 +1019,7 @@ void laporanPenerimaanSampah() {
 }
 
 void laporanPenukaranUang() {
+    system("cls");
     map<string, pair<int, int>> totalTukarUang;
     
     cout << "\n╔═════════════════════════════════════════════════════════════════════╗\n";
@@ -1051,6 +1057,7 @@ void laporanPenukaranUang() {
 }
 
 void laporanPenukaranBarang() {
+    system("cls");
     map<string, pair<int, int>> totalTukarBarang; 
     
     cout << "\n╔══════════════════════════════════════════════════════════════════════╗\n";
@@ -1095,6 +1102,7 @@ void laporanPenukaranBarang() {
 void laporanTransaksi(){
     int pilihan;
     while (true) {
+        system("cls");
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║            LAPORAN TRANSAKSI               ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
@@ -1137,6 +1145,7 @@ void laporanTransaksi(){
 void adminMenu() {
     int choice;
     while (true) {
+        system("cls");
         cout << "\n" << endl;
         cout << "╔════════════════════════════════════════╗\n";
         cout << "║              MENU ADMIN                ║\n";
@@ -1206,6 +1215,7 @@ void printWrappedText(const string& text, int startPos, int maxWidth) {
 
 // Fungsi Untuk Menampilkan Tabel
 void tampilTabelSampah() {
+    system("cls");
     if (database.isNull() || !database.isMember("sampah")) {
         cout << "\n[KESALAHAN] Data sampah tidak tersedia." << endl;
         cout << "Silakan hubungi Admin untuk pengecekan." << endl;
@@ -1285,6 +1295,7 @@ string hapusSpasi(const string& teks){
 
 // Fungsi untuk pencarian Bank Sampah
 void CariBankSampah() {
+    system("cls");
     if (database.isNull() || !database.isMember("lokasi_bank_sampah")) {
         cout << "\n[KESALAHAN] Data lokasi bank sampah tidak tersedia.\n";
         return;
@@ -1362,6 +1373,7 @@ void CariBankSampah() {
 }
 
 void riwayatTransaksi() {
+    system("cls");
     cout << "\n╔════════════════════════════════════════════════════════════════════════════════════════════╗\n";
     cout << "║                                    RIWAYAT TRANSAKSI                                       ║\n";
     cout << "╠════════════════════════════════════════════════════════════════════════════════════════════╣\n";
@@ -1418,6 +1430,7 @@ void riwayatTransaksi() {
 
 
 void tentangProgram() {
+    system("cls");
     cout << "\n╔═════════════════════════════════════════════════════════════════════╗\n";
     cout << "║                     TENTANG GREENCYCLE PROGRAM                      ║\n";
     cout << "╠═════════════════════════════════════════════════════════════════════╣\n";
@@ -1448,6 +1461,7 @@ void tentangProgram() {
 
 void menukarPoin() {
 while (true) {    
+    system("cls");
     cout << "\n╔════════════════════════════════════════════╗\n";
     cout << "║            MENU TUKAR POIN                 ║\n";
     cout << "╠════════════════════════════════════════════╣\n";
@@ -1479,6 +1493,7 @@ while (true) {
 
     if (pilihTukar == 1) {
     while (true) {
+        system("cls");
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║           PENUKARAN POIN KE UANG           ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
@@ -1619,6 +1634,7 @@ while (true) {
     }
     } else if (pilihTukar == 2) {
         while (true) {
+        system("cls");
         cout << "\n╔════════════════════════════════════════════╗\n";
         cout << "║         PENUKARAN POIN KE BARANG           ║\n";
         cout << "╠════════════════════════════════════════════╣\n";
@@ -1840,6 +1856,7 @@ while (true) {
 void nasabahMenu() {
     int choice;
     while (true) {
+        system("cls");
         cout << "\n" << endl;
         cout << "╔════════════════════════════════════════╗\n";
         cout << "║            MENU NASABAH                ║\n";
@@ -2072,6 +2089,7 @@ void lihatCatatanTransaksi() {
 void petugasMenu() {
     int choice;
     while (true) {
+        system("cls");
         cout << "\n" << endl;
         cout << "╔════════════════════════════════════════╗\n";
         cout << "║             MENU PETUGAS               ║\n";
@@ -2087,12 +2105,15 @@ void petugasMenu() {
 
         switch (choice) {
             case 1: 
+                system("cls");
                 inputTransaksiPetugas();
                 break;
             case 2:
+                system("cls");
                 lihatCatatanTransaksi();
                 break;
             case 3:
+                system("cls");
                 tampilTabelSampah(); 
                 break;
             case 0:
@@ -2181,9 +2202,11 @@ int main() {
 
         switch (choice) {
             case 1:
+                system("cls");
                 login();
                 break;
             case 2:
+                system("cls");
                 registerUser();
                 break;
             case 0:
