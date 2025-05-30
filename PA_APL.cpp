@@ -95,11 +95,21 @@ void registerUser() {
     cout << "║             REGISTRASI AKUN                ║\n";
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "   Username: ";
-    cin >> username;
+    cin.ignore();
+    getline(cin, username);
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "   Password: ";
-    cin >> password;
-    cout << "╠════════════════════════════════════════════╣\n";
+    getline(cin, password);
+    cout << "╚════════════════════════════════════════════╝\n";
+
+    for (int i = 0; i < database["users"].size(); i++) {
+        if (database["users"][i]["username"].asString() == username) {
+            cout << "╔════════════════════════════════════════════╗\n";
+            cout << "║          Username Sudah Terdaftar!         ║\n";
+            cout << "╚════════════════════════════════════════════╝\n";
+            return;
+        }
+    }
 
     Json::Value newUser;
     newUser["username"] = username;
@@ -110,7 +120,7 @@ void registerUser() {
     database["users"].append(newUser);
     saveDatabase();
     cout << "╔════════════════════════════════════════════╗\n";
-    cout << "║    Registrasi Berhasil, sialhakn Login!    ║\n";
+    cout << "║    Registrasi Berhasil, silahkan Login!    ║\n";
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "\nRegistrasi berhasil. Silakan login.\n";
 }
@@ -544,7 +554,7 @@ void tambahPetugas() {
     
     
     cin.ignore();
-    cout << "   Nama Barang : ";
+    cout << "   Username : ";
     getline(cin, username);
     
     for (const auto& users : database["users"]) {
@@ -563,7 +573,7 @@ void tambahPetugas() {
 
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "   Password  : ";
-    cin >> password;
+    getline(cin, password);
     cout << "╚════════════════════════════════════════════╝\n";
 
     Json::Value usersBaru;
@@ -588,7 +598,8 @@ void ubahPetugas() {
 
     string username;
     cout << "\nMasukkan username petugas yang ingin diubah: ";
-    cin >> username;
+    cin.ignore();
+    getline(cin, username);
 
     for (auto& users : database["users"]) {
         if (users["username"].asString() == username && users["role"].asString() == "petugas") {
@@ -621,7 +632,8 @@ void hapusPetugas() {
 
     string username;
     cout << "\nMasukkan username petugas yang ingin dihapus: ";
-    cin >> username;
+    cin.ignore();
+    getline(cin, username);
 
     Json::Value& petugasArray = database["users"];
     for (Json::ArrayIndex i = 0; i < petugasArray.size(); i++) {
@@ -1598,7 +1610,8 @@ void inputTransaksiPetugas() {
     int jenisSampah;
 
     cout << "Masukkan username nasabah: ";
-    cin >> username;
+    cin.ignore();
+    getline(cin, username);
 
     // Periksa apakah username nasabah ada di database
     bool userDitemukan = false;
@@ -1693,6 +1706,11 @@ void inputTransaksiPetugas() {
 
     if (beratKg <= 0) {
         cout << "Berat sampah harus lebih besar dari 0 kg.\n";
+        return;
+    }
+
+    if (beratKg > 999) {
+        cout << "Berat sampah tidak boleh lebih besar dari 999 kg.\n";
         return;
     }
 
@@ -1809,10 +1827,12 @@ void login() {
     cout << "║               LOGIN SISTEM                 ║\n";
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "   Username: ";
-    cin >> username;
+    cin.ignore();
+    getline(cin, username);
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "   Password: ";
-    cin >> password;
+    getline(cin, password);
+    cout << "╚════════════════════════════════════════════╝\n";
 
     for (const auto& user : database["users"]) {
         if (user["username"].asString() == username && user["password"].asString() == password) {
