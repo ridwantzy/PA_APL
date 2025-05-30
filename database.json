@@ -350,7 +350,7 @@
 			"nama" : "Bank Sampah Sintang Lestari"
 		}
 	],
-	"saldo_bank_sampah" : 98530,
+	"saldo_bank_sampah" : 98610,
 	"sampah" : 
 	[
 		{
@@ -499,6 +499,51 @@
 			"nama_barang" : "Kaos Polos Premium",
 			"tipe" : "tukar_barang",
 			"username" : "ridwan"
+		},
+		{
+			"bank" : "BRI",
+			"id_transaksi" : "TRXU13",
+			"no_rekening" : "31224235354",
+			"nominal" : 120,
+			"poin_ditukar" : 12,
+			"tipe" : "tukar_uang",
+			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 12.0,
+			"id_transaksi" : "TRX14",
+			"jenis_sampah" : "Sampah Plastik",
+			"petugas" : "petugas1",
+			"poin_diterima" : 240,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 12.0,
+			"id_transaksi" : "TRX15",
+			"jenis_sampah" : "Tembaga",
+			"petugas" : "petugas1",
+			"poin_diterima" : 4200,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 12.0,
+			"id_transaksi" : "TRX16",
+			"jenis_sampah" : "Sampah Plastik",
+			"petugas" : "petugas1",
+			"poin_diterima" : 240,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
+		},
+		{
+			"berat_kg" : 1.0,
+			"id_transaksi" : "TRX17",
+			"jenis_sampah" : "Sampah Plastik",
+			"petugas" : "petugas1",
+			"poin_diterima" : 20,
+			"tanggal" : "2025-05-11",
+			"username" : "ridwan"
 		}
 	],
 	"users" : 
@@ -531,7 +576,7 @@
 		},
 		{
 			"password" : "234",
-			"poin" : 9606885,
+			"poin" : 9611573,
 			"role" : "nasabah",
 			"username" : "ridwan"
 		},
@@ -564,6 +609,11 @@
 			"poin" : 18110,
 			"role" : "nasabah",
 			"username" : "riyadi"
+		},
+		{
+			"password" : "123",
+			"role" : "petugas",
+			"username" : "petugas magang"
 		}
 	]
 }
