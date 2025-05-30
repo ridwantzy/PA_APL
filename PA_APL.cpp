@@ -108,6 +108,24 @@ void registerUser() {
     getline(cin, password);
     cout << "╚════════════════════════════════════════════╝\n";
 
+    if (all_of(username.begin(), username.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║         Username atau Password Kosong!     ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
+
+    if (all_of(password.begin(), password.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║         Username atau Password Kosong!     ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
+
     for (int i = 0; i < database["users"].size(); i++) {
         if (database["users"][i]["username"].asString() == username) {
             cout << "╔════════════════════════════════════════════╗\n";
@@ -191,6 +209,15 @@ void tambahBarang() {
     cin.ignore();
     cout << "   Nama Barang : ";
     getline(cin, nama);
+
+    if (all_of(nama.begin(), nama.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║                Nama Kosong!                ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
 
     string namaLower = nama;
     transform(namaLower.begin(), namaLower.end(), namaLower.begin(), ::tolower);
@@ -324,20 +351,30 @@ void manajemenBarang() {
         switch (pilihan) {
             case 1:
                 lihatDaftarBarang();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 2:
                 tambahBarang();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 3:
                 ubahBarang();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 4:
                 hapusBarang();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 0:
                 return;
             default:
                 pilihanTidakTersedia();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
         }
     }
 }
@@ -381,6 +418,8 @@ void manajemenTukarUang() {
                 cout << "║       Tidak ada data penukaran uang.                                                        ║\n";
             }
             cout << "╚════╩═════════════════════╩════════════╩════════════╩═══════════════════════╩═════════════════════╝\n";
+            cout << "\nTekan Enter untuk kembali...";
+            cin.ignore();
         } else if (pilih == 2) {
             int tambah;
             cout << "Masukkan jumlah saldo uang yang ingin ditambahkan ke bank sampah: ";
@@ -393,10 +432,14 @@ void manajemenTukarUang() {
             } else {
                 cout << "Jumlah tidak valid.\n";
             }
+            cout << "\nTekan Enter untuk kembali...";
+            cin.ignore();
         } else if (pilih == 0) {
             return;
         } else {
             cout << "Pilihan tidak tersedia!\n";
+            cout << "\nTekan Enter untuk kembali...";
+            cin.ignore();
         }
     }
 }
@@ -571,18 +614,47 @@ void tambahLokasi() {
     cin.ignore();
     cout << "Nama Bank Sampah (max 30 karakter): ";
     getline(cin, nama);
+
+    if (all_of(nama.begin(), nama.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║                Nama Kosong!                ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
+
     if (nama.length() > 30) {
         nama = nama.substr(0, 30);
     }
 
     cout << "Alamat (max 60 karakter): ";
     getline(cin, alamat);
+
+    if (all_of(alamat.begin(), alamat.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║               Alamat Kosong!               ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
+
     if (alamat.length() > 60) {
         alamat = alamat.substr(0, 60);
     }
 
     cout << "Provinsi: ";
     getline(cin, provinsi);
+
+    if (all_of(provinsi.begin(), provinsi.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║             Provinsi Kosong!               ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
 
     for (const auto& lokasi : database["lokasi_bank_sampah"]) {
         if (lokasi["nama"].asString() == nama) {
@@ -694,15 +766,23 @@ void manajemenLokasi() {
         switch (pilihan) {
             case 1:
                 lihatDaftarLokasi();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 2:
                 tambahLokasi();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 3:
                 ubahLokasi();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 4:
                 hapusLokasi();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 0:
                 return;
@@ -740,6 +820,15 @@ void tambahPetugas() {
     cin.ignore();
     cout << "   Username : ";
     getline(cin, username);
+
+    if (all_of(username.begin(), username.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║              Username Kosong!              ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
     
     for (const auto& users : database["users"]) {
         string existingName = users["username"].asString();
@@ -758,6 +847,15 @@ void tambahPetugas() {
     cout << "╠════════════════════════════════════════════╣\n";
     cout << "   Password  : ";
     getline(cin, password);
+
+    if (all_of(password.begin(), password.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║             Password Kosong!               ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
     cout << "╚════════════════════════════════════════════╝\n";
 
     Json::Value usersBaru;
@@ -856,20 +954,30 @@ void manajemenPetugas() {
         switch (pilih) {
             case 1: 
                 lihatDaftarPetugas(); 
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 2: 
                 tambahPetugas(); 
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 3: 
                 ubahPetugas(); 
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 4: 
                 hapusPetugas(); 
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 0: 
                 return;
             default: 
                 cout << "Pilihan tidak tersedia!\n";
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
         }
     }
 }
@@ -1011,17 +1119,25 @@ void laporanTransaksi(){
         switch (pilihan) {
             case 1:
                 laporanPenerimaanSampah();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 2:
                 laporanPenukaranUang();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 3:
                 laporanPenukaranBarang();
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
                 break;
             case 0:
                 return;
             default:
                 cout << "Pilihan tidak tersedia!\n";
+                cout << "\nTekan Enter untuk kembali...";
+                cin.ignore();
         }
     }
 }
@@ -2008,6 +2124,24 @@ void login() {
     cout << "   Password: ";
     getline(cin, password);
     cout << "╚════════════════════════════════════════════╝\n";
+
+    if (all_of(username.begin(), username.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║         Username atau Password Kosong!     ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
+
+    if (all_of(password.begin(), password.end(), [](unsigned char c) {
+        return isspace(c);
+    })) {
+        cout << "╔════════════════════════════════════════════╗\n";
+        cout << "║         Username atau Password Kosong!     ║\n";
+        cout << "╚════════════════════════════════════════════╝\n";
+        return;
+    }
 
     for (const auto& user : database["users"]) {
         if (user["username"].asString() == username && user["password"].asString() == password) {
