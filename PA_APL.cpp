@@ -1593,8 +1593,9 @@ void nasabahMenu() {
 // Menu Petugas
 // Fungsi untuk input transaksi oleh petugas
 void inputTransaksiPetugas() {
-    string username, jenisSampah;
+    string username;
     double beratKg;
+    int jenisSampah;
 
     cout << "Masukkan username nasabah: ";
     cin >> username;
@@ -1613,22 +1614,100 @@ void inputTransaksiPetugas() {
         return;
     }
 
-    cout << "Masukkan jenis sampah (contoh: Plastik, Kertas, Logam): ";
+    const Json::Value& daftarSampah = database["sampah"];
+    const int noColWidth = 5;        
+    const int jenisColWidth = 20;   
+    const int descColWidth = 75;     
+    const int poinColWidth = 10;
+    
+    // Buat array index urutannyaS
+        int n = database["sampah"].size();
+        int urutan[n];
+        for (int i = 0; i < n; ++i) urutan[i] = i;
+
+
+
+    cout << "\nDAFTAR JENIS SAMPAH YANG DITERIMA" << endl;
+
+    // Baris atas tabel
+    cout << "╔══════╦═════════════════════╦════════════════════════════════════════════════════════════════════════════╦════════════╗\n";
+    
+    // Header kolom
+    cout << "║ " << left << setw(noColWidth) << "No"
+         << "║ " << left << setw(jenisColWidth) << "Jenis Sampah"
+         << "║ " << left << setw(descColWidth) << "Deskripsi"
+         << "║ " << right << setw(poinColWidth) << "Poin" << " ║\n";
+
+    // Garis pemisah header
+    cout << "╠══════╬═════════════════════╬════════════════════════════════════════════════════════════════════════════╬════════════╣\n";
+
+    for (int i = 0; i < n; ++i) {
+        string nama = database["sampah"][urutan[i]]["nama"].asString();
+        string deskripsi = database["sampah"][urutan[i]]["deskripsi"].asString();
+        int poin = database["sampah"][urutan[i]]["poin_per_kg"].asInt();
+
+        // Potong dan format nama
+        string namaTampil = nama;
+        if (namaTampil.length() > jenisColWidth) {
+            namaTampil = namaTampil.substr(0, jenisColWidth - 3) + "...";
+        }
+
+        // Potong dan format deskripsi
+        string deskripsiTampil = deskripsi;
+        if (deskripsiTampil.length() > descColWidth) {
+            deskripsiTampil = deskripsiTampil.substr(0, descColWidth - 3) + "...";
+        }
+
+        // Cetak baris data dengan format yang tepat
+        cout << "║ " << right << setw(3) << i+1 << "  "  // Format nomor dengan lebar 3 + 2 spasi
+             << "║ " << left << setw(jenisColWidth) << namaTampil 
+             << "║ " << left << setw(descColWidth) << deskripsiTampil
+             << "║ " << right << setw(poinColWidth) << poin << " ║\n";
+
+    }
+
+    // Baris bawah tabel
+    cout << "╚══════╩═════════════════════╩════════════════════════════════════════════════════════════════════════════╩════════════╝\n";
+
+    cout << "Masukkan nomor jenis sampah: ";
     cin.ignore();
-    getline(cin, jenisSampah);
+    cin >> jenisSampah;
+
+    if (cin.fail()) {
+        inputTidakValid();
+        return;
+    }
+
+    if (jenisSampah < 1 || jenisSampah > daftarSampah.size()) {
+        cout << "Nomor jenis sampah tidak valid.\n";
+        return;
+    }
+
     cout << "Masukkan berat sampah (kg): ";
     cin >> beratKg;
+
+    if (cin.fail()) {
+        inputTidakValid();
+        return;
+    }
+
+    if (beratKg <= 0) {
+        cout << "Berat sampah harus lebih besar dari 0 kg.\n";
+        return;
+    }
 
     // Cari jenis sampah di database
     int poinPerKg = 0;
     bool jenisDitemukan = false;
     for (const auto& item : database["sampah"]) {
-        if (item["nama"].asString() == jenisSampah) {
+        if (item["nama"].asString() == database["sampah"][jenisSampah-1]["nama"].asString()) {
             poinPerKg = item["poin_per_kg"].asInt();
             jenisDitemukan = true;
             break;
         }
     }
+
+    
 
     if (!jenisDitemukan) {
         cout << "Jenis sampah tidak ditemukan dalam database.\n";
@@ -1641,7 +1720,7 @@ void inputTransaksiPetugas() {
     // Buat transaksi baru
     Json::Value transaksiBaru;
     transaksiBaru["id_transaksi"] = "TRX" + to_string(database["transactions"].size() + 1);
-    transaksiBaru["jenis_sampah"] = jenisSampah;
+    transaksiBaru["jenis_sampah"] = database["sampah"][jenisSampah-1]["nama"].asString();
     transaksiBaru["berat_kg"] = beratKg;
     transaksiBaru["poin_diterima"] = poinDiterima;
     transaksiBaru["tanggal"] = "2025-05-11"; // Tanggal bisa diubah sesuai kebutuhan
